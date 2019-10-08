@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DailyDiaryActivity"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:paddingTop="50dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TASKS"
+            android:textAlignment="center"
+            android:textColor="#008000"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter date"
+        android:inputType="date"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#008000"
+        android:textColorHighlight="#008000"/>
+
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="40dp"
+       android:orientation="horizontal"
+       android:layout_marginBottom="10dp">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="eggs picked"
+           android:layout_alignBottom="@id/eggsPicked"
+           android:textSize="18sp"
+           android:textColor="#008000"
+           />
+
+       <EditText
+           android:id="@+id/eggsPicked"
+           android:layout_width="200dp"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:backgroundTint="#008000"
+           />
+
+
+   </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="eggs broken"
+            android:layout_alignBottom="@id/batch"
+            android:textSize="18sp"
+            android:textColor="#008000"/>
+
+        <EditText
+            android:id="@+id/batch"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="feed type"
+            android:layout_alignBottom="@id/feedType"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            />
+
+        <Spinner
+            android:id="@+id/feedType"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="195dp"
+            android:autofillHints=""
+            android:backgroundTint="#008000"
+            android:entries="@array/feed_types"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/feedQty"
+            android:text="feed quantity"
+            android:textSize="18sp"
+            android:textColor="#008000"/>
+
+        <EditText
+            android:id="@+id/feedQty"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number of birds"
+            android:layout_alignBottom="@id/birdCount"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            />
+        <EditText
+            android:id="@+id/birdCount"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="weight of birds"
+            android:layout_alignBottom="@id/birdWeight"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            />
+        <EditText
+            android:id="@+id/birdWeight"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="medication given"
+            android:layout_alignBottom="@id/medicine"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            />
+        <EditText
+            android:id="@+id/medicine"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number of birds"
+            android:layout_alignBottom="@id/medicineQty"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            />
+        <EditText
+            android:id="@+id/medicineQty"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="heat source"
+            android:layout_alignBottom="@id/heatSrc"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            />
+        <EditText
+            android:id="@+id/heatSrc"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#008000"
+            />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:background="@drawable/custom_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:background="@drawable/custom_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
+</LinearLayout>

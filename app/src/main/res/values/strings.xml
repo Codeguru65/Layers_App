@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Layers</string>
+    <string-array name="feed_types">
+        <item>layers mash</item>
+        <item>broiler concentrate</item>
+        <item>starter mash </item>
+        <item>Finisher</item>
+
+    </string-array>
+</resources>
