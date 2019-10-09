@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Muramasa\\AndroidStudioProjects\\Layers\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pl\\values-pl.xml",
+            "outputFile": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Muramasa\\.gradle\\caches\\transforms-2\\files-2.1\\8a90935574f82694cec42fb7c78743b1\\appcompat-1.0.2\\res\\values-pl\\values-pl.xml",
+                    "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/5368ac608445531afc50bac2ce32de5a/appcompat-1.0.2/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Muramasa\\.gradle\\caches\\transforms-2\\files-2.1\\4c11edde0e8743f1e03fb17544729eec\\core-1.0.2\\res\\values-pl\\values-pl.xml",
+                    "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/fd9758689ed3075423f11fb4f58f3993/core-1.0.2/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
