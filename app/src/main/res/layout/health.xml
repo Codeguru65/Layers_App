@@ -8,15 +8,8 @@
     android:paddingLeft="0dp"
     android:paddingTop="0dp"
     android:paddingRight="0dp"
+    android:background="@drawable/loginbg"
     tools:context=".Health">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarh2"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:background="#008000"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +24,7 @@
                 android:id="@+id/txth2"
                 android:layout_width="121dp"
                 android:layout_height="36dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="100dp"
                 android:text="HEALTH"
                 android:textColor="#008000"
                 android:textSize="30sp"
@@ -119,7 +112,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="52dp"
                 android:layout_marginBottom="40dp"
-                android:background="#008000"
+                android:background="@drawable/custom_button"
                 android:text="NEXT"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"

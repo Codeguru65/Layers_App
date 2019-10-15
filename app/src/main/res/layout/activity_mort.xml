@@ -5,15 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bglogin"
     tools:context=".Mort">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarh2"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:background="#008000"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,12 +23,12 @@
                 android:id="@+id/txtm2"
                 android:layout_width="207dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="75dp"
                 android:text="MORTALITY"
+                android:textAlignment="center"
                 android:textColor="#008000"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -109,7 +104,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="65dp"
                 android:layout_marginBottom="35dp"
-                android:background="#008000"
+                android:background="@drawable/custom_button"
                 android:text="NEXT"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"

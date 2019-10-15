@@ -1,4 +1,4 @@
-#Tue Oct 15 09:51:19 CAT 2019
+#Tue Oct 15 13:30:34 CAT 2019
 base.0=/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

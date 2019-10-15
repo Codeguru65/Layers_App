@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         btn_daily_diary.setOnClickListener {
             val intent = Intent(this,Submenu::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

@@ -5,15 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/loginbg"
     tools:context=".Water">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarh2"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:background="#008000"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +21,7 @@
                 android:id="@+id/txtw2"
                 android:layout_width="207dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="100dp"
                 android:text="WATER"
                 android:textAlignment="center"
                 android:textColor="#008000"
@@ -81,7 +74,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="65dp"
                 android:layout_marginBottom="35dp"
-                android:background="#008000"
+                android:background="@drawable/custom_button"
                 android:text="NEXT"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"

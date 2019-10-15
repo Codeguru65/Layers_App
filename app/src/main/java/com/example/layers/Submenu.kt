@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import androidx.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_submenu.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class Submenu : AppCompatActivity() {
 
-//    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_submenu)
@@ -23,7 +23,11 @@ class Submenu : AppCompatActivity() {
 //
 //        date1.setText(fDate)
 
-
+        btnfin.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         cvFeed.setOnClickListener {
             val intent = Intent(this,DailyDiaryActivity::class.java)
             startActivity(intent)

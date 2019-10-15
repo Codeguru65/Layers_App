@@ -1174,7 +1174,7 @@ id btn_mort
 id btn_production
 id btn_training
 id btn_water
-id button
+id btnfin
 id buttonPanel
 id cancel_action
 id center
@@ -1215,7 +1215,6 @@ id editText2
 id editText5
 id editText6
 id editText7
-id editText8
 id edit_query
 id end
 id end_padder
@@ -1314,6 +1313,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id session
 id shortcut
 id showCustom
 id showHome
@@ -1365,6 +1365,8 @@ id textView17
 id textView2
 id textView3
 id textView4
+id textView5
+id textView6
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1373,8 +1375,6 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id toolbar2
-id toolbarh2
 id top
 id topPanel
 id touch_outside
