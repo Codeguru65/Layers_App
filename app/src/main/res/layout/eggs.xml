@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingTop="0dp"
+    android:paddingRight="0dp"
+    tools:context=".EggP">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:background="#008000"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt2"
+                    android:layout_width="277dp"
+                    android:layout_height="39dp"
+                    android:layout_marginTop="35dp"
+                    android:text="  EGG PRODUCTION"
+                    android:textColor="#008000"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="65dp"
+                    android:text="TARGET"
+                    android:textColor="#008000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt2" />
+
+                <EditText
+                    android:id="@+id/etxt2"
+                    android:layout_width="135dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="52dp"
+                    android:autoSizePresetSizes="true"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/open"
+                    android:textColor="#008000"
+                    android:textColorHighlight="#008000"
+                    android:textColorHint="#008000"
+                    android:textColorLink="#008000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.327"
+                    app:layout_constraintStart_toEndOf="@+id/txt4"
+                    app:layout_constraintTop_toBottomOf="@+id/txt2" />
+
+                <TextView
+                    android:id="@+id/txt13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="65dp"
+                    android:text="ACTUAL "
+                    android:textColor="#008000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt4" />
+
+                <EditText
+                    android:id="@+id/etxt5"
+                    android:layout_width="135dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="50dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/open"
+                    android:textColor="#008000"
+                    android:textColorHighlight="#008000"
+                    android:textColorHint="#008000"
+                    android:textColorLink="#008000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.29"
+                    app:layout_constraintStart_toEndOf="@+id/txt13"
+                    app:layout_constraintTop_toBottomOf="@+id/txt4" />
+
+                <TextView
+                    android:id="@+id/txt15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="65dp"
+                    android:text="BREAKAGES"
+                    android:textColor="#008000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt13" />
+
+                <EditText
+                    android:id="@+id/etxt6"
+                    android:layout_width="135dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="50dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="@string/open"
+                    android:textColor="#008000"
+                    android:textColorHighlight="#008000"
+                    android:textColorHint="#008000"
+                    android:textColorLink="#008000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/txt15"
+                    app:layout_constraintTop_toBottomOf="@+id/txt13" />
+
+                <TextView
+                    android:id="@+id/txt17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="65dp"
+                    android:text="QUALITY"
+                    android:textColor="#008000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt15" />
+
+                <TextView
+                    android:id="@+id/txt19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="65dp"
+                    android:text="SIZE"
+                    android:textColor="#008000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt17" />
+
+                <Spinner
+                    android:id="@+id/spinnerE"
+                    android:layout_width="113dp"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="60dp"
+                    android:entries="@array/eggS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.019"
+                    app:layout_constraintStart_toStartOf="@+id/spinnerE2"
+                    app:layout_constraintTop_toBottomOf="@+id/txt17" />
+
+                <Spinner
+                    android:id="@+id/spinnerE2"
+                    android:layout_width="113dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="76dp"
+                    android:layout_marginLeft="76dp"
+                    android:layout_marginTop="60dp"
+                    android:entries="@array/eggQ"
+                    app:layout_constraintStart_toEndOf="@+id/txt17"
+                    app:layout_constraintTop_toBottomOf="@+id/txt15" />
+
+                <Button
+                    android:id="@+id/btn_eggs"
+                    android:layout_width="177dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginBottom="35dp"
+                    android:background="#008000"
+                    android:text="NEXT"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt19" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </LinearLayout>

@@ -11,11 +11,11 @@
 9-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:5:5-23:19
+11-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:5:5-34:19
 12        android:allowBackup="true"
 12-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.0.2] /Users/Vision/.gradle/caches/transforms-2/files-2.1/fd9758689ed3075423f11fb4f58f3993/core-1.0.2/AndroidManifest.xml:22:18-86
+13-->[androidx.core:core:1.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/2e2076e6216b29ee97192fe17edf1ebc/core-1.1.0/AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
 15-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:7:9-43
@@ -28,26 +28,76 @@
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
 20-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:11:9-40
-21        <activity android:name="com.example.layers.LoginActivity" >
-21-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:13:9-19:20
-21-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:13:19-48
-22            <intent-filter>
-22-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:14:13-18:29
-23                <action android:name="android.intent.action.MAIN" />
-23-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:15:17-69
-23-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:15:25-66
-24
-25                <category android:name="android.intent.category.LAUNCHER" />
-25-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:17:17-77
-25-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:17:27-74
-26            </intent-filter>
-27        </activity>
-28        <activity android:name="com.example.layers.DailyDiaryActivity" />
-28-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:21:9-56
-28-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:21:19-53
-29        <activity android:name="com.example.layers.MainActivity" />
-29-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:22:9-59
-29-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:22:19-47
-30    </application>
-31
-32</manifest>
+21        <activity
+21-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:12:9-13:58
+22            android:name="com.example.layers.Water"
+22-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:12:19-40
+23            android:resizeableActivity="true" />
+23-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:13:13-46
+24        <activity
+24-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:14:9-15:48
+25            android:name="com.example.layers.Mort"
+25-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:14:19-39
+26            android:resizeableActivity="true" />
+26-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:15:13-46
+27        <activity
+27-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:16:9-17:48
+28            android:name="com.example.layers.Submenu"
+28-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:16:19-42
+29            android:resizeableActivity="true" />
+29-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:17:13-46
+30        <activity
+30-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:18:9-25:20
+31            android:name="com.example.layers.LoginActivity"
+31-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:18:19-48
+32            android:resizeableActivity="true" >
+32-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:19:13-46
+33            <intent-filter>
+33-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:20:13-24:29
+34                <action android:name="android.intent.action.MAIN" />
+34-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:21:17-69
+34-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:21:25-66
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:23:17-77
+36-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:23:27-74
+37            </intent-filter>
+38        </activity>
+39        <activity
+39-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:26:9-27:54
+40            android:name="com.example.layers.DailyDiaryActivity"
+40-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:26:19-53
+41            android:resizeableActivity="true" />
+41-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:27:19-52
+42        <activity
+42-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:28:9-29:56
+43            android:name="com.example.layers.MainActivity"
+43-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:28:19-47
+44            android:resizeableActivity="true" />
+44-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:29:21-54
+45        <activity
+45-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:30:9-31:56
+46            android:name="com.example.layers.EggP"
+46-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:30:19-39
+47            android:resizeableActivity="true" />
+47-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:31:21-54
+48        <activity
+48-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:32:9-33:56
+49            android:name="com.example.layers.Health"
+49-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:32:19-41
+50            android:resizeableActivity="true" />
+50-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:33:21-54
+51
+52        <provider
+52-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+53            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+53-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+54            android:authorities="com.example.layers.lifecycle-process"
+54-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+55            android:exported="false"
+55-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+56            android:multiprocess="true" />
+56-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+57    </application>
+58
+59</manifest>

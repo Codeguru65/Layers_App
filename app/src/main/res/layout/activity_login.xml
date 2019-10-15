@@ -1,70 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     android:background="@drawable/bglogin"
-    android:orientation="vertical"
 
-    >
+    tools:context=".LoginActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="367dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical"
-        android:paddingLeft="25dp"
-        android:paddingTop="70dp"
-        android:paddingRight="25dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="303dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.434">
 
         <EditText
             android:id="@+id/etUsername"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="20dp"
+            android:layout_width="268dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/custom_edit"
             android:hint="username"
             android:paddingLeft="8dp"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etPwd"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="264dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/custom_edit"
             android:hint="password"
             android:inputType="textPassword"
             android:paddingLeft="8dp"
             android:paddingBottom="10dp"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="18dp"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/custom_button"
             android:text="login"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPwd" />
 
         <TextView
             android:id="@+id/tvRegister"
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:text="register"
             android:textAlignment="center"
             android:textColor="#008000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

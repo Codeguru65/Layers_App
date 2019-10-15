@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_daily_diary.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
+
 
 class DailyDiaryActivity : AppCompatActivity() {
 
@@ -17,7 +19,14 @@ class DailyDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_diary)
 
+            btn_feed.setOnClickListener {
+                    val intent = Intent(this,Submenu::class.java )
+                    startActivity(intent)
+                    finish()
 
+            }
+
+        }
 
     }
-}
+

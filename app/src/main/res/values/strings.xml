@@ -1,11 +1,43 @@
 <resources>
     <string name="app_name">Layers</string>
-    <string-array name="feed_types">
-        <item>layers mash</item>
-        <item>broiler concentrate</item>
-        <item>starter mash </item>
+    <string-array name="wlevel" textColor="#008000">
+        <item>Ideal</item>
+        <item>Not Ideal</item>
+    </string-array>
+    <string-array name="hState">
+        <item>Good Health</item>
+        <item>Bad Health</item>
+    </string-array>
+    <string-array name="mort">
+        <item>Bad Weather</item>
+        <item>Disease</item>
+        <item>Starvation</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="hCause">
+        <item>Weather</item>
+        <item>Starvation</item>
+        <item>Water</item>
+    </string-array>
+    <string-array name="openF">
+        <item>Starter</item>
+        <item>Grower</item>
         <item>Finisher</item>
     </string-array>
+    <string-array name="eggQ">
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <string-array name="eggS">
+        <item>Uniform</item>
+        <item>Non-uniform</item>
+    </string-array>
+    <string name="open"></string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

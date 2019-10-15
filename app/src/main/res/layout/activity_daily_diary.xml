@@ -4,294 +4,212 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DailyDiaryActivity"
-    android:paddingLeft="25dp"
-    android:paddingRight="25dp"
-    android:paddingTop="50dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="0dp"
+    android:paddingTop="0dp"
+    android:paddingRight="0dp"
+    tools:context=".DailyDiaryActivity">
 
-
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="40dp">
+        android:layout_height="67dp"
+        android:background="#008000"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TASKS"
-            android:textAlignment="center"
-            android:textColor="#008000"
-            android:textSize="38sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="enter date"
-        android:inputType="date"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="#008000"
-        android:textColorHighlight="#008000"/>
+        android:layout_height="wrap_content">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="40dp"
-       android:orientation="horizontal"
-       android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="180dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="25dp"
+                android:text="FEED"
+                android:textAlignment="center"
+                android:textColor="#008000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="eggs picked"
-           android:layout_alignBottom="@id/eggsPicked"
-           android:textSize="18sp"
-           android:textColor="#008000"
-           />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="50dp"
+                android:text="OPENING FEED"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-       <EditText
-           android:id="@+id/eggsPicked"
-           android:layout_width="200dp"
-           android:layout_height="wrap_content"
-           android:layout_alignParentRight="true"
-           android:backgroundTint="#008000"
-           />
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="135dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="50dp"
+                android:autoSizePresetSizes="true"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/open"
+                android:textColor="#008000"
+                android:textColorHighlight="#008000"
+                android:textColorHint="#008000"
+                android:textColorLink="#008000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.158"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="50dp"
+                android:text="BAGS"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-   </RelativeLayout>
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="50dp"
+                android:text="CLOSING FEED"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="50dp"
+                android:text="BAGS"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="eggs broken"
-            android:layout_alignBottom="@id/batch"
-            android:textSize="18sp"
-            android:textColor="#008000"/>
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="135dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="108dp"
+                android:layout_marginLeft="108dp"
+                android:layout_marginTop="36dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/open"
+                android:textColor="#008000"
+                android:textColorHighlight="#008000"
+                android:textColorHint="#008000"
+                android:textColorLink="#008000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.358"
+                app:layout_constraintStart_toEndOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-        <EditText
-            android:id="@+id/batch"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
+            <Button
+                android:id="@+id/btn_feed"
+                android:layout_width="177dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="275dp"
+                android:background="#008000"
+                android:text="NEXT"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView17" />
 
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="148dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="49dp"
+                android:entries="@array/openF"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    </RelativeLayout>
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="147dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="50dp"
+                android:entries="@array/openF"
+                app:layout_constraintStart_toStartOf="@+id/spinner"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="74dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="50dp"
+                android:text="USAGE"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="feed type"
-            android:layout_alignBottom="@id/feedType"
-            android:textSize="18sp"
-            android:textColor="#008000"
-            />
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="132dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editText7"
+                app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
-        <Spinner
-            android:id="@+id/feedType"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="195dp"
-            android:autofillHints=""
-            android:backgroundTint="#008000"
-            android:entries="@array/feed_types"
-            />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="TARGET"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="136dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editText5"
+                app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
-    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/feedQty"
-            android:text="feed quantity"
-            android:textSize="18sp"
-            android:textColor="#008000"/>
-
-        <EditText
-            android:id="@+id/feedQty"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="number of birds"
-            android:layout_alignBottom="@id/birdCount"
-            android:textSize="18sp"
-            android:textColor="#008000"
-            />
-        <EditText
-            android:id="@+id/birdCount"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="weight of birds"
-            android:layout_alignBottom="@id/birdWeight"
-            android:textSize="18sp"
-            android:textColor="#008000"
-            />
-        <EditText
-            android:id="@+id/birdWeight"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="medication given"
-            android:layout_alignBottom="@id/medicine"
-            android:textSize="18sp"
-            android:textColor="#008000"
-            />
-        <EditText
-            android:id="@+id/medicine"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="number of birds"
-            android:layout_alignBottom="@id/medicineQty"
-            android:textSize="18sp"
-            android:textColor="#008000"
-            />
-        <EditText
-            android:id="@+id/medicineQty"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="heat source"
-            android:layout_alignBottom="@id/heatSrc"
-            android:textSize="18sp"
-            android:textColor="#008000"
-            />
-        <EditText
-            android:id="@+id/heatSrc"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="#008000"
-            />
-
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="cancel"
-            android:background="@drawable/custom_button"
-            android:textColor="#FFFFFF"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
-
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="cancel"
-            android:background="@drawable/custom_button"
-            android:textColor="#FFFFFF"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
-
-    </LinearLayout>
 </LinearLayout>

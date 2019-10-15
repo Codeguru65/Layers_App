@@ -39,9 +39,9 @@
                 />
 
             <ImageView
+                android:layout_width="60dp"
+                android:layout_height="56dp"
                 android:layout_alignParentRight="true"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
                 android:src="@drawable/usericon">
 
             </ImageView>
@@ -69,28 +69,27 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/btn_daily_diary"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:id="@+id/btn_daily_diary"
-                        android:src="@drawable/daily_diary"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/daily_diary">
 
                     </ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
                         android:layout_marginTop="12dp"
+                        android:text="Tasks"
                         android:textColor="#008000"
-                        android:text="Tasks"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -109,28 +108,28 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/btn_deliveries"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
 
-                        android:src="@drawable/delivery"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/delivery">
 
                     </ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
                         android:layout_marginTop="12dp"
+                        android:text="Deliveries"
                         android:textColor="#008000"
-                        android:text="Deliveries"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -149,18 +148,18 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/btn_training"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
 
-                        android:src="@drawable/book"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/book">
 
                     </ImageView>
 
@@ -189,28 +188,28 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/btn_production"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
 
-                        android:src="@drawable/inventory"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/inventory">
 
                     </ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
                         android:layout_marginTop="12dp"
+                        android:text="Production"
                         android:textColor="#008000"
-                        android:text="Inventory"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -228,68 +227,28 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/btn_accounting"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
 
-                        android:src="@drawable/accounts"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/accounts">
 
                     </ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
                         android:layout_marginTop="12dp"
+                        android:text="Accounting"
                         android:textColor="#008000"
-                        android:text="Expences"/>
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                android:clickable="true"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-
-                        android:src="@drawable/settings"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        >
-
-                    </ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#008000"
-                        android:text="Settings"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -308,28 +267,66 @@
                 >
 
                 <LinearLayout
+                    android:id="@+id/btn_inflow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
 
-                        android:src="@drawable/alerts"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/delivery">
 
                     </ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
                         android:layout_marginTop="12dp"
+                        android:text="Inflow"
                         android:textColor="#008000"
-                        android:text="Alerts"/>
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                android:clickable="true"
+                >
+
+                <LinearLayout
+                    android:id="@+id/btn_alerts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/alerts">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Alerts"
+                        android:textColor="#008000"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -347,32 +344,31 @@
                 android:clickable="true"
                 >
 
+
                 <LinearLayout
+                    android:id="@+id/btn_help"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
 
-                        android:src="@drawable/delivery"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        >
+                        android:src="@drawable/support">
 
                     </ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
                         android:layout_marginTop="12dp"
+                        android:text="Support"
                         android:textColor="#008000"
-                        android:text="Deliveries"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
-
-
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -385,82 +381,7 @@
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp"
                 android:clickable="true"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-
-                        android:src="@drawable/weekly"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        >
-
-                    </ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#008000"
-                        android:text="Calender"/>
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                android:clickable="true"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-
-                        android:src="@drawable/support"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        >
-
-                    </ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_marginTop="12dp"
-                        android:textColor="#008000"
-                        android:text="Support"/>
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
+                />
 
 
         </GridLayout>

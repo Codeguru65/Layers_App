@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn_daily_diary.setOnClickListener {
-            val intent = Intent(this,DailyDiaryActivity::class.java)
+            val intent = Intent(this,Submenu::class.java)
             startActivity(intent)
         }
     }

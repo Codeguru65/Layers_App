@@ -19,15 +19,42 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.layers.LoginActivity" >
+        <activity
+            android:name="com.example.layers.Water"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.layers.Mort"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.layers.Submenu"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.layers.LoginActivity"
+            android:resizeableActivity="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.layers.DailyDiaryActivity" />
-        <activity android:name="com.example.layers.MainActivity" />
+        <activity
+            android:name="com.example.layers.DailyDiaryActivity"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.layers.MainActivity"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.layers.EggP"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.layers.Health"
+            android:resizeableActivity="true" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.example.layers.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
     </application>
 
 </manifest>
