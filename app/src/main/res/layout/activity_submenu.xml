@@ -46,7 +46,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="35dp"
                     android:paddingTop="20dp"
-                    android:text="FEED "
+                    android:text="Feed"
                     android:textColor="#008000"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
@@ -65,7 +65,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="35dp"
                     android:paddingTop="20dp"
-                    android:text="EGG PRODUCTION"
+                    android:text="Egg Production"
                     android:textColor="#008000"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
@@ -84,7 +84,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="35dp"
                     android:paddingTop="20dp"
-                    android:text="MORTALITY"
+                    android:text="Mortality"
                     android:textColor="#008000"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
@@ -103,7 +103,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="35dp"
                     android:paddingTop="20dp"
-                    android:text="HEALTH"
+                    android:text="Health"
                     android:textColor="#008000"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>
@@ -122,7 +122,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="35dp"
                     android:paddingTop="20dp"
-                    android:text="WATER"
+                    android:text="Water"
                     android:textColor="#008000"
                     android:textSize="20sp" />
             </androidx.cardview.widget.CardView>

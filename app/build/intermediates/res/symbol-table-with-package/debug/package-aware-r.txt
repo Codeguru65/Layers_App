@@ -1175,6 +1175,7 @@ id btn_production
 id btn_training
 id btn_water
 id btnfin
+id btnfin2
 id buttonPanel
 id cancel_action
 id center
@@ -1193,10 +1194,13 @@ id contentPanel
 id coordinator
 id custom
 id customPanel
+id cvAcc
+id cvCash
 id cvEgg
 id cvFeed
 id cvHealth
 id cvMort
+id cvPay
 id cvWater
 id date1
 id decor_content_parent
@@ -1257,6 +1261,7 @@ id line1
 id line3
 id linearLayout
 id linearLayout2
+id linearLayout3
 id linearLayout4
 id linearLayout5
 id listMode
@@ -1391,6 +1396,10 @@ id txt17
 id txt19
 id txt2
 id txt4
+id txtd1
+id txtd2
+id txtd3
+id txtd4
 id txth13
 id txth17
 id txth2
@@ -1473,6 +1482,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_daily_diary
+layout activity_deliveries
 layout activity_login
 layout activity_main
 layout activity_mort
@@ -1495,7 +1505,6 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout eggs
 layout health
-layout inflow
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

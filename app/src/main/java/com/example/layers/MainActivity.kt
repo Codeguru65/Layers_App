@@ -3,6 +3,7 @@ package com.example.layers
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.deliveries.Deliveries
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +14,13 @@ class MainActivity : AppCompatActivity() {
 
         btn_daily_diary.setOnClickListener {
             val intent = Intent(this,Submenu::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
+        btn_deliveries.setOnClickListener {
+            val intent = Intent(this, Deliveries::class.java)
             startActivity(intent)
             finish()
         }
