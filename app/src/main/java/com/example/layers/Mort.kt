@@ -17,4 +17,10 @@ class Mort : AppCompatActivity() {
             finish()
         }
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, Submenu::class.java)
+        startActivity(intent)
+
+    }
 }

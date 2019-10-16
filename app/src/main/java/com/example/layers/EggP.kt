@@ -24,5 +24,11 @@ class EggP : AppCompatActivity(){
             ex.printStackTrace()}
         }
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this,Submenu::class.java)
+        startActivity(intent)
+
+    }
 
 }

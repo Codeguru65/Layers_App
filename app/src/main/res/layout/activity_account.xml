@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg"
+    android:orientation="vertical"
+    tools:context="com.example.deliveries.Account">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonA3"
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/custom_button"
+                android:text="Submit"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtA14" />
+
+            <TextView
+                android:id="@+id/txtA14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Total Value"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtA13"
+                app:layout_constraintTop_toBottomOf="@+id/txtA13" />
+
+            <EditText
+                android:id="@+id/editTextA9"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextA7"
+                app:layout_constraintTop_toBottomOf="@+id/editTextA7" />
+
+            <TextView
+                android:id="@+id/txtA4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="ACCOUNTS"
+                android:textAlignment="center"
+                android:textColor="#008000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewA7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Customer"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.003"
+                app:layout_constraintStart_toStartOf="@+id/editTextA3"
+                app:layout_constraintTop_toBottomOf="@+id/txtA4" />
+
+            <EditText
+                android:id="@+id/editTextA3"
+                android:layout_width="221dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="name"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewA7" />
+
+            <EditText
+                android:id="@+id/editTextA4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="surname"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/editTextA3"
+                app:layout_constraintTop_toBottomOf="@+id/editTextA3" />
+
+            <Spinner
+                android:id="@+id/spinnerA2"
+                android:layout_width="117dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="108dp"
+                android:layout_marginLeft="108dp"
+                android:layout_marginTop="24dp"
+                android:entries="@array/eggQ"
+                app:layout_constraintStart_toEndOf="@+id/txtA11"
+                app:layout_constraintTop_toBottomOf="@+id/editTextA4"
+                tools:layout_conversion_absoluteHeight="38dp"
+                tools:layout_conversion_absoluteWidth="335dp" />
+
+            <TextView
+                android:id="@+id/txtA11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Product"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.141"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextA4"
+                tools:layout_conversion_absoluteHeight="27dp"
+                tools:layout_conversion_absoluteWidth="375dp" />
+
+            <EditText
+                android:id="@+id/editTextA6"
+                android:layout_width="108dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/spinnerA2"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerA2" />
+
+            <TextView
+                android:id="@+id/txtA12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Quantity"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtA11"
+                app:layout_constraintTop_toBottomOf="@+id/txtA11" />
+
+            <EditText
+                android:id="@+id/editTextA7"
+                android:layout_width="106dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextA6"
+                app:layout_constraintTop_toBottomOf="@+id/editTextA6" />
+
+            <TextView
+                android:id="@+id/txtA13"
+                android:layout_width="61dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="36dp"
+                android:text="Price"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtA12"
+                app:layout_constraintTop_toBottomOf="@+id/txtA12" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>

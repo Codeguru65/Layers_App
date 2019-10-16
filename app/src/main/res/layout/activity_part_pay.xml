@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg"
+    android:orientation="vertical"
+    tools:context="com.example.deliveries.PartPay">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="411dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <TextView
+                android:id="@+id/txtP4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="PART PAYMENT"
+                android:textAlignment="center"
+                android:textColor="#008000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textViewP7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Customer"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.003"
+                app:layout_constraintStart_toStartOf="@+id/editTextP3"
+                app:layout_constraintTop_toBottomOf="@+id/txtP4" />
+
+            <EditText
+                android:id="@+id/editTextP3"
+                android:layout_width="221dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="name"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewP7" />
+
+            <EditText
+                android:id="@+id/editTextP4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="surname"
+                android:inputType="textPersonName"
+                app:layout_constraintStart_toStartOf="@+id/editTextP3"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP3" />
+
+            <Spinner
+                android:id="@+id/spinnerP2"
+                android:layout_width="117dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="108dp"
+                android:layout_marginLeft="108dp"
+                android:layout_marginTop="24dp"
+                android:entries="@array/eggQ"
+                app:layout_constraintStart_toEndOf="@+id/txtP11"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP4"
+                tools:layout_conversion_absoluteHeight="38dp"
+                tools:layout_conversion_absoluteWidth="335dp" />
+
+            <TextView
+                android:id="@+id/txtP11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Product"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.141"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP4"
+                tools:layout_conversion_absoluteHeight="27dp"
+                tools:layout_conversion_absoluteWidth="375dp" />
+
+            <EditText
+                android:id="@+id/editTextP6"
+                android:layout_width="108dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/spinnerP2"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerP2" />
+
+            <TextView
+                android:id="@+id/txtP12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Quantity"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtP11"
+                app:layout_constraintTop_toBottomOf="@+id/txtP11" />
+
+            <EditText
+                android:id="@+id/editTextP7"
+                android:layout_width="106dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextP6"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP6" />
+
+            <TextView
+                android:id="@+id/txtP13"
+                android:layout_width="61dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="36dp"
+                android:text="Price"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtP12"
+                app:layout_constraintTop_toBottomOf="@+id/txtP12" />
+
+
+            <Button
+                android:id="@+id/buttonP3"
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/custom_button"
+                android:text="Submit"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtP2" />
+
+            <TextView
+                android:id="@+id/txtP14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Total Value"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtP13"
+                app:layout_constraintTop_toBottomOf="@+id/txtP13" />
+
+            <EditText
+                android:id="@+id/editTextP9"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextP7"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP7" />
+
+            <TextView
+                android:id="@+id/txtP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Paid"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtP14"
+                app:layout_constraintTop_toBottomOf="@+id/txtP14" />
+
+            <EditText
+                android:id="@+id/editTextP"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextP9"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP9" />
+
+            <TextView
+                android:id="@+id/txtP2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Owing"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtP"
+                app:layout_constraintTop_toBottomOf="@+id/txtP" />
+
+            <EditText
+                android:id="@+id/editTextP2"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextP"
+                app:layout_constraintTop_toBottomOf="@+id/editTextP" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

@@ -396,6 +396,10 @@
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/0564db8f3c411d1b2d54ca0894d9e125/material-1.0.0/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
     },
     {
+        "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/layout_activity_account.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_app/app/src/main/res/layout/activity_account.xml"
+    },
+    {
         "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
     },
@@ -1856,6 +1860,10 @@
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
+        "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/layout_activity_part_pay.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_app/app/src/main/res/layout/activity_part_pay.xml"
+    },
+    {
         "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/drawable-hdpi_accounts.png.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_app/app/src/main/res/drawable-hdpi/accounts.png"
     },
@@ -2046,6 +2054,10 @@
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/drawable-xhdpi_inventory.png.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_app/app/src/main/res/drawable-xhdpi/inventory.png"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/layout_activity_cash.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_app/app/src/main/res/layout/activity_cash.xml"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_app/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",

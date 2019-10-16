@@ -29,33 +29,38 @@ class Submenu : AppCompatActivity() {
             finish()
         }
         cvFeed.setOnClickListener {
-            val intent = Intent(this,DailyDiaryActivity::class.java)
+            val intent = Intent(this, DailyDiaryActivity::class.java)
             startActivity(intent)
             finish()
         }
         cvEgg.setOnClickListener {
-            val intent = Intent(this,EggP::class.java)
+            val intent = Intent(this, EggP::class.java)
             startActivity(intent)
             finish()
         }
         cvHealth.setOnClickListener {
-            val intent = Intent(this,Health::class.java)
+            val intent = Intent(this, Health::class.java)
             startActivity(intent)
             finish()
         }
         cvMort.setOnClickListener {
-            val intent = Intent(this,Mort::class.java)
+            val intent = Intent(this, Mort::class.java)
             startActivity(intent)
             finish()
         }
         cvWater.setOnClickListener {
-            val intent = Intent(this,Water::class.java)
+            val intent = Intent(this, Water::class.java)
             startActivity(intent)
             finish()
         }
 
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
 
 
+    }
 }

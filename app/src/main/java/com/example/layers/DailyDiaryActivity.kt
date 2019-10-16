@@ -19,14 +19,20 @@ class DailyDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_diary)
 
-            btn_feed.setOnClickListener {
-                    val intent = Intent(this,Submenu::class.java )
-                    startActivity(intent)
-                    finish()
-
-            }
+        btn_feed.setOnClickListener {
+            val intent = Intent(this, Submenu::class.java)
+            startActivity(intent)
+            finish()
 
         }
 
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, Submenu::class.java)
+        startActivity(intent)
+
+    }
+
+}

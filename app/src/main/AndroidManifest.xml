@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.deliveries.Deliveries"></activity>
+        <activity android:name="com.example.deliveries.PartPay"></activity>
+        <activity android:name="com.example.deliveries.Account" />
+        <activity android:name="com.example.deliveries.Cash" />
+        <activity android:name="com.example.deliveries.Deliveries" />
         <activity
             android:name=".Water"
             android:resizeableActivity="true" />

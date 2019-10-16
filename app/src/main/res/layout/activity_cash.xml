@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/loginbg"
+    tools:context="com.example.deliveries.Cash">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="CASH"
+                android:textAlignment="center"
+                android:textColor="#008000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="41dp"
+                tools:layout_conversion_absoluteWidth="411dp" />
+
+            <TextView
+                android:id="@+id/txtC2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="Product"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.14"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtC"
+                tools:layout_conversion_absoluteHeight="27dp"
+                tools:layout_conversion_absoluteWidth="375dp" />
+
+            <Spinner
+                android:id="@+id/spinnerC3"
+                android:layout_width="117dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="58dp"
+                android:entries="@array/eggQ"
+                app:layout_constraintStart_toEndOf="@+id/txtC2"
+                app:layout_constraintTop_toBottomOf="@+id/txtC"
+                tools:layout_conversion_absoluteHeight="38dp"
+                tools:layout_conversion_absoluteWidth="335dp" />
+
+            <TextView
+                android:id="@+id/txtC5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="50dp"
+                android:text="Quantity"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtC2" />
+
+            <TextView
+                android:id="@+id/txtC3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Price"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtC5"
+                app:layout_constraintTop_toBottomOf="@+id/txtC5" />
+
+            <EditText
+                android:id="@+id/editTextC3"
+                android:layout_width="96dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextC4"
+                app:layout_constraintTop_toBottomOf="@+id/editTextC4" />
+
+            <EditText
+                android:id="@+id/editTextC4"
+                android:layout_width="108dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/spinnerC3"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerC3" />
+
+            <TextView
+                android:id="@+id/txtC6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Total Value"
+                android:textColor="#008000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/txtC3"
+                app:layout_constraintTop_toBottomOf="@+id/txtC3" />
+
+            <EditText
+                android:id="@+id/editTextC8"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/editTextC3"
+                app:layout_constraintTop_toBottomOf="@+id/editTextC3" />
+
+            <Button
+                android:id="@+id/buttonS"
+                android:layout_width="135dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/custom_button"
+                android:text="Submit"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtC6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>
