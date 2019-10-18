@@ -34,6 +34,9 @@
         <item>Non-uniform</item>
     </string-array>
     <string name="open"></string>
+    <string-array name="prod">
+        <item>Eggs</item>
+    </string-array>
 
 
     <!-- TODO: Remove or change this placeholder text -->

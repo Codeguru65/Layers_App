@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/loginbg"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context=".Water">
 
     <ScrollView
@@ -21,7 +23,7 @@
                 android:id="@+id/txtw2"
                 android:layout_width="207dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="64dp"
                 android:text="WATER"
                 android:textAlignment="center"
                 android:textColor="#008000"
@@ -89,9 +91,10 @@
                 android:id="@+id/editText"
                 android:layout_width="134dp"
                 android:layout_height="56dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="32dp"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/spinnerw3"
                 app:layout_constraintTop_toBottomOf="@+id/spinnerw3" />
 

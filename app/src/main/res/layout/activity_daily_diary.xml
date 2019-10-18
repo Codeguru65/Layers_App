@@ -9,6 +9,8 @@
     android:paddingTop="0dp"
     android:paddingRight="0dp"
     android:background="@drawable/loginbg"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context=".DailyDiaryActivity">
 
     <ScrollView
@@ -24,14 +26,14 @@
                 android:id="@+id/textView2"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="64dp"
                 android:text="FEED"
                 android:textAlignment="center"
                 android:textColor="#008000"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.485"
+                app:layout_constraintHorizontal_bias="0.476"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +61,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="@string/open"
-                android:textColor="#008000"
+                android:textColor="@android:color/black"
                 android:textColorHighlight="#008000"
                 android:textColorHint="#008000"
                 android:textColorLink="#008000"
@@ -117,7 +119,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="@string/open"
-                android:textColor="#008000"
+                android:textColor="@android:color/black"
                 android:textColorHighlight="#008000"
                 android:textColorHint="#008000"
                 android:textColorLink="#008000"
@@ -180,6 +182,7 @@
                 android:layout_marginTop="25dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editText7"
                 app:layout_constraintTop_toBottomOf="@+id/editText7" />
 
@@ -201,6 +204,7 @@
                 android:layout_marginTop="40dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editText5"
                 app:layout_constraintTop_toBottomOf="@+id/editText5" />
 

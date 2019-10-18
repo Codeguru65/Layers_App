@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/loginbg"
     android:orientation="vertical"
-    tools:context="com.example.deliveries.PartPay">
+    tools:context="com.example.deliveries.PartPay"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -22,6 +24,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
+
             <TextView
                 android:id="@+id/txtP4"
                 android:layout_width="wrap_content"
@@ -35,7 +38,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <TextView
                 android:id="@+id/textViewP7"
@@ -60,6 +62,7 @@
                 android:ems="10"
                 android:hint="name"
                 android:inputType="textPersonName"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewP7" />
 
@@ -71,6 +74,7 @@
                 android:ems="10"
                 android:hint="surname"
                 android:inputType="textPersonName"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextP3"
                 app:layout_constraintTop_toBottomOf="@+id/editTextP3" />
 
@@ -81,7 +85,7 @@
                 android:layout_marginStart="108dp"
                 android:layout_marginLeft="108dp"
                 android:layout_marginTop="24dp"
-                android:entries="@array/eggQ"
+                android:entries="@array/prod"
                 app:layout_constraintStart_toEndOf="@+id/txtP11"
                 app:layout_constraintTop_toBottomOf="@+id/editTextP4"
                 tools:layout_conversion_absoluteHeight="38dp"
@@ -109,6 +113,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/spinnerP2"
                 app:layout_constraintTop_toBottomOf="@+id/spinnerP2" />
 
@@ -130,6 +135,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextP6"
                 app:layout_constraintTop_toBottomOf="@+id/editTextP6" />
 
@@ -179,6 +185,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextP7"
                 app:layout_constraintTop_toBottomOf="@+id/editTextP7" />
 
@@ -200,6 +207,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextP9"
                 app:layout_constraintTop_toBottomOf="@+id/editTextP9" />
 
@@ -221,6 +229,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="#645E5E"
                 app:layout_constraintStart_toStartOf="@+id/editTextP"
                 app:layout_constraintTop_toBottomOf="@+id/editTextP" />
 

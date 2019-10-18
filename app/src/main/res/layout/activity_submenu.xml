@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bglogin"
-    tools:context=".Submenu">
+    tools:context=".Submenu"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,13 +23,14 @@
                 android:id="@+id/txtsm1"
                 android:layout_width="268dp"
                 android:layout_height="42dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="60dp"
                 android:text="SELECT TASK"
                 android:textAlignment="center"
                 android:textColor="#008000"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,7 +138,7 @@
                 android:ems="10"
                 android:inputType="date"
                 android:textAlignment="center"
-                android:textColor="#008000"
+                android:textColor="#645E5E"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.286"
                 app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +152,7 @@
                 android:ems="10"
                 android:inputType="number"
                 android:textAlignment="center"
-                android:textColor="#008000"
+                android:textColor="#645E5E"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.899"
                 app:layout_constraintStart_toStartOf="parent"

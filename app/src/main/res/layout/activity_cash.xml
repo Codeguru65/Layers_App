@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/loginbg"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context="com.example.deliveries.Cash">
 
     <ScrollView
@@ -22,7 +24,7 @@
                 android:id="@+id/txtC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="60dp"
                 android:text="CASH"
                 android:textAlignment="center"
                 android:textColor="#008000"
@@ -56,7 +58,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="58dp"
-                android:entries="@array/eggQ"
+                android:entries="@array/prod"
                 app:layout_constraintStart_toEndOf="@+id/txtC2"
                 app:layout_constraintTop_toBottomOf="@+id/txtC"
                 tools:layout_conversion_absoluteHeight="38dp"
@@ -93,6 +95,7 @@
                 android:layout_marginTop="40dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextC4"
                 app:layout_constraintTop_toBottomOf="@+id/editTextC4" />
 
@@ -103,6 +106,7 @@
                 android:layout_marginTop="40dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/spinnerC3"
                 app:layout_constraintTop_toBottomOf="@+id/spinnerC3" />
 
@@ -124,6 +128,7 @@
                 android:layout_marginTop="30dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextC3"
                 app:layout_constraintTop_toBottomOf="@+id/editTextC3" />
 

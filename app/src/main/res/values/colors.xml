@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#008000
     </color>
+    <color name="cursorColor">#000
+    </color>
 </resources>

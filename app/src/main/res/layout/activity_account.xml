@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/loginbg"
     android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context="com.example.deliveries.Account">
 
     <ScrollView
@@ -51,6 +53,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextA7"
                 app:layout_constraintTop_toBottomOf="@+id/editTextA7" />
 
@@ -58,7 +61,7 @@
                 android:id="@+id/txtA4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="80dp"
                 android:text="ACCOUNTS"
                 android:textAlignment="center"
                 android:textColor="#008000"
@@ -91,6 +94,7 @@
                 android:ems="10"
                 android:hint="name"
                 android:inputType="textPersonName"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewA7" />
 
@@ -102,6 +106,7 @@
                 android:ems="10"
                 android:hint="surname"
                 android:inputType="textPersonName"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextA3"
                 app:layout_constraintTop_toBottomOf="@+id/editTextA3" />
 
@@ -112,7 +117,7 @@
                 android:layout_marginStart="108dp"
                 android:layout_marginLeft="108dp"
                 android:layout_marginTop="24dp"
-                android:entries="@array/eggQ"
+                android:entries="@array/prod"
                 app:layout_constraintStart_toEndOf="@+id/txtA11"
                 app:layout_constraintTop_toBottomOf="@+id/editTextA4"
                 tools:layout_conversion_absoluteHeight="38dp"
@@ -140,6 +145,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/spinnerA2"
                 app:layout_constraintTop_toBottomOf="@+id/spinnerA2" />
 
@@ -161,6 +167,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="@+id/editTextA6"
                 app:layout_constraintTop_toBottomOf="@+id/editTextA6" />
 
