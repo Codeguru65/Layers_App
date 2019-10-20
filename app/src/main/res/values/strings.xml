@@ -38,6 +38,12 @@
         <item>Eggs</item>
     </string-array>
 
+    <string-array name="fraction">
+        <item>quoter bag</item>
+        <item>half bag</item>
+        <item>3 quoter bag</item>
+    </string-array>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

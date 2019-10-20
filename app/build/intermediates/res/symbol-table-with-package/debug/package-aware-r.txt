@@ -39,10 +39,12 @@ animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array eggQ
 array eggS
+array fraction
 array hCause
 array hState
 array mort
 array openF
+array prod
 array wlevel
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1198,6 +1200,9 @@ id contentPanel
 id coordinator
 id custom
 id customPanel
+id cv20kgFeed
+id cv50kgFeed
+id cv5kgFeed
 id cvAcc
 id cvCash
 id cvEgg
@@ -1219,10 +1224,6 @@ id dimensions
 id direct
 id disableHome
 id editText
-id editText2
-id editText5
-id editText6
-id editText7
 id editTextA3
 id editTextA4
 id editTextA6
@@ -1243,6 +1244,7 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id etDate
 id etPwd
 id etUsername
 id etxt2
@@ -1352,8 +1354,6 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
-id spinner
-id spinner2
 id spinnerA2
 id spinnerC3
 id spinnerE
@@ -1389,13 +1389,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
-id textView13
-id textView15
-id textView17
-id textView2
-id textView3
-id textView4
 id textView5
 id textView6
 id textViewA7

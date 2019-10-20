@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Layers.iml" filepath="$PROJECT_DIR$/Layers.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Layers_app.iml" filepath="$PROJECT_DIR$/Layers_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers.iml" filepath="$PROJECT_DIR$/layers.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
