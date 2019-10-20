@@ -1,16 +1,11 @@
 package com.example.layers
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.Toast
-import androidx.core.view.isVisible
+import androidx.room.Room
+import com.example.dailythings.AppDB
+import com.example.dailythings.FeedEntity
 import kotlinx.android.synthetic.main.activity_daily_diary.*
-import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
 
 
 class DailyDiaryActivity : AppCompatActivity() {
@@ -19,20 +14,29 @@ class DailyDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_diary)
 
-        btn_feed.setOnClickListener {
-            val intent = Intent(this, Submenu::class.java)
-            startActivity(intent)
-            finish()
+
+
+
+        var dbnew = Room.databaseBuilder(applicationContext,AppDB::class.java,"LayersAppDatabase").build()
+        var task2 = FeedEntity()
+
+
+
+        btn_save.setOnClickListener {
+            Thread{
+                //task.date = etDate.text.toString()
+                task2.feed_type5kg = etNum5kg.text.toString().toInt()
+                task2.feed_type20kg = etNum20kg.text.toString().toInt()
+                task2.feed_type50kg = etNum50kg.text.toString().toInt()
+
+                dbnew.dailyTaskDao().saveTask(task2)
+
+            }.start()
+        }
 
         }
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val intent = Intent(this, Submenu::class.java)
-        startActivity(intent)
 
-    }
 
-}

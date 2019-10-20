@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.dailythings.DailyThingsList" />
+        <activity android:name="com.example.layers.DailyActivityViewer" />
         <activity android:name="com.example.deliveries.PartPay" />
         <activity android:name="com.example.deliveries.Account" />
         <activity android:name="com.example.deliveries.Cash" />
@@ -52,6 +54,10 @@
         <activity
             android:name="com.example.layers.Health"
             android:resizeableActivity="true" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:exported="false" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
