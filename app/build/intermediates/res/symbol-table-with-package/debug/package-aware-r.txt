@@ -1159,6 +1159,7 @@ id all
 id always
 id async
 id auto
+id bag_description
 id barrier
 id beginning
 id blocking
@@ -1262,6 +1263,7 @@ id etxtm6
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id feed_recycler_view
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1294,6 +1296,7 @@ id linearLayout4
 id linearLayout5
 id linearLayout6
 id linearLayout7
+id linearLayout8
 id linearLayout9
 id listMode
 id list_item
@@ -1314,6 +1317,7 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id opt
 id outline
 id packed
 id parallax
@@ -1324,6 +1328,7 @@ id percent
 id pin
 id progress_circular
 id progress_horizontal
+id qty
 id radio
 id right
 id right_icon
@@ -1465,8 +1470,6 @@ id txtm13
 id txtm17
 id txtm19
 id txtm2
-id txtsm1
-id txtsm2
 id txtsm3
 id txtsm4
 id txtsm5
@@ -1544,6 +1547,7 @@ layout activity_daily_diary
 layout activity_daily_things_list
 layout activity_daily_viewer
 layout activity_deliveries
+layout activity_feed
 layout activity_login
 layout activity_main
 layout activity_mort
@@ -1566,6 +1570,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout eggs
+layout feed_item
 layout health
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include

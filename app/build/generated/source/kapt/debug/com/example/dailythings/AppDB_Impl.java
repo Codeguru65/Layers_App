@@ -30,9 +30,9 @@ public final class AppDB_Impl extends AppDB {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `FeedEntity` (`date` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `feed_type5kg` INTEGER NOT NULL, `feed_type20kg` INTEGER NOT NULL, `feed_type50kg` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `FeedEntity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `feed_type` TEXT NOT NULL, `quantity` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3477d5b7fad7683b3dcd00f6ac1e9f5b')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a7660090341358cfa1dc691a22cd2e18')");
       }
 
       @Override
@@ -76,11 +76,10 @@ public final class AppDB_Impl extends AppDB {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsFeedEntity = new HashMap<String, TableInfo.Column>(4);
-        _columnsFeedEntity.put("date", new TableInfo.Column("date", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFeedEntity.put("feed_type5kg", new TableInfo.Column("feed_type5kg", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFeedEntity.put("feed_type20kg", new TableInfo.Column("feed_type20kg", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFeedEntity.put("feed_type50kg", new TableInfo.Column("feed_type50kg", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashMap<String, TableInfo.Column> _columnsFeedEntity = new HashMap<String, TableInfo.Column>(3);
+        _columnsFeedEntity.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFeedEntity.put("feed_type", new TableInfo.Column("feed_type", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsFeedEntity.put("quantity", new TableInfo.Column("quantity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysFeedEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesFeedEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoFeedEntity = new TableInfo("FeedEntity", _columnsFeedEntity, _foreignKeysFeedEntity, _indicesFeedEntity);
@@ -92,7 +91,7 @@ public final class AppDB_Impl extends AppDB {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "3477d5b7fad7683b3dcd00f6ac1e9f5b", "41ca83ec478ca0ce7d95c11e1c583729");
+    }, "a7660090341358cfa1dc691a22cd2e18", "cba5d9a6eecdb875605ae3353f48618d");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

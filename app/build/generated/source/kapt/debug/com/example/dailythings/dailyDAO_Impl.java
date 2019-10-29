@@ -18,15 +18,18 @@ public final class dailyDAO_Impl implements dailyDAO {
     this.__insertionAdapterOfFeedEntity = new EntityInsertionAdapter<FeedEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `FeedEntity` (`date`,`feed_type5kg`,`feed_type20kg`,`feed_type50kg`) VALUES (nullif(?, 0),?,?,?)";
+        return "INSERT OR ABORT INTO `FeedEntity` (`id`,`feed_type`,`quantity`) VALUES (nullif(?, 0),?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, FeedEntity value) {
-        stmt.bindLong(1, value.getDate());
-        stmt.bindLong(2, value.getFeed_type5kg());
-        stmt.bindLong(3, value.getFeed_type20kg());
-        stmt.bindLong(4, value.getFeed_type50kg());
+        stmt.bindLong(1, value.getId());
+        if (value.getFeed_type() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getFeed_type());
+        }
+        stmt.bindLong(3, value.getQuantity());
       }
     };
   }

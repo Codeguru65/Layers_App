@@ -3,31 +3,32 @@ package com.example.dailythings
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.intellij.lang.annotations.PrintFormat
 
 
 @Entity
-class FeedEntity {
+class FeedEntity() {
+
 
 
     @PrimaryKey(autoGenerate = true)
-    var date : Int = 0
+    var id : Int = 0
 
 
     @ColumnInfo
-    var feed_type5kg : Int=0
+    var feed_type : String = ""
 
     @ColumnInfo
-    var feed_type20kg : Int=0
+    var quantity : Int = 0
 
-    @ColumnInfo
-    var feed_type50kg : Int=0
 
-   /* @ColumnInfo
-    var num_bags : String = ""
 
-    @ColumnInfo
-    var qty_kg : Float? = 0f*/
+
+
+    /* @ColumnInfo
+     var num_bags : String = ""
+
+     @ColumnInfo
+     var qty_kg : Float? = 0f*/
 
    /* @ColumnInfo
     var water : Float? = 0f
@@ -54,4 +55,7 @@ class FeedEntity {
     var healtth : String = ""*/
 
 
+
+
 }
+
