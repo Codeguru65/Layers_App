@@ -1064,11 +1064,14 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable home_24px
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable icn_done_background
+drawable icon_done
 drawable inventory
 drawable loginbg
 drawable mtrl_snackbar_background
@@ -1175,7 +1178,6 @@ id btn_help
 id btn_inflow
 id btn_mort
 id btn_production
-id btn_save
 id btn_training
 id btn_water
 id btnfin
@@ -1249,10 +1251,9 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
-id etDate
-id etNum20kg
+id etNum10kg
+id etNum25kg
 id etNum50kg
-id etNum5kg
 id etPwd
 id etUsername
 id etxt2
@@ -1275,6 +1276,9 @@ id gone
 id group_divider
 id groups
 id home
+id home1
+id home2
+id home3
 id homeAsUp
 id icon
 id icon_group
@@ -1376,7 +1380,9 @@ id spinnerh3
 id spinnerm3
 id spinnerw3
 id split_action_bar
-id spn5kgBagLvl
+id spn10kgBagLvl
+id spn25kgBagLvl
+id spn50kgBagLvl
 id spread
 id spread_inside
 id src_atop
@@ -1414,6 +1420,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -1426,6 +1433,7 @@ id tv20kgBags
 id tv50kgBags
 id tv5kgBags
 id tvDashboard
+id tvDate
 id tvKgTotal
 id tvRegister
 id tvTotalDeaths
@@ -1554,6 +1562,7 @@ layout activity_mort
 layout activity_part_pay
 layout activity_submenu
 layout activity_water
+layout bottom_nav_menu
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1593,8 +1602,13 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout tool_bar
+menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap icn_done
+mipmap icn_done_foreground
+mipmap icn_done_round
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

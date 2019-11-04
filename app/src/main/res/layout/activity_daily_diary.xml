@@ -5,32 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bglogin"
     tools:context=".FeedActivity"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/etDate"
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/tool_bar"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tvDate"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:inputType="date"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:hint="select a date"
+                android:text="select a date"
                 android:textSize="20sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
                 />
 
             <androidx.cardview.widget.CardView
@@ -41,51 +47,106 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardCornerRadius="3dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDate"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate"
                 android:layout_marginBottom="8dp"
 
                 >
 
                 <LinearLayout
-                    android:id="@+id/btn_deliveries"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+
+                    android:orientation="horizontal"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="3dp">
 
 
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="5kg Bags"
-                        android:textColor="#008000"
-                        android:textSize="18sp" />
+                        android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/etNum5kg"
-                        android:layout_width="280dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="number of bags used"
-                        android:textColor="#008000"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <Spinner
-                        android:id="@+id/spn5kgBagLvl"
-                        android:layout_width="280dp"
+                            android:text="5kg Bags"
+                            android:textColor="#008000"
+                            android:textSize="18sp" />
+
+                        <!--<view
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@color/colorAccent"/>-->
+
+                        <EditText
+                            android:id="@+id/etNum10kg"
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:hint="number of bags used"
+                            android:textColor="#008000"
+                            android:textSize="18sp" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/spn10kgBagLvl"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginRight="0dp"
+                                android:entries="@array/fraction"
+                                android:textColor="#008000"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:textSize="14sp"
+                                android:hint="Quantity" />
+
+
+                        </RelativeLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent"
+                        android:layout_margin="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:entries="@array/fraction"
-                        android:textColor="#008000"
-                        android:textSize="18sp" />
+                        android:layout_gravity="center_vertical"
+
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_done"
+
+                            />
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -99,8 +160,10 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardCornerRadius="3dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
                 android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,13 +171,14 @@
 
                 >
 
-                <LinearLayout
+               <!-- <LinearLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
 
 
@@ -144,7 +208,98 @@
                         android:textSize="18sp" />
 
                 </LinearLayout>
+-->
 
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="horizontal"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="3dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="5kg Bags"
+                            android:textColor="#008000"
+                            android:textSize="18sp" />
+
+                        <!--<view
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@color/colorAccent"/>-->
+
+                        <EditText
+                            android:id="@+id/etNum25kg"
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:hint="number of bags used"
+                            android:textColor="#008000"
+                            android:textSize="18sp" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/spn25kgBagLvl"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginRight="0dp"
+                                android:entries="@array/fraction"
+                                android:textColor="#008000"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:textSize="14sp"
+                                android:hint="Quantity" />
+
+
+                        </RelativeLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent"
+                        android:layout_margin="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_done"
+
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -156,8 +311,10 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardCornerRadius="3dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -165,13 +322,14 @@
 
                 >
 
-                <LinearLayout
+                <!--<LinearLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
 
 
@@ -202,10 +360,100 @@
 
                 </LinearLayout>
 
+-->
+                <LinearLayout
+                    android:id="@+id/btn_deliveries"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
 
+                    android:orientation="horizontal"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="3dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="5kg Bags"
+                            android:textColor="#008000"
+                            android:textSize="18sp" />
+
+                        <!--<view
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="@color/colorAccent"/>-->
+
+                        <EditText
+                            android:id="@+id/etNum50kg"
+                            android:layout_width="280dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:hint="number of bags used"
+                            android:textColor="#008000"
+                            android:textSize="18sp" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/spn50kgBagLvl"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:layout_marginRight="0dp"
+                                android:entries="@array/fraction"
+                                android:textColor="#008000"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:textSize="14sp"
+                                android:hint="Quantity" />
+
+
+                        </RelativeLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent"
+                        android:layout_margin="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_done"
+
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Button
+           <!-- <Button
                 android:id="@+id/btn_save"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
@@ -214,11 +462,25 @@
                 app:layout_constraintTop_toBottomOf="@id/cv50kgFeed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="25dp"/>
 
+                android:layout_marginTop="25dp"/>-->
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/bottom_nav_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:itemBackground="#FFFFFF"
+                app:itemTextAppearanceInactive="">
+
+
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
+
 
 
 </LinearLayout>

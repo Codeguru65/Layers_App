@@ -23,21 +23,21 @@ import java.util.Set;
 
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class AppDB_Impl extends AppDB {
-  private volatile dailyDAO _dailyDAO;
+  private volatile InventoryDao _inventoryDao;
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `FeedEntity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `feed_type` TEXT NOT NULL, `quantity` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `InventoryEntity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `feed_type` TEXT NOT NULL, `quantity` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a7660090341358cfa1dc691a22cd2e18')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '32e87e46ad1491e12d2894476264dabe')");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("DROP TABLE IF EXISTS `FeedEntity`");
+        _db.execSQL("DROP TABLE IF EXISTS `InventoryEntity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -76,22 +76,22 @@ public final class AppDB_Impl extends AppDB {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsFeedEntity = new HashMap<String, TableInfo.Column>(3);
-        _columnsFeedEntity.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFeedEntity.put("feed_type", new TableInfo.Column("feed_type", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsFeedEntity.put("quantity", new TableInfo.Column("quantity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        final HashSet<TableInfo.ForeignKey> _foreignKeysFeedEntity = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesFeedEntity = new HashSet<TableInfo.Index>(0);
-        final TableInfo _infoFeedEntity = new TableInfo("FeedEntity", _columnsFeedEntity, _foreignKeysFeedEntity, _indicesFeedEntity);
-        final TableInfo _existingFeedEntity = TableInfo.read(_db, "FeedEntity");
-        if (! _infoFeedEntity.equals(_existingFeedEntity)) {
-          return new RoomOpenHelper.ValidationResult(false, "FeedEntity(com.example.dailythings.FeedEntity).\n"
-                  + " Expected:\n" + _infoFeedEntity + "\n"
-                  + " Found:\n" + _existingFeedEntity);
+        final HashMap<String, TableInfo.Column> _columnsInventoryEntity = new HashMap<String, TableInfo.Column>(3);
+        _columnsInventoryEntity.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsInventoryEntity.put("feed_type", new TableInfo.Column("feed_type", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsInventoryEntity.put("quantity", new TableInfo.Column("quantity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysInventoryEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesInventoryEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoInventoryEntity = new TableInfo("InventoryEntity", _columnsInventoryEntity, _foreignKeysInventoryEntity, _indicesInventoryEntity);
+        final TableInfo _existingInventoryEntity = TableInfo.read(_db, "InventoryEntity");
+        if (! _infoInventoryEntity.equals(_existingInventoryEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "InventoryEntity(com.example.dailythings.InventoryEntity).\n"
+                  + " Expected:\n" + _infoInventoryEntity + "\n"
+                  + " Found:\n" + _existingInventoryEntity);
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "a7660090341358cfa1dc691a22cd2e18", "cba5d9a6eecdb875605ae3353f48618d");
+    }, "32e87e46ad1491e12d2894476264dabe", "8ebc7d80e3349a397f5a1d26c9398622");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -104,7 +104,7 @@ public final class AppDB_Impl extends AppDB {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "FeedEntity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "InventoryEntity");
   }
 
   @Override
@@ -113,7 +113,7 @@ public final class AppDB_Impl extends AppDB {
     final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();
     try {
       super.beginTransaction();
-      _db.execSQL("DELETE FROM `FeedEntity`");
+      _db.execSQL("DELETE FROM `InventoryEntity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -125,15 +125,15 @@ public final class AppDB_Impl extends AppDB {
   }
 
   @Override
-  public dailyDAO dailyTaskDao() {
-    if (_dailyDAO != null) {
-      return _dailyDAO;
+  public InventoryDao dailyTaskDao() {
+    if (_inventoryDao != null) {
+      return _inventoryDao;
     } else {
       synchronized(this) {
-        if(_dailyDAO == null) {
-          _dailyDAO = new dailyDAO_Impl(this);
+        if(_inventoryDao == null) {
+          _inventoryDao = new InventoryDao_Impl(this);
         }
-        return _dailyDAO;
+        return _inventoryDao;
       }
     }
   }

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dailythings.Data
-import com.example.dailythings.FeedEntity
 import com.example.layers.R
 import kotlinx.android.synthetic.main.feed_item.view.*
 
