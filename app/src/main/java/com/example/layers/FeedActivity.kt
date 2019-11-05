@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.Adapters.FeedOptAdapter
+//import com.example.Adapters.FeedOptAdapter
 import com.example.dailythings.Supplier
 import kotlinx.android.synthetic.main.activity_daily_diary.*
 import kotlinx.android.synthetic.main.activity_feed.*

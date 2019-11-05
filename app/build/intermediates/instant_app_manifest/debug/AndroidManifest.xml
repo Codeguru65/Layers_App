@@ -56,6 +56,15 @@
         <activity
             android:name="com.example.layers.Health"
             android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.production.Inventory"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.production.ProdSub"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.dailythings.Statistics"
+            android:resizeableActivity="true" />
 
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"

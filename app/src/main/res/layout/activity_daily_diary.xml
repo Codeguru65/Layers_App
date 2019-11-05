@@ -472,8 +472,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
-                app:itemBackground="#FFFFFF"
-                app:itemTextAppearanceInactive="">
+                app:itemBackground="@android:color/white"
+                >
 
 
 

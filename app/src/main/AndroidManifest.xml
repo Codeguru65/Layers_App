@@ -46,6 +46,12 @@
         <activity
             android:name=".Health"
             android:resizeableActivity="true" />
+        <activity android:name="com.example.production.Inventory"
+            android:resizeableActivity="true"/>
+        <activity android:name="com.example.production.ProdSub"
+            android:resizeableActivity="true"/>
+        <activity android:name="com.example.dailythings.Statistics"
+            android:resizeableActivity="true"/>
     </application>
 
 </manifest>

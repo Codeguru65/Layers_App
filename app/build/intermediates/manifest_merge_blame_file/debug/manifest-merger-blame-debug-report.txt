@@ -6,126 +6,144 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="15"
-8-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml
+8-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml
+9-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:5:5-49:19
+11-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:5:5-55:19
 12        android:allowBackup="true"
-12-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:6:9-35
+12-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\2e2076e6216b29ee97192fe17edf1ebc\core-1.1.0\AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/2e2076e6216b29ee97192fe17edf1ebc/core-1.1.0/AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:7:9-43
+15-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:7:9-43
 16        android:label="@string/app_name"
-16-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:8:9-41
+16-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:8:9-41
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:9:9-54
+17-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:10:9-35
+18-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
-20-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:11:9-40
+20-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:11:9-40
 21        <activity android:name="com.example.layers.FeedActivity" />
-21-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:12:9-59
-21-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:12:19-47
+21-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:12:9-59
+21-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:12:19-47
 22        <activity android:name="com.example.dailythings.DailyThingsList" />
-22-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:13:9-76
-22-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:13:19-73
+22-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:13:9-76
+22-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:13:19-73
 23        <activity android:name="com.example.layers.DailyActivityViewer" />
-23-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:14:9-57
-23-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:14:19-54
+23-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:14:9-57
+23-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:14:19-54
 24        <activity android:name="com.example.deliveries.PartPay" />
-24-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:15:9-67
-24-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:15:19-64
+24-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:15:9-67
+24-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:15:19-64
 25        <activity android:name="com.example.deliveries.Account" />
-25-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:16:9-67
-25-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:16:19-64
+25-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:16:9-67
+25-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:16:19-64
 26        <activity android:name="com.example.deliveries.Cash" />
-26-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:17:9-64
-26-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:17:19-61
+26-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:17:9-64
+26-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:17:19-61
 27        <activity android:name="com.example.deliveries.Deliveries" />
-27-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:18:9-70
-27-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:18:19-67
+27-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:18:9-70
+27-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:18:19-67
 28        <activity
-28-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:19:9-21:49
+28-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:19:9-21:49
 29            android:name="com.example.layers.Water"
-29-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:20:13-34
+29-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:20:13-34
 30            android:resizeableActivity="true" />
-30-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:21:13-46
+30-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:21:13-46
 31        <activity
-31-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:22:9-24:49
+31-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:22:9-24:49
 32            android:name="com.example.layers.Mort"
-32-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:23:13-33
+32-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:23:13-33
 33            android:resizeableActivity="true" />
-33-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:24:13-46
+33-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:24:13-46
 34        <activity
-34-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:25:9-27:49
+34-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:25:9-27:49
 35            android:name="com.example.layers.Submenu"
-35-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:26:13-36
+35-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:26:13-36
 36            android:resizeableActivity="true" />
-36-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:27:13-46
+36-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:27:13-46
 37        <activity
-37-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:28:9-36:20
+37-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:28:9-36:20
 38            android:name="com.example.layers.LoginActivity"
-38-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:29:13-42
+38-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:29:13-42
 39            android:resizeableActivity="true" >
-39-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:30:13-46
+39-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:30:13-46
 40            <intent-filter>
-40-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:31:13-35:29
+40-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:31:13-35:29
 41                <action android:name="android.intent.action.MAIN" />
-41-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:32:17-69
-41-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:32:25-66
+41-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:32:17-69
+41-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:32:25-66
 42
 43                <category android:name="android.intent.category.LAUNCHER" />
-43-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:34:17-77
-43-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:34:27-74
+43-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:34:17-77
+43-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:34:27-74
 44            </intent-filter>
 45        </activity>
 46        <activity
-46-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:37:9-39:49
+46-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:37:9-39:49
 47            android:name="com.example.layers.DailyDiaryActivity"
-47-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:38:13-47
+47-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:38:13-47
 48            android:resizeableActivity="true" />
-48-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:39:13-46
+48-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:39:13-46
 49        <activity
-49-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:40:9-42:49
+49-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:40:9-42:49
 50            android:name="com.example.layers.MainActivity"
-50-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:41:13-41
+50-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:41:13-41
 51            android:resizeableActivity="true" />
-51-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:42:13-46
+51-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:42:13-46
 52        <activity
-52-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:43:9-45:49
+52-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:43:9-45:49
 53            android:name="com.example.layers.EggP"
-53-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:44:13-33
+53-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:44:13-33
 54            android:resizeableActivity="true" />
-54-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:45:13-46
+54-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:45:13-46
 55        <activity
-55-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:46:9-48:49
+55-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:46:9-48:49
 56            android:name="com.example.layers.Health"
-56-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:47:13-35
+56-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:47:13-35
 57            android:resizeableActivity="true" />
-57-->C:\Users\Supreme Senpai\AndroidStudioProjects\layers\app\src\main\AndroidManifest.xml:48:13-46
-58
-59        <service
-59-->[androidx.room:room-runtime:2.2.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\3693a4634f6d77c2815adc94fa4bd061\room-runtime-2.2.0\AndroidManifest.xml:25:9-27:40
-60            android:name="androidx.room.MultiInstanceInvalidationService"
-60-->[androidx.room:room-runtime:2.2.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\3693a4634f6d77c2815adc94fa4bd061\room-runtime-2.2.0\AndroidManifest.xml:26:13-74
-61            android:exported="false" />
-61-->[androidx.room:room-runtime:2.2.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\3693a4634f6d77c2815adc94fa4bd061\room-runtime-2.2.0\AndroidManifest.xml:27:13-37
-62
-63        <provider
-63-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\ddddec99c40d45df14918cee1e248725\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-64            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-64-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\ddddec99c40d45df14918cee1e248725\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-65            android:authorities="com.example.layers.lifecycle-process"
-65-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\ddddec99c40d45df14918cee1e248725\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-66            android:exported="false"
-66-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\ddddec99c40d45df14918cee1e248725\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-67            android:multiprocess="true" />
-67-->[androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\Supreme Senpai\.gradle\caches\transforms-2\files-2.1\ddddec99c40d45df14918cee1e248725\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-68    </application>
-69
-70</manifest>
+57-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:48:13-46
+58        <activity
+58-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:49:9-50:48
+59            android:name="com.example.production.Inventory"
+59-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:49:19-66
+60            android:resizeableActivity="true" />
+60-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:50:13-46
+61        <activity
+61-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:51:9-52:48
+62            android:name="com.example.production.ProdSub"
+62-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:51:19-64
+63            android:resizeableActivity="true" />
+63-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:52:13-46
+64        <activity
+64-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:53:9-54:48
+65            android:name="com.example.dailythings.Statistics"
+65-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:53:19-68
+66            android:resizeableActivity="true" />
+66-->/Users/Vision/Documents/Projects/Layers_app/app/src/main/AndroidManifest.xml:54:13-46
+67
+68        <service
+68-->[androidx.room:room-runtime:2.2.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/3693a4634f6d77c2815adc94fa4bd061/room-runtime-2.2.0/AndroidManifest.xml:25:9-27:40
+69            android:name="androidx.room.MultiInstanceInvalidationService"
+69-->[androidx.room:room-runtime:2.2.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/3693a4634f6d77c2815adc94fa4bd061/room-runtime-2.2.0/AndroidManifest.xml:26:13-74
+70            android:exported="false" />
+70-->[androidx.room:room-runtime:2.2.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/3693a4634f6d77c2815adc94fa4bd061/room-runtime-2.2.0/AndroidManifest.xml:27:13-37
+71
+72        <provider
+72-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+73            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+73-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+74            android:authorities="com.example.layers.lifecycle-process"
+74-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+75            android:exported="false"
+75-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+76            android:multiprocess="true" />
+76-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Vision/.gradle/caches/transforms-2/files-2.1/ddddec99c40d45df14918cee1e248725/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+77    </application>
+78
+79</manifest>

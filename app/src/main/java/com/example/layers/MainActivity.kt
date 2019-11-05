@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.example.deliveries.Deliveries
+import com.example.production.Inventory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.system.exitProcess
 
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         btn_deliveries.setOnClickListener {
             val intent = Intent(this, Deliveries::class.java)
             startActivity(intent)
+            finish()
+        }
+        btn_production.setOnClickListener {
+            startActivity(Intent(this,Inventory::class.java))
             finish()
         }
     }

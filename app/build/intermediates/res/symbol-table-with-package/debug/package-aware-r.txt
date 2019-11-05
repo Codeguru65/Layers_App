@@ -1157,6 +1157,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addDate
 id alertTitle
 id all
 id always
@@ -1172,7 +1173,9 @@ id btn_accounting
 id btn_alerts
 id btn_daily_diary
 id btn_deliveries
+id btn_details
 id btn_eggs
+id btn_hDetails
 id btn_health
 id btn_help
 id btn_inflow
@@ -1208,14 +1211,17 @@ id cv50kgFeed
 id cv5kgFeed
 id cvAcc
 id cvCash
+id cvDaily
 id cvDaiyEggsInfo
 id cvEgg
 id cvFeed
 id cvFeedInfo
 id cvHealth
+id cvInv
 id cvMort
 id cvMortalityInfo
 id cvPay
+id cvRep
 id cvWater
 id cvWaterInfo
 id date1
@@ -1230,7 +1236,12 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id ds20
+id ds5
+id ds50
 id editText
+id editText2
+id editText4
 id editTextA3
 id editTextA4
 id editTextA6
@@ -1270,6 +1281,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
+id floatingActionButton
 id forever
 id ghost_view
 id gone
@@ -1294,6 +1306,9 @@ id left
 id line1
 id line3
 id linearLayout
+id linearLayout10
+id linearLayout11
+id linearLayout12
 id linearLayout2
 id linearLayout3
 id linearLayout4
@@ -1304,6 +1319,7 @@ id linearLayout8
 id linearLayout9
 id listMode
 id list_item
+id ltext
 id masked
 id media_actions
 id message
@@ -1334,6 +1350,7 @@ id progress_circular
 id progress_horizontal
 id qty
 id radio
+id recyclerView2
 id right
 id right_icon
 id right_side
@@ -1346,6 +1363,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollView2
+id scrollView3
 id scrollable
 id search_badge
 id search_bar
@@ -1408,6 +1426,9 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
+id textView2
+id textView3
 id textView5
 id textView6
 id textViewA7
@@ -1466,6 +1487,8 @@ id txtP13
 id txtP14
 id txtP2
 id txtP4
+id txtPS1
+id txtSt1
 id txtd1
 id txtd2
 id txtd3
@@ -1478,6 +1501,9 @@ id txtm13
 id txtm17
 id txtm19
 id txtm2
+id txtp2
+id txtp3
+id txtp4
 id txtsm3
 id txtsm4
 id txtsm5
@@ -1556,12 +1582,16 @@ layout activity_daily_things_list
 layout activity_daily_viewer
 layout activity_deliveries
 layout activity_feed
+layout activity_inventory
 layout activity_login
 layout activity_main
 layout activity_mort
 layout activity_part_pay
+layout activity_prod_sub
+layout activity_statistics
 layout activity_submenu
 layout activity_water
+layout base
 layout bottom_nav_menu
 layout custom_dialog
 layout design_bottom_navigation_item
