@@ -12,14 +12,14 @@ class Mort : AppCompatActivity() {
         setContentView(R.layout.activity_mort)
 
         btn_mort.setOnClickListener {
-            val intent = Intent(this,Submenu::class.java)
+           // val intent = Intent(this, Submenu::class.java)
             startActivity(intent)
             finish()
         }
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, Submenu::class.java)
+        //val intent = Intent(this, Submenu::class.java)
         startActivity(intent)
 
     }

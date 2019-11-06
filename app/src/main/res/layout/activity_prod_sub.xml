@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bglogin"
-    tools:context=".Submenu"
+
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 

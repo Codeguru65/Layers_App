@@ -4,12 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.layers.R
 import com.example.production.ProdSub
 import kotlinx.android.synthetic.main.activity_statistics.*
-import com.example.dailythings.AppDB
 
 class Statistics : AppCompatActivity() {
 

@@ -32,9 +32,11 @@
         <activity
             android:name="com.example.layers.Mort"
             android:resizeableActivity="true" />
-        <activity
-            android:name="com.example.layers.Submenu"
+        <!--
+            <activity
+            android:name=".Submenu"
             android:resizeableActivity="true" />
+        -->
         <activity
             android:name="com.example.layers.LoginActivity"
             android:resizeableActivity="true" >

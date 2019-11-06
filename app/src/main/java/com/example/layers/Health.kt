@@ -12,15 +12,15 @@ class Health : AppCompatActivity(){
         setContentView(R.layout.health)
 
         btn_health.setOnClickListener {
-            val intent = Intent(this,Submenu::class.java)
-            startActivity(intent)
+            //val intent = Intent(this, Submenu::class.java)
+            //startActivity(intent)
             finish()
         }
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, Submenu::class.java)
-        startActivity(intent)
+        //val intent = Intent(this, Submenu::class.java)
+        //startActivity(intent)
 
     }
 

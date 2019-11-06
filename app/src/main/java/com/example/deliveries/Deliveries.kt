@@ -3,10 +3,8 @@ package com.example.deliveries
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Telephony
 import com.example.layers.MainActivity
 import com.example.layers.R
-import com.example.layers.Submenu
 import kotlinx.android.synthetic.main.activity_deliveries.*
 
 

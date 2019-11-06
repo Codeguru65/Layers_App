@@ -22,9 +22,9 @@
         <activity
             android:name=".Mort"
             android:resizeableActivity="true" />
-        <activity
+       <!-- <activity
             android:name=".Submenu"
-            android:resizeableActivity="true" />
+            android:resizeableActivity="true" />-->
         <activity
             android:name=".LoginActivity"
             android:resizeableActivity="true">
