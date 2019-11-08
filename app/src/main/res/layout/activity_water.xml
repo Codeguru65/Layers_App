@@ -1,104 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/loginbg"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
-    tools:context=".Water">
+    android:orientation="vertical"
+    tools:context=".EggP"
+    >
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/tool_bar" />
+
+
+        <TextView
+            android:id="@+id/tvDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:inputType="date"
+            android:text="00/00/00"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-            <TextView
-                android:id="@+id/txtw2"
-                android:layout_width="207dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="64dp"
-                android:text="WATER"
-                android:textAlignment="center"
-                android:textColor="#008000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.cardview.widget.CardView
 
-            <TextView
-                android:id="@+id/txtw17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="65dp"
-                android:text="Level"
-                android:textColor="#008000"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtw2" />
+            android:id="@+id/cv_whole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
 
-            <TextView
-                android:id="@+id/txtw19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="65dp"
-                android:text="Reason"
-                android:textColor="#008000"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtw17" />
+            android:layout_marginLeft="10dp"
 
-            <Spinner
-                android:id="@+id/spinnerw3"
-                android:layout_width="113dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="58dp"
-                android:entries="@array/wlevel"
-                app:layout_constraintStart_toEndOf="@+id/txtw17"
-                app:layout_constraintTop_toBottomOf="@+id/txtw2" />
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_half">
 
-            <Button
-                android:id="@+id/btn_water"
-                android:layout_width="177dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="65dp"
-                android:layout_marginBottom="35dp"
-                android:background="@drawable/custom_button"
-                android:text="NEXT"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtw19" />
+            <LinearLayout
 
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="134dp"
-                android:layout_height="56dp"
-                android:layout_marginTop="32dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@android:color/black"
-                app:layout_constraintStart_toStartOf="@+id/spinnerw3"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerw3" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="3dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
-</LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="Reason"
+                    android:textColor="#008000"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/et_whole_qty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:hint="reason"
+                    android:textColor="#008000"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/cv_half"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="3dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="Water Levels"
+                    android:textColor="#008000"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/wlevel"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp" />
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <Button
+            android:id="@+id/btn_water"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/custom_button"
+            android:text="save"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_whole" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemBackground="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu">
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

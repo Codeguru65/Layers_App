@@ -46,10 +46,25 @@ class MainActivity : AppCompatActivity() {
 
         var btn_feed: Button = dialog.findViewById(R.id.btn_feed)
         var btn_eggs: Button = dialog.findViewById(R.id.btn_eggs)
+        var btn_mortality: Button = dialog.findViewById(R.id.btn_motality)
+        var btn_health : Button = dialog.findViewById(R.id.btn_health)
+        var btn_water: Button = dialog.findViewById(R.id.btn_water)
 
         btn_feed.setOnClickListener {
             showBagSizeDialog()
             dialog.dismiss()
+        }
+        btn_eggs.setOnClickListener {
+            startActivity(Intent(this,EggP::class.java))
+        }
+        btn_mortality.setOnClickListener {
+            startActivity(Intent(this,Mort::class.java))
+        }
+        btn_health.setOnClickListener {
+            startActivity(Intent(this, Health::class.java))
+        }
+        btn_water.setOnClickListener {
+            startActivity(Intent(this,Water::class.java))
         }
 
         dialog.show()
@@ -67,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
 
         var btn10Kg: Button = dialog.findViewById(R.id.btn_10kg_bag)
-        var btn25kg: Button = dialog.findViewById(R.id.btn_10kg_bag)
+        var btn25kg: Button = dialog.findViewById(R.id.btn_25kg_bag)
         var btn50kg: Button = dialog.findViewById(R.id.btn_50kg_bag)
 
 

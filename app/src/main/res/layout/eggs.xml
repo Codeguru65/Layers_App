@@ -1,204 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="0dp"
-    android:paddingTop="0dp"
-    android:paddingRight="0dp"
-    android:background="@drawable/loginbg"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
-    tools:context=".EggP">
+    android:orientation="vertical"
+    tools:context=".EggP"
+    >
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/tool_bar" />
+
+
+        <TextView
+            android:id="@+id/tvDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:inputType="date"
+            android:text="00/00/00"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout"
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/cv_whole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate">
+
+            <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="3dp">
+
 
                 <TextView
-                    android:id="@+id/txt2"
-                    android:layout_width="277dp"
-                    android:layout_height="39dp"
-                    android:layout_marginTop="100dp"
-                    android:text="  EGG PRODUCTION"
-                    android:textColor="#008000"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.52"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txt4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginTop="65dp"
-                    android:text="Target"
+                    android:layout_marginLeft="2dp"
+                    android:text="Eggs Picked"
                     android:textColor="#008000"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt2" />
+                    android:textSize="18sp" />
+
 
                 <EditText
-                    android:id="@+id/etxt2"
-                    android:layout_width="135dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="52dp"
-                    android:autoSizePresetSizes="true"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/open"
-                    android:textColor="@android:color/black"
-                    android:textColorHighlight="#008000"
-                    android:textColorHint="#008000"
-                    android:textColorLink="#008000"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.327"
-                    app:layout_constraintStart_toEndOf="@+id/txt4"
-                    app:layout_constraintTop_toBottomOf="@+id/txt2" />
-
-                <TextView
-                    android:id="@+id/txt13"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/eggPicked"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginTop="65dp"
-                    android:text="Actual"
+                    android:layout_marginTop="1dp"
+                    android:hint="number of eggs"
                     android:textColor="#008000"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt4" />
+                    android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/etxt5"
-                    android:layout_width="135dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="50dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/open"
-                    android:textColor="@android:color/black"
-                    android:textColorHighlight="#008000"
-                    android:textColorHint="#008000"
-                    android:textColorLink="#008000"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.29"
-                    app:layout_constraintStart_toEndOf="@+id/txt13"
-                    app:layout_constraintTop_toBottomOf="@+id/txt4" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/cv_qtr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_whole"
+
+            >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="3dp">
+
 
                 <TextView
-                    android:id="@+id/txt15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginTop="65dp"
+                    android:layout_marginLeft="2dp"
                     android:text="Breakages"
                     android:textColor="#008000"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt13" />
+                    android:textSize="18sp" />
+
 
                 <EditText
-                    android:id="@+id/etxt6"
-                    android:layout_width="135dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="50dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/open"
-                    android:textColor="@android:color/black"
-                    android:textColorHighlight="#008000"
-                    android:textColorHint="#008000"
-                    android:textColorLink="#008000"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/txt15"
-                    app:layout_constraintTop_toBottomOf="@+id/txt13" />
-
-                <TextView
-                    android:id="@+id/txt17"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/egBreak"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginTop="65dp"
-                    android:text="Quality"
+                    android:layout_marginTop="1dp"
+                    android:hint="number of eggs"
                     android:textColor="#008000"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt15" />
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/cv_half"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_qtr"
+
+            >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="3dp">
+
 
                 <TextView
-                    android:id="@+id/txt19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginTop="65dp"
+                    android:layout_marginLeft="2dp"
                     android:text="Size"
                     android:textColor="#008000"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt17" />
+                    android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinnerE"
-                    android:layout_width="113dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="60dp"
+                    android:id="@+id/spinSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:entries="@array/eggS"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.019"
-                    app:layout_constraintStart_toStartOf="@+id/spinnerE2"
-                    app:layout_constraintTop_toBottomOf="@+id/txt17" />
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp" />
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/cv_3qtr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintTop_toBottomOf="@id/cv_half"
+
+            >
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="3dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="Quality"
+                    android:textColor="#008000"
+                    android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinnerE2"
-                    android:layout_width="113dp"
-                    android:layout_height="38dp"
-                    android:layout_marginStart="76dp"
-                    android:layout_marginLeft="76dp"
-                    android:layout_marginTop="60dp"
+                    android:id="@+id/spinQua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:entries="@array/eggQ"
-                    app:layout_constraintStart_toEndOf="@+id/txt17"
-                    app:layout_constraintTop_toBottomOf="@+id/txt15" />
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp" />
 
-                <Button
-                    android:id="@+id/btn_eggs"
-                    android:layout_width="177dp"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="65dp"
-                    android:layout_marginBottom="35dp"
-                    android:background="@drawable/custom_button"
-                    android:text="NEXT"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt19" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+            </LinearLayout>
 
-    </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnEggSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cv_3qtr"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/custom_button"
+            android:text="save"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"/>
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemBackground="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu">
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

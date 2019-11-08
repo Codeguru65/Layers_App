@@ -19,8 +19,8 @@ class Health : AppCompatActivity(){
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        //val intent = Intent(this, Submenu::class.java)
-        //startActivity(intent)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
 
     }
 
