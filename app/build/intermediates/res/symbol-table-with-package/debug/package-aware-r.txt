@@ -1072,6 +1072,11 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icn_done_background
 drawable icon_done
+drawable icons8invoice50
+drawable icons8maintenance50
+drawable icons8newproduct80
+drawable icons8shipped50
+drawable icons8wrench50
 drawable inventory
 drawable loginbg
 drawable mtrl_snackbar_background

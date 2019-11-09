@@ -3,24 +3,24 @@
 
     <item
         android:id="@+id/home"
-        android:tooltipText="home"
-        android:icon="@drawable/inventory"
-        android:title="inventory" />
+        android:icon="@drawable/icons8newproduct80"
+        android:title="inventory"
+        android:tooltipText="home" />
     <item
         android:id="@+id/home1"
-        android:tooltipText="home"
-        android:icon="@drawable/accounts"
-        android:title="accounting" />
+        android:icon="@drawable/icons8invoice50"
+        android:title="accounting"
+        android:tooltipText="home" />
     <item
         android:id="@+id/home2"
-        android:tooltipText="home"
-        android:icon="@drawable/delivery"
-        android:title="delivery" />
+        android:icon="@drawable/icons8shipped50"
+        android:title="delivery"
+        android:tooltipText="home" />
 
     <item
         android:id="@+id/home3"
-        android:tooltipText="home"
-        android:icon="@drawable/support"
-        android:title="support" />
+        android:icon="@drawable/icons8maintenance50"
+        android:title="support"
+        android:tooltipText="home" />
 
 </menu>
