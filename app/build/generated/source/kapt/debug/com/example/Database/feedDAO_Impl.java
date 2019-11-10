@@ -24,7 +24,7 @@ public final class feedDAO_Impl implements feedDAO {
     this.__insertionAdapterOfDFU_Entity = new EntityInsertionAdapter<DFU_Entity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `DFU_Entity` (`id`,`date`,`feedType`,`quatity`) VALUES (nullif(?, 0),?,?,?)";
+        return "INSERT OR ABORT INTO `DFU_Entity` (`id`,`date`,`feed_type`,`quantity`,`sync_status`,`openning_feed`,`clossing_feed`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
@@ -40,7 +40,12 @@ public final class feedDAO_Impl implements feedDAO {
         } else {
           stmt.bindString(3, value.getFeedType());
         }
-        stmt.bindLong(4, value.getQuatity());
+        stmt.bindDouble(4, value.getQuatity());
+        final int _tmp;
+        _tmp = value.getSyncStatus() ? 1 : 0;
+        stmt.bindLong(5, _tmp);
+        stmt.bindDouble(6, value.getOpenningFeed());
+        stmt.bindDouble(7, value.getClossingFeed());
       }
     };
   }
@@ -66,8 +71,11 @@ public final class feedDAO_Impl implements feedDAO {
     try {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
       final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
-      final int _cursorIndexOfFeedType = CursorUtil.getColumnIndexOrThrow(_cursor, "feedType");
-      final int _cursorIndexOfQuatity = CursorUtil.getColumnIndexOrThrow(_cursor, "quatity");
+      final int _cursorIndexOfFeedType = CursorUtil.getColumnIndexOrThrow(_cursor, "feed_type");
+      final int _cursorIndexOfQuatity = CursorUtil.getColumnIndexOrThrow(_cursor, "quantity");
+      final int _cursorIndexOfSyncStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "sync_status");
+      final int _cursorIndexOfOpenningFeed = CursorUtil.getColumnIndexOrThrow(_cursor, "openning_feed");
+      final int _cursorIndexOfClossingFeed = CursorUtil.getColumnIndexOrThrow(_cursor, "clossing_feed");
       final List<DFU_Entity> _result = new ArrayList<DFU_Entity>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final DFU_Entity _item;
@@ -81,9 +89,20 @@ public final class feedDAO_Impl implements feedDAO {
         final String _tmpFeedType;
         _tmpFeedType = _cursor.getString(_cursorIndexOfFeedType);
         _item.setFeedType(_tmpFeedType);
-        final int _tmpQuatity;
-        _tmpQuatity = _cursor.getInt(_cursorIndexOfQuatity);
+        final float _tmpQuatity;
+        _tmpQuatity = _cursor.getFloat(_cursorIndexOfQuatity);
         _item.setQuatity(_tmpQuatity);
+        final boolean _tmpSyncStatus;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfSyncStatus);
+        _tmpSyncStatus = _tmp != 0;
+        _item.setSyncStatus(_tmpSyncStatus);
+        final float _tmpOpenningFeed;
+        _tmpOpenningFeed = _cursor.getFloat(_cursorIndexOfOpenningFeed);
+        _item.setOpenningFeed(_tmpOpenningFeed);
+        final float _tmpClossingFeed;
+        _tmpClossingFeed = _cursor.getFloat(_cursorIndexOfClossingFeed);
+        _item.setClossingFeed(_tmpClossingFeed);
         _result.add(_item);
       }
       return _result;

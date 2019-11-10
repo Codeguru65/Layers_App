@@ -27,21 +27,25 @@ public final class AppDb_Impl extends AppDb {
 
   private volatile eggDAO _eggDAO;
 
+  private volatile inventoryDAO _inventoryDAO;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `DFU_Entity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT, `feedType` TEXT, `quatity` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `DFU_Entity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL, `feed_type` TEXT NOT NULL, `quantity` REAL NOT NULL, `sync_status` INTEGER NOT NULL, `openning_feed` REAL NOT NULL, `clossing_feed` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Egg_Entity` (`eggid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT, `size` TEXT, `quality` TEXT, `picked` INTEGER NOT NULL, `broken` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Inventory_Entity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `item` TEXT NOT NULL, `quantity` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '39447982506e06f0da0f61a03f7b1de1')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '070262d97fc79964159a10089d2dff99')");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `DFU_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Egg_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Inventory_Entity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -80,11 +84,14 @@ public final class AppDb_Impl extends AppDb {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsDFUEntity = new HashMap<String, TableInfo.Column>(4);
+        final HashMap<String, TableInfo.Column> _columnsDFUEntity = new HashMap<String, TableInfo.Column>(7);
         _columnsDFUEntity.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsDFUEntity.put("date", new TableInfo.Column("date", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsDFUEntity.put("feedType", new TableInfo.Column("feedType", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsDFUEntity.put("quatity", new TableInfo.Column("quatity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDFUEntity.put("date", new TableInfo.Column("date", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDFUEntity.put("feed_type", new TableInfo.Column("feed_type", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDFUEntity.put("quantity", new TableInfo.Column("quantity", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDFUEntity.put("sync_status", new TableInfo.Column("sync_status", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDFUEntity.put("openning_feed", new TableInfo.Column("openning_feed", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDFUEntity.put("clossing_feed", new TableInfo.Column("clossing_feed", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysDFUEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesDFUEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoDFUEntity = new TableInfo("DFU_Entity", _columnsDFUEntity, _foreignKeysDFUEntity, _indicesDFUEntity);
@@ -110,9 +117,22 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoEggEntity + "\n"
                   + " Found:\n" + _existingEggEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsInventoryEntity = new HashMap<String, TableInfo.Column>(3);
+        _columnsInventoryEntity.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsInventoryEntity.put("item", new TableInfo.Column("item", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsInventoryEntity.put("quantity", new TableInfo.Column("quantity", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysInventoryEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesInventoryEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoInventoryEntity = new TableInfo("Inventory_Entity", _columnsInventoryEntity, _foreignKeysInventoryEntity, _indicesInventoryEntity);
+        final TableInfo _existingInventoryEntity = TableInfo.read(_db, "Inventory_Entity");
+        if (! _infoInventoryEntity.equals(_existingInventoryEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Inventory_Entity(com.example.Database.Inventory_Entity).\n"
+                  + " Expected:\n" + _infoInventoryEntity + "\n"
+                  + " Found:\n" + _existingInventoryEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "39447982506e06f0da0f61a03f7b1de1", "a7605d9920340c1af1b17636f794e8d1");
+    }, "070262d97fc79964159a10089d2dff99", "67cba18cbfed160cade8daf5faa201b1");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -125,7 +145,7 @@ public final class AppDb_Impl extends AppDb {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity");
   }
 
   @Override
@@ -136,6 +156,7 @@ public final class AppDb_Impl extends AppDb {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `DFU_Entity`");
       _db.execSQL("DELETE FROM `Egg_Entity`");
+      _db.execSQL("DELETE FROM `Inventory_Entity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -170,6 +191,20 @@ public final class AppDb_Impl extends AppDb {
           _eggDAO = new eggDAO_Impl(this);
         }
         return _eggDAO;
+      }
+    }
+  }
+
+  @Override
+  public inventoryDAO inventoryDAO() {
+    if (_inventoryDAO != null) {
+      return _inventoryDAO;
+    } else {
+      synchronized(this) {
+        if(_inventoryDAO == null) {
+          _inventoryDAO = new inventoryDAO_Impl(this);
+        }
+        return _inventoryDAO;
       }
     }
   }

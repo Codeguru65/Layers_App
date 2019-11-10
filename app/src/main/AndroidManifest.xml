@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FeedActivity"></activity>
+        <activity android:name=".edit_feed_inventory"></activity>
+        <activity android:name=".FeedActivity" />
         <activity android:name="com.example.dailythings.DailyThingsList" />
         <activity android:name=".DailyActivityViewer" />
         <activity android:name="com.example.deliveries.PartPay" />
@@ -22,9 +23,11 @@
         <activity
             android:name=".Mort"
             android:resizeableActivity="true" />
-       <!-- <activity
+        <!--
+ <activity
             android:name=".Submenu"
-            android:resizeableActivity="true" />-->
+            android:resizeableActivity="true" />
+        -->
         <activity
             android:name=".LoginActivity"
             android:resizeableActivity="true">
@@ -46,12 +49,15 @@
         <activity
             android:name=".Health"
             android:resizeableActivity="true" />
-        <activity android:name="com.example.production.Inventory"
-            android:resizeableActivity="true"/>
-        <activity android:name="com.example.production.ProdSub"
-            android:resizeableActivity="true"/>
-        <activity android:name="com.example.dailythings.Statistics"
-            android:resizeableActivity="true"/>
+        <activity
+            android:name="com.example.production.Inventory"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.production.ProdSub"
+            android:resizeableActivity="true" />
+        <activity
+            android:name="com.example.dailythings.Statistics"
+            android:resizeableActivity="true" />
     </application>
 
 </manifest>

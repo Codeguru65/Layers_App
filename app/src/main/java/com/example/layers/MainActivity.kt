@@ -5,10 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.deliveries.Deliveries
-import com.example.production.Inventory
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.Window
 import android.widget.Button
+import kotlinx.android.synthetic.main.inventory_options.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         }
         btn_production.setOnClickListener {
-            startActivity(Intent(this, Inventory::class.java))
+           // startActivity(Intent(this, Inventory::class.java))
+            showProductionDialog()
 
         }
     }
@@ -65,6 +66,66 @@ class MainActivity : AppCompatActivity() {
         }
         btn_water.setOnClickListener {
             startActivity(Intent(this,Water::class.java))
+        }
+
+        dialog.show()
+    }
+
+
+    private fun showProductionDialog(){
+        // create an alert builder
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.production_dialogue)
+
+        //button handlers here
+        var btnInventory : Button = dialog.findViewById(R.id.btn_inventory)
+        var btnReports   : Button = dialog.findViewById(R.id.btn_daily_entries)
+        var btnDailyEntries : Button = dialog.findViewById(R.id.btn_reports)
+
+
+
+
+        btnInventory.setOnClickListener {
+            showInventoryOptions()
+            dialog.dismiss()
+        }
+
+        btnDailyEntries.setOnClickListener {
+            showInventoryOptions()
+            dialog.dismiss()
+        }
+
+        btnReports.setOnClickListener {
+            showInventoryOptions()
+            dialog.dismiss()
+        }
+        dialog.show()
+
+    }
+
+    private fun showInventoryOptions() {
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.inventory_options)
+
+
+        var btnViewInventorry : Button = dialog.findViewById(R.id.btn_view_inventory)
+        var btnEditInventory : Button = dialog.findViewById(R.id.btn_edit_inventory)
+        var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
+
+       btnEditInventory.setOnClickListener {
+
+       }
+
+        btnViewInventorry.setOnClickListener {
+
+        }
+
+        btnAddItem.setOnClickListener {
+            startActivity(Intent(this,edit_feed_inventory::class.java))
         }
 
         dialog.show()

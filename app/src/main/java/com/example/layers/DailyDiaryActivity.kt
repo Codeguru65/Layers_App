@@ -1,19 +1,14 @@
 package com.example.layers
 
 import android.app.DatePickerDialog
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
-import android.view.Gravity
-import android.view.Window
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.Database.AppDb
 import com.example.Database.DFU_Entity
+import com.example.Database.Inventory_Entity
 
 import kotlinx.android.synthetic.main.activity_daily_diary.*
 import java.util.*
@@ -30,14 +25,20 @@ class DailyDiaryActivity : AppCompatActivity() {
         //var tTitle = toolbar.findViewById(R.id.title)
 
 
+        var level10kg :Float? = null
+        var level25kg :Float? = null
+        var level50kg :Float? = null
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").build()
 
 
 
 
+
+
+
         val bundle : Bundle? = intent.extras
-        val bagSize : String? = bundle!!.getString("BAG_SIZE")
+        val bagSize : Int = bundle!!.getInt("BAG_SIZE")
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -52,8 +53,6 @@ class DailyDiaryActivity : AppCompatActivity() {
 
 
         var trueMonth : Int?
-
-
         var date : String ?
 
         tvDate.setOnClickListener {
@@ -66,13 +65,8 @@ class DailyDiaryActivity : AppCompatActivity() {
             val datePicker = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-
-
                     trueMonth = month + 1
-
                     date = dayOfMonth.toString()+"/"+trueMonth+"/"+year
-
-
                     tvDate.text = date
                 },
                 year,
@@ -89,7 +83,46 @@ class DailyDiaryActivity : AppCompatActivity() {
 
 
         btnSave.setOnClickListener {
-            if(!TextUtils.isEmpty(et_whole_qty.text.toString())){
+
+            var numWhole = et_whole_qty.text.toString().toDouble()
+            var numQtr = et_qtr_qty.text.toString().toDouble()
+            var numHalf = et_half_qty.text.toString().toDouble()
+            var num3qtr = et_3qtr_qty.text.toString().toDouble()
+            var qty = (numWhole + bagSize * ((numQtr * 0.25) + (numHalf * 0.5) +(num3qtr * 0.75))).toFloat()
+
+
+            var list = db.inventoryDAO().viewFeed()
+
+
+
+            Thread{
+
+                var dailyDiaryActivity = DFU_Entity()
+                dailyDiaryActivity.date=tvDate.text.toString()
+                dailyDiaryActivity.feedType=bagSize.toString()+"KgBag"
+                dailyDiaryActivity.quatity = qty
+                dailyDiaryActivity.openningFeed = list[0].qty
+                dailyDiaryActivity.clossingFeed = qty - list[0].qty
+                dailyDiaryActivity.syncStatus=false
+
+                db.feedTaskDAO().saveFeedTask(dailyDiaryActivity)
+            }
+
+
+
+           /* var num_whole = et_whole_qty.text.toString().toInt()
+            var num_qtr  = et_qtr_qty.text.toString().toInt()
+            var num_half = et_half_qty.text.toString().toInt()
+            var num_3qtr = et_3qtr_qty.text.toString().toInt()
+*/
+
+
+            //quantity = whole + size[(10kg_num * fraction) + (25kg_num * faction) + (50kg_num * fraction)
+
+           // var totalFeedTypeUsed = num_whole + bagSize * ((num_qtr * 0.25) + (num_half * 0.5) +(num_3qtr * 0.75))
+
+
+           /* if(!TextUtils.isEmpty(et_whole_qty.text.toString())){
                 whole = et_whole_qty.text.toString().toInt()
 
                 Thread{
@@ -154,13 +187,18 @@ class DailyDiaryActivity : AppCompatActivity() {
                // Toast.makeText(this,"no 3/4 bags",Toast.LENGTH_SHORT).show()
             }
 
+            */
+
 
            Thread{
                db.feedTaskDAO().viewFeed().forEach{
                Log.i("@override","id : ${it.id}")
-               Log.i("@override","date : ${it.date}")
-               Log.i("@override","feedType : ${it.feedType}")
-               Log.i("@override","quantity: ${it.quatity}")
+               Log.i("@override","date: ${it.date}")
+               Log.i("@override","qty : ${it.feedType}")
+                   Log.i("@override","quantity : ${it.quatity}")
+                   Log.i("@override","openning Feed: ${it.openningFeed}")
+                   Log.i("@override","clossing Feed : ${it.clossingFeed}")
+                   Log.i("@override","Status : ${it.syncStatus}")
                }
 
 
@@ -173,6 +211,7 @@ class DailyDiaryActivity : AppCompatActivity() {
 
 
     }
+
 
 
 
