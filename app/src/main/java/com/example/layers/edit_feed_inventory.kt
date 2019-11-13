@@ -5,17 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.Database.Inventory_Entity
-import com.example.deliveries.Deliveries
 import com.example.production.Inventory
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_edit_feed_inventory.*
-import kotlinx.android.synthetic.main.activity_inventory.view.*
-import kotlinx.android.synthetic.main.inventory_item.view.*
 
 class edit_feed_inventory : AppCompatActivity() {
 
@@ -47,13 +42,6 @@ class edit_feed_inventory : AppCompatActivity() {
               db.inventoryDAO().addtem(inventoryEntity3)
 
           }
-
-
-
-
-
-
-
 
         btnSaveItem.setOnClickListener {
 
@@ -92,10 +80,6 @@ class edit_feed_inventory : AppCompatActivity() {
                 db.inventoryDAO().addMoreFeed(inventoryEntity1)
 
             }
-
-
-
-
 
             Toast.makeText(this,"RECORDS UPDATED", Toast.LENGTH_SHORT)
             et_total_10kg.text.clear()
@@ -137,9 +121,6 @@ class edit_feed_inventory : AppCompatActivity() {
         val bottomNavigation: BottomNavigationView = findViewById(R.id.btm_nav)
         bottomNavigation.setOnNavigationItemSelectedListener(navListener)
 
-
-
-
     }
 
     private val navListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -162,7 +143,7 @@ class edit_feed_inventory : AppCompatActivity() {
             }
             R.id.home2-> {
                 finish()
-                startActivity(Intent(this, Deliveries::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
                 Toast.makeText(this,"home pressed",Toast.LENGTH_SHORT).show()
                 return@OnNavigationItemSelectedListener true
 

@@ -35,11 +35,6 @@ class DailyFeedActivity : AppCompatActivity() {
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
         var list = db.inventoryDAO().viewFeed()
 
-
-
-
-
-
         val bundle : Bundle? = intent.extras
         val bagSize : Int = bundle!!.getInt("BAG_SIZE")
         Log.i("@bagsize","type : ${bagSize.toString()+"_kg_bag"}")

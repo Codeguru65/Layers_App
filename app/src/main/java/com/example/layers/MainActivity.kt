@@ -4,10 +4,12 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.deliveries.Deliveries
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.Window
 import android.widget.Button
+import com.example.deliveries.Account
+import com.example.deliveries.Cash
+import com.example.deliveries.PartPay
 import com.example.production.Inventory
 
 
@@ -19,19 +21,15 @@ class MainActivity : AppCompatActivity() {
 
         btn_daily_diary.setOnClickListener {
             showDiaryDialog()
-
         }
 
         /**
          * change the final method attached to the buttons i.e the finish() method
          */
         btn_deliveries.setOnClickListener {
-            val intent = Intent(this, Deliveries::class.java)
-            startActivity(intent)
-
+            showDeliveries()
         }
         btn_production.setOnClickListener {
-           // startActivity(Intent(this, Inventory::class.java))
             showProductionDialog()
 
         }
@@ -180,6 +178,38 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+        dialog.show()
+    }
+
+
+    private fun showDeliveries(){
+        // create an alert builder
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.deliveries_dialog)
+
+
+        var btn_cash: Button = dialog.findViewById(R.id.btn_cash)
+        var btn_acc: Button = dialog.findViewById(R.id.btn_acc)
+        var btn_part: Button = dialog.findViewById(R.id.btn_partP)
+
+        btn_cash.setOnClickListener {
+            startActivity(Intent(this, Cash::class.java))
+            finish()
+            dialog.dismiss()
+        }
+        btn_acc.setOnClickListener {
+            startActivity(Intent(this,Account::class.java))
+            dialog.dismiss()
+            finish()
+        }
+        btn_part.setOnClickListener {
+            startActivity(Intent(this,PartPay::class.java))
+            dialog.dismiss()
+            finish()
+        }
 
         dialog.show()
     }
