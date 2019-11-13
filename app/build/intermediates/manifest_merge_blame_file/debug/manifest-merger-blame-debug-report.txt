@@ -88,8 +88,8 @@
 48        </activity>
 49        <activity
 49-->C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:40:9-42:49
-50            android:name="com.example.layers.DailyDiaryActivity"
-50-->C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:41:13-47
+50            android:name="com.example.layers.DailyFeedActivity"
+50-->C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:41:13-46
 51            android:resizeableActivity="true" />
 51-->C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:42:13-46
 52        <activity

@@ -8,7 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.Database.Egg_Entity
-import kotlinx.android.synthetic.main.activity_daily_diary.*
+import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.eggs.*
 import kotlinx.android.synthetic.main.eggs.toolbar
 import kotlinx.android.synthetic.main.eggs.tvDate

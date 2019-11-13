@@ -1,13 +1,21 @@
 package com.example.layers
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.Database.Inventory_Entity
+import com.example.deliveries.Deliveries
+import com.example.production.Inventory
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_edit_feed_inventory.*
-import kotlinx.android.synthetic.main.feed_item.view.*
+import kotlinx.android.synthetic.main.activity_inventory.view.*
+import kotlinx.android.synthetic.main.inventory_item.view.*
 
 class edit_feed_inventory : AppCompatActivity() {
 
@@ -15,11 +23,14 @@ class edit_feed_inventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_feed_inventory)
 
-        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").build()
 
 
 
-       Thread{
+        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
+
+        var list = db.inventoryDAO().viewFeed()
+
+
           if (db.inventoryDAO().viewFeed().isNullOrEmpty()) {
               var inventoryEntity1 = Inventory_Entity()
               var inventoryEntity2 = Inventory_Entity()
@@ -36,7 +47,7 @@ class edit_feed_inventory : AppCompatActivity() {
               db.inventoryDAO().addtem(inventoryEntity3)
 
           }
-       }.start()
+
 
 
 
@@ -45,39 +56,68 @@ class edit_feed_inventory : AppCompatActivity() {
 
 
         btnSaveItem.setOnClickListener {
-            var total10kgBagsAdded = et_total_10kg.text.toString().toFloat()
-            var total25kgBagsAdded  = et_total_25kg.text.toString().toFloat()
-            var total50kgBagsAdded = et_total_50kg.text.toString().toFloat()
 
 
-            Thread{
-                var list = db.inventoryDAO().viewFeed()
-               /* var total10kgBags = list[0].qty + total10kgBagsAdded
-                var total25kgBags = list[1].qty + total25kgBagsAdded
-                var total50kgBags = list[2].qty + total50kgBagsAdded
 
+
+            if(et_total_10kg.text.toString().isNotEmpty()){
+                var required = et_total_10kg.text.toString().toFloat() * 10.toFloat()
                 var inventoryEntity1 = Inventory_Entity()
-                inventoryEntity1.qty = total10kgBags
-                var inventoryEntity2 = Inventory_Entity()
-                inventoryEntity2.qty =total25kgBags
-                var inventoryEntity3 = Inventory_Entity()
-                inventoryEntity3.qty = total50kgBags
+                inventoryEntity1.id = 1
+                inventoryEntity1.item = "10_kg_bag"
+                inventoryEntity1.qty = required+ list[0].qty
 
                 db.inventoryDAO().addMoreFeed(inventoryEntity1)
-                db.inventoryDAO().addMoreFeed(inventoryEntity2)
-                db.inventoryDAO().addMoreFeed(inventoryEntity3)*/
 
-               for(item in list){
-                   Log.i("@override","id: ${item.id}")
-                   Log.i("@override","item: ${item.item}")
-                   Log.i("@override","qty: ${item.qty}")
-               }
+            }
+
+            if(et_total_25kg.text.toString().isNotEmpty()){
+                var required = et_total_25kg.text.toString().toFloat() * 25.toFloat()
+                var inventoryEntity1 = Inventory_Entity()
+                inventoryEntity1.id = 2
+                inventoryEntity1.item =list[1].item
+                inventoryEntity1.qty = required + list[1].qty
+
+                db.inventoryDAO().addMoreFeed(inventoryEntity1)
+
+            }
+
+            if(et_total_50kg.text.toString().isNotEmpty()){
+                var required =  et_total_50kg.text.toString().toFloat() * 50.toFloat()
+                var inventoryEntity1 = Inventory_Entity()
+                inventoryEntity1.id = 3
+                inventoryEntity1.item =list[2].item
+                inventoryEntity1.qty =  required + list[2].qty
+
+                db.inventoryDAO().addMoreFeed(inventoryEntity1)
+
+            }
 
 
 
-            }.start()
 
 
+            Toast.makeText(this,"RECORDS UPDATED", Toast.LENGTH_SHORT)
+            et_total_10kg.text.clear()
+            et_total_25kg.text.clear()
+            et_total_50kg.text.clear()
+
+            /*db.inventoryDAO().viewFeed().forEach{
+                Log.i("@override","id: ${it.id}")
+                Log.i("@override","item: ${it.item}")
+                Log.i("@override","qty: ${it.qty}")
+            }*/
+
+            list = db.inventoryDAO().viewFeed()
+
+            for(it in list){
+
+                Log.i("@override","id: ${it.id}")
+                Log.i("@override","item: ${it.item}")
+                Log.i("@override","qty: ${it.qty}")
+            }
+
+            Toast.makeText(this,"RECORDS UPDATED", Toast.LENGTH_SHORT).show()
 
 
 
@@ -85,17 +125,57 @@ class edit_feed_inventory : AppCompatActivity() {
 
 
         btnTest.setOnClickListener {
-            Thread{
-                db.inventoryDAO().viewFeed().forEach{
-                    Log.i("@override","id : ${it.id}")
-                    Log.i("@override","item: ${it.item}")
-                    Log.i("@override","qty : ${it.qty}")
-
-                }
-
-
-            }.start()
+            db.inventoryDAO().viewFeed().forEach(){
+                Log.i("@override","id: ${it.id}")
+                Log.i("@override","item: ${it.item}")
+                Log.i("@override","qty: ${it.qty}")
+            }
         }
 
+
+
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.btm_nav)
+        bottomNavigation.setOnNavigationItemSelectedListener(navListener)
+
+
+
+
     }
+
+    private val navListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.home -> {
+                finish()
+                startActivity(Intent(this,MainActivity::class.java))
+                Toast.makeText(this,"home pressed",Toast.LENGTH_SHORT).show()
+                return@OnNavigationItemSelectedListener true
+
+
+            }
+            R.id.home1-> {
+                finish()
+                startActivity(Intent(this, Inventory::class.java))
+                Toast.makeText(this,"home pressed",Toast.LENGTH_SHORT).show()
+                return@OnNavigationItemSelectedListener true
+
+
+            }
+            R.id.home2-> {
+                finish()
+                startActivity(Intent(this, Deliveries::class.java))
+                Toast.makeText(this,"home pressed",Toast.LENGTH_SHORT).show()
+                return@OnNavigationItemSelectedListener true
+
+            }
+            R.id.home3-> {
+                finish()
+                startActivity(Intent(this, Inventory::class.java))
+                Toast.makeText(this,"home pressed",Toast.LENGTH_SHORT).show()
+                return@OnNavigationItemSelectedListener true
+
+            }
+        }
+        false
+    }
+
 }

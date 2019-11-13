@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.layers.R
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.feed_item.view.*
+import kotlinx.android.synthetic.main.inventory_item.view.*
 
 class Adapter (val context: Context,val  data: List<Data>): RecyclerView.Adapter<Adapter.MyVieiwHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVieiwHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.feed_item, parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.inventory_item, parent,false)
         return MyVieiwHolder(view)
     }
 

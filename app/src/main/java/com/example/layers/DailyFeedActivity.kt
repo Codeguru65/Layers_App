@@ -4,23 +4,26 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.Database.DFU_Entity
 import com.example.Database.Inventory_Entity
 
-import kotlinx.android.synthetic.main.activity_daily_diary.*
+import kotlinx.android.synthetic.main.activity_daily_feed.*
 import java.util.*
 
 
-class DailyDiaryActivity : AppCompatActivity() {
+class DailyFeedActivity : AppCompatActivity() {
+
+
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_daily_diary)
+        setContentView(R.layout.activity_daily_feed)
         setSupportActionBar(toolbar as Toolbar?)
         //var tTitle = toolbar.findViewById(R.id.title)
 
@@ -29,8 +32,8 @@ class DailyDiaryActivity : AppCompatActivity() {
         var level25kg :Float? = null
         var level50kg :Float? = null
 
-        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").build()
-
+        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
+        var list = db.inventoryDAO().viewFeed()
 
 
 
@@ -39,15 +42,13 @@ class DailyDiaryActivity : AppCompatActivity() {
 
         val bundle : Bundle? = intent.extras
         val bagSize : Int = bundle!!.getInt("BAG_SIZE")
+        Log.i("@bagsize","type : ${bagSize.toString()+"_kg_bag"}")
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
-        var whole : Int
-        var qtr : Int
-        var three_qrt : Int
-        var half :Int
+
 
 
 
@@ -84,29 +85,83 @@ class DailyDiaryActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
 
-            var numWhole = et_whole_qty.text.toString().toDouble()
-            var numQtr = et_qtr_qty.text.toString().toDouble()
-            var numHalf = et_half_qty.text.toString().toDouble()
-            var num3qtr = et_3qtr_qty.text.toString().toDouble()
-            var qty = (numWhole + bagSize * ((numQtr * 0.25) + (numHalf * 0.5) +(num3qtr * 0.75))).toFloat()
+
+            var numWhole = 0f
+            var numQtr = 0f
+            var numHalf = 0f
+            var num3qtr = 0f
+
+            if (et_whole_qty.text.toString().isNotEmpty()){  numWhole = et_whole_qty.text.toString().toFloat()}
+            if (et_qtr_qty.text.toString().isNotEmpty()){ numQtr = et_qtr_qty.text.toString().toFloat()}
+            if (et_half_qty.text.toString().isNotEmpty()){  numHalf = et_half_qty.text.toString().toFloat()}
+            if (et_3qtr_qty.text.toString().isNotEmpty()){  numWhole = et_3qtr_qty.text.toString().toFloat()}
+
+           /* var qty = (numWhole + bagSize * ((numQtr * 0.25) + (numHalf * 0.5) +(num3qtr * 0.75))).toFloat()*/
+            var qty = (numWhole * bagSize) + ( numQtr * (bagSize * 0.25) + numHalf * (bagSize * 0.5) + num3qtr * (bagSize * 0.75)).toFloat()
+
+            var msg :String
 
 
-            var list = db.inventoryDAO().viewFeed()
+
+            var level  = 0f // used to store the current level or feed quantity in the database before feed in actually used i.e if requried feed is greater than level then no feed must be used
+            var id = 0 // used to store the id of the item of interest
 
 
 
-            Thread{
+            //initialising the the var level with the actual value from the database
+            list.forEach{
+                if(it.item==bagSize.toString()+"_kg_bag"){
+                   level =  it.qty
+                    Log.i("Quantity" , "qty : $level")
+                    id = it.id
+                }
 
+            }
+
+            Log.i("@Required ", "required: $qty")
+
+            // getting the total amount of feed to be dispatched
+            var requiredFeed  = qty
+            var clossingFeed = level - requiredFeed
+
+
+
+            if (requiredFeed > level){
+                msg = "not enough feed of the selected type"
+                Toast.makeText(this,msg, Toast.LENGTH_SHORT).show()
+
+            }else{
                 var dailyDiaryActivity = DFU_Entity()
                 dailyDiaryActivity.date=tvDate.text.toString()
-                dailyDiaryActivity.feedType=bagSize.toString()+"KgBag"
-                dailyDiaryActivity.quatity = qty
-                dailyDiaryActivity.openningFeed = list[0].qty
-                dailyDiaryActivity.clossingFeed = qty - list[0].qty
+                dailyDiaryActivity.feedType=bagSize.toString()+"_kg_bag"
+                dailyDiaryActivity.quatity = requiredFeed
+                dailyDiaryActivity.openningFeed = level
+                dailyDiaryActivity.clossingFeed = clossingFeed
                 dailyDiaryActivity.syncStatus=false
 
                 db.feedTaskDAO().saveFeedTask(dailyDiaryActivity)
+
+                // updating the database with the new level
+
+                var inventoryEntity = Inventory_Entity()
+                inventoryEntity.id = id
+                inventoryEntity.item = bagSize.toString()+"_kg_bag"
+                inventoryEntity.qty = clossingFeed
+
+                db.inventoryDAO().addMoreFeed(inventoryEntity)
+
+               msg = "feed records updated "
+                Toast.makeText(this,msg, Toast.LENGTH_SHORT).show()
+
+
             }
+
+
+
+
+
+
+
 
 
 
@@ -194,7 +249,7 @@ class DailyDiaryActivity : AppCompatActivity() {
                db.feedTaskDAO().viewFeed().forEach{
                Log.i("@override","id : ${it.id}")
                Log.i("@override","date: ${it.date}")
-               Log.i("@override","qty : ${it.feedType}")
+               Log.i("@override","type : ${it.feedType}")
                    Log.i("@override","quantity : ${it.quatity}")
                    Log.i("@override","openning Feed: ${it.openningFeed}")
                    Log.i("@override","clossing Feed : ${it.clossingFeed}")
@@ -211,6 +266,8 @@ class DailyDiaryActivity : AppCompatActivity() {
 
 
     }
+
+
 
 
 

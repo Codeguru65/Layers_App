@@ -158,12 +158,12 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:37:17-77
 	android:name
 		ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:37:27-74
-activity#com.example.layers.DailyDiaryActivity
+activity#com.example.layers.DailyFeedActivity
 ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:40:9-42:49
 	android:resizeableActivity
 		ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:42:13-46
 	android:name
-		ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:41:13-47
+		ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:41:13-46
 activity#com.example.layers.MainActivity
 ADDED from C:\Users\Supreme Senpai\AndroidStudioProjects\Layers_App\app\src\main\AndroidManifest.xml:43:9-45:49
 	android:resizeableActivity

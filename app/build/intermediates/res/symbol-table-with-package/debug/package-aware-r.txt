@@ -1162,7 +1162,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addDate
 id alertTitle
 id all
 id always
@@ -1173,6 +1172,8 @@ id barrier
 id beginning
 id blocking
 id bottom
+id bottom_nav
+id btm_nav
 id btnEggSave
 id btnLogin
 id btnSave
@@ -1324,7 +1325,6 @@ id line1
 id line3
 id linearLayout10
 id linearLayout11
-id linearLayout12
 id linearLayout2
 id linearLayout3
 id linearLayout4
@@ -1440,7 +1440,6 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView2
-id textView3
 id textView5
 id textView6
 id textViewA7
@@ -1570,7 +1569,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_account
 layout activity_cash
-layout activity_daily_diary
+layout activity_daily_feed
 layout activity_daily_things_list
 layout activity_daily_viewer
 layout activity_deliveries
@@ -1586,7 +1585,6 @@ layout activity_statistics
 layout activity_water
 layout bag_size_dialog
 layout base
-layout bottom_nav_menu
 layout custom_dialog
 layout daily_tasts_dialog
 layout date_picker_dialog
@@ -1605,8 +1603,8 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout eggs
-layout feed_item
 layout health
+layout inventory_item
 layout inventory_options
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include

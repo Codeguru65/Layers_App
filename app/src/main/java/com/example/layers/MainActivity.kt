@@ -8,7 +8,7 @@ import com.example.deliveries.Deliveries
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.Window
 import android.widget.Button
-import kotlinx.android.synthetic.main.inventory_options.*
+import com.example.production.Inventory
 
 
 class MainActivity : AppCompatActivity() {
@@ -117,15 +117,18 @@ class MainActivity : AppCompatActivity() {
         var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
 
        btnEditInventory.setOnClickListener {
-
+           startActivity(Intent(this,edit_feed_inventory::class.java))
+           dialog.dismiss()
        }
 
         btnViewInventorry.setOnClickListener {
+            startActivity(Intent(this,Inventory::class.java))
 
+           // Toast.makeText(this, "the button is working ", Toast.LENGTH_SHORT).show()
         }
 
         btnAddItem.setOnClickListener {
-            startActivity(Intent(this,edit_feed_inventory::class.java))
+
         }
 
         dialog.show()
@@ -149,8 +152,8 @@ class MainActivity : AppCompatActivity() {
 
         //onclick listener for showing the feed activity loaded with relevent information
         btn10Kg.setOnClickListener {
-            var intent = Intent(this@MainActivity, DailyDiaryActivity::class.java)
-            val type : String = "10kg"
+            var intent = Intent(this@MainActivity, DailyFeedActivity::class.java)
+            val type : Int = 10
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
 
@@ -158,8 +161,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn25kg.setOnClickListener {
-            var intent = Intent(this@MainActivity, DailyDiaryActivity::class.java)
-            val type : String = "25kg"
+            var intent = Intent(this@MainActivity, DailyFeedActivity::class.java)
+            val type : Int = 25
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
 
@@ -167,8 +170,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn50kg.setOnClickListener {
-            var intent = Intent(this@MainActivity, DailyDiaryActivity::class.java)
-            val type : String = "50kg"
+            var intent = Intent(this@MainActivity, DailyFeedActivity::class.java)
+            val type : Int = 50
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
 

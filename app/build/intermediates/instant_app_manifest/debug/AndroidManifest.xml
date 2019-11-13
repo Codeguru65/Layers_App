@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.layers.DailyDiaryActivity"
+            android:name="com.example.layers.DailyFeedActivity"
             android:resizeableActivity="true" />
         <activity
             android:name="com.example.layers.MainActivity"

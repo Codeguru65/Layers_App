@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_bglogin.png.flat",
         "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\drawable-xxhdpi\\bglogin.png"
+    },
+    {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icons8shipped50.png.flat",
@@ -76,12 +76,12 @@
         "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\drawable-xhdpi\\accounts.png"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_hide_motion_spec.xml.flat",
-        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\0564db8f3c411d1b2d54ca0894d9e125\\material-1.0.0\\res\\animator\\mtrl_fab_hide_motion_spec.xml"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_hide_motion_spec.xml.flat",
+        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\0564db8f3c411d1b2d54ca0894d9e125\\material-1.0.0\\res\\animator\\mtrl_fab_hide_motion_spec.xml"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\2e2076e6216b29ee97192fe17edf1ebc\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_bottom_nav_colored_item_tint.xml.flat",
-        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\0564db8f3c411d1b2d54ca0894d9e125\\material-1.0.0\\res\\color\\mtrl_bottom_nav_colored_item_tint.xml"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_bottom_nav_colored_item_tint.xml.flat",
+        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\0564db8f3c411d1b2d54ca0894d9e125\\material-1.0.0\\res\\color\\mtrl_bottom_nav_colored_item_tint.xml"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -116,12 +116,12 @@
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
-        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media.xml.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\9ce3ee21c2e2c0f2f52b13e38e91138c\\media-1.0.0\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -200,16 +200,20 @@
         "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\mipmap-xhdpi\\icn_done.png"
     },
     {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_daily_feed.xml.flat",
+        "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\layout\\activity_daily_feed.xml"
+    },
+    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_holo_light.xml.flat",
@@ -776,10 +780,6 @@
         "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\drawable-xxxhdpi\\bglogin.png"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\layout\\bottom_nav_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_tabs_default_indicator.xml.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\0564db8f3c411d1b2d54ca0894d9e125\\material-1.0.0\\res\\drawable\\mtrl_tabs_default_indicator.xml"
     },
@@ -1080,10 +1080,6 @@
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_feed_item.xml.flat",
-        "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\layout\\feed_item.xml"
-    },
-    {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_bar.xml.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\layout\\abc_action_mode_bar.xml"
     },
@@ -1154,6 +1150,10 @@
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\3788f3b56b5ecd3ba5f93b17ed23495d\\appcompat-1.1.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_inventory_item.xml.flat",
+        "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\layout\\inventory_item.xml"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_close_item_material.xml.flat",
@@ -1350,10 +1350,6 @@
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar_include.xml.flat",
         "source": "C:\\Users\\Supreme Senpai\\.gradle\\caches\\transforms-2\\files-2.1\\0564db8f3c411d1b2d54ca0894d9e125\\material-1.0.0\\res\\layout\\mtrl_layout_snackbar_include.xml"
-    },
-    {
-        "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_daily_diary.xml.flat",
-        "source": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\src\\main\\res\\layout\\activity_daily_diary.xml"
     },
     {
         "merged": "C:\\Users\\Supreme Senpai\\AndroidStudioProjects\\Layers_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icn_done_foreground.png.flat",
