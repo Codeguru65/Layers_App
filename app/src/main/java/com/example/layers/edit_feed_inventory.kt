@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.room.Room
 import com.example.Database.AppDb
@@ -18,8 +20,12 @@ class edit_feed_inventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_feed_inventory)
 
-
-
+        var mtitle: TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Add new Item"
+        var back : Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -121,6 +127,11 @@ class edit_feed_inventory : AppCompatActivity() {
         val bottomNavigation: BottomNavigationView = findViewById(R.id.btm_nav)
         bottomNavigation.setOnNavigationItemSelectedListener(navListener)
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     private val navListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->

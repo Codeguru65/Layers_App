@@ -3,6 +3,8 @@ package com.example.layers
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.content.Intent
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.eggs.*
 import kotlinx.android.synthetic.main.eggs.toolbar
 import kotlinx.android.synthetic.main.eggs.tvDate
+import kotlinx.android.synthetic.main.tool_bar.*
 import java.lang.Exception
 import java.util.*
 
@@ -21,8 +24,13 @@ class EggP : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.eggs)
-//        setSupportActionBar(toolbar as Toolbar?)
-        //var tTitle = toolbar.findViewById(R.id.title)
+
+        var mtitle: TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Egg Production"
+        var back : Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
 
 
@@ -94,7 +102,7 @@ class EggP : AppCompatActivity(){
 
     override fun onBackPressed() {
         super.onBackPressed()
-        startActivity(Intent(this,MainActivity::class.java))
+        finish()
     }
 
 }

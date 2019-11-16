@@ -4,6 +4,8 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import com.example.layers.MainActivity
 import com.example.layers.R
 import kotlinx.android.synthetic.main.activity_account.*
@@ -16,6 +18,13 @@ class Account : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
+
+        var mtitle: TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Account Sells"
+        var back : Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -56,8 +65,7 @@ class Account : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        this.finish()
 
     }
 }

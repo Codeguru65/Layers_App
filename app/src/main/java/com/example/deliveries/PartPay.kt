@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.example.layers.R
 import kotlinx.android.synthetic.main.activity_part_pay.*
 import android.content.Intent
+import android.widget.Button
+import android.widget.TextView
 import com.example.layers.MainActivity
 import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.activity_part_pay.tvDate
@@ -16,6 +18,13 @@ class PartPay : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_part_pay)
+
+        var mtitle: TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Part Payments"
+        var back : Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -56,7 +65,6 @@ class PartPay : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
+        finish()
     }
 }

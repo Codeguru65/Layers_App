@@ -29,6 +29,8 @@ public final class AppDb_Impl extends AppDb {
 
   private volatile inventoryDAO _inventoryDAO;
 
+  private volatile waterDAO _waterDAO;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -37,8 +39,9 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `DFU_Entity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL, `feed_type` TEXT NOT NULL, `quantity` REAL NOT NULL, `sync_status` INTEGER NOT NULL, `openning_feed` REAL NOT NULL, `clossing_feed` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Egg_Entity` (`eggid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT, `size` TEXT, `quality` TEXT, `picked` INTEGER NOT NULL, `broken` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Inventory_Entity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `item` TEXT NOT NULL, `quantity` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Water_Entity` (`waterid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `wdate` TEXT, `level` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '070262d97fc79964159a10089d2dff99')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b0ec22dabc87cc29078fd1a9239253d9')");
       }
 
       @Override
@@ -46,6 +49,7 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("DROP TABLE IF EXISTS `DFU_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Egg_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Inventory_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Water_Entity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -130,9 +134,22 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoInventoryEntity + "\n"
                   + " Found:\n" + _existingInventoryEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsWaterEntity = new HashMap<String, TableInfo.Column>(3);
+        _columnsWaterEntity.put("waterid", new TableInfo.Column("waterid", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsWaterEntity.put("wdate", new TableInfo.Column("wdate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsWaterEntity.put("level", new TableInfo.Column("level", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysWaterEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesWaterEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoWaterEntity = new TableInfo("Water_Entity", _columnsWaterEntity, _foreignKeysWaterEntity, _indicesWaterEntity);
+        final TableInfo _existingWaterEntity = TableInfo.read(_db, "Water_Entity");
+        if (! _infoWaterEntity.equals(_existingWaterEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Water_Entity(com.example.Database.Water_Entity).\n"
+                  + " Expected:\n" + _infoWaterEntity + "\n"
+                  + " Found:\n" + _existingWaterEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "070262d97fc79964159a10089d2dff99", "67cba18cbfed160cade8daf5faa201b1");
+    }, "b0ec22dabc87cc29078fd1a9239253d9", "d0c996b9b15ee9a2d803973d52471171");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -145,7 +162,7 @@ public final class AppDb_Impl extends AppDb {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity");
   }
 
   @Override
@@ -157,6 +174,7 @@ public final class AppDb_Impl extends AppDb {
       _db.execSQL("DELETE FROM `DFU_Entity`");
       _db.execSQL("DELETE FROM `Egg_Entity`");
       _db.execSQL("DELETE FROM `Inventory_Entity`");
+      _db.execSQL("DELETE FROM `Water_Entity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -205,6 +223,20 @@ public final class AppDb_Impl extends AppDb {
           _inventoryDAO = new inventoryDAO_Impl(this);
         }
         return _inventoryDAO;
+      }
+    }
+  }
+
+  @Override
+  public waterDAO waterTask() {
+    if (_waterDAO != null) {
+      return _waterDAO;
+    } else {
+      synchronized(this) {
+        if(_waterDAO == null) {
+          _waterDAO = new waterDAO_Impl(this);
+        }
+        return _waterDAO;
       }
     }
   }

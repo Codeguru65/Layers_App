@@ -3,6 +3,8 @@ package com.example.layers
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.health.*
@@ -14,6 +16,14 @@ class Health : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.health)
+
+        var mtitle: TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Health"
+        var back : Button = findViewById(R.id.back)
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -55,8 +65,7 @@ class Health : AppCompatActivity(){
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        finish()
 
     }
 

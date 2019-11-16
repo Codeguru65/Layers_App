@@ -1073,6 +1073,7 @@ drawable ic_mtrl_chip_close_circle
 drawable icn_done_background
 drawable icon_done
 drawable icons8invoice50
+drawable icons8left50
 drawable icons8maintenance50
 drawable icons8newproduct80
 drawable icons8shipped50
@@ -1171,6 +1172,7 @@ id all
 id always
 id async
 id auto
+id back
 id bag_description
 id barrier
 id beginning
@@ -1192,7 +1194,6 @@ id btn_25kg_bag
 id btn_50kg_bag
 id btn_acc
 id btn_accounting
-id btn_add_item
 id btn_alerts
 id btn_cash
 id btn_daily_diary
@@ -1452,6 +1453,8 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id tool
+id tool_title
 id toolbar
 id top
 id topPanel

@@ -980,23 +980,23 @@ public final class R {
         public static final int ic_mtrl_chip_checked_black = 0x7f08007a;
         public static final int ic_mtrl_chip_checked_circle = 0x7f08007b;
         public static final int ic_mtrl_chip_close_circle = 0x7f08007c;
-        public static final int mtrl_snackbar_background = 0x7f080086;
-        public static final int mtrl_tabs_default_indicator = 0x7f080087;
-        public static final int navigation_empty_icon = 0x7f080088;
-        public static final int notification_action_background = 0x7f08008a;
-        public static final int notification_bg = 0x7f08008b;
-        public static final int notification_bg_low = 0x7f08008c;
-        public static final int notification_bg_low_normal = 0x7f08008d;
-        public static final int notification_bg_low_pressed = 0x7f08008e;
-        public static final int notification_bg_normal = 0x7f08008f;
-        public static final int notification_bg_normal_pressed = 0x7f080090;
-        public static final int notification_icon_background = 0x7f080091;
-        public static final int notification_template_icon_bg = 0x7f080092;
-        public static final int notification_template_icon_low_bg = 0x7f080093;
-        public static final int notification_tile_bg = 0x7f080094;
-        public static final int notify_panel_notification_icon_bg = 0x7f080095;
-        public static final int tooltip_frame_dark = 0x7f080099;
-        public static final int tooltip_frame_light = 0x7f08009a;
+        public static final int mtrl_snackbar_background = 0x7f080087;
+        public static final int mtrl_tabs_default_indicator = 0x7f080088;
+        public static final int navigation_empty_icon = 0x7f080089;
+        public static final int notification_action_background = 0x7f08008b;
+        public static final int notification_bg = 0x7f08008c;
+        public static final int notification_bg_low = 0x7f08008d;
+        public static final int notification_bg_low_normal = 0x7f08008e;
+        public static final int notification_bg_low_pressed = 0x7f08008f;
+        public static final int notification_bg_normal = 0x7f080090;
+        public static final int notification_bg_normal_pressed = 0x7f080091;
+        public static final int notification_icon_background = 0x7f080092;
+        public static final int notification_template_icon_bg = 0x7f080093;
+        public static final int notification_template_icon_low_bg = 0x7f080094;
+        public static final int notification_tile_bg = 0x7f080095;
+        public static final int notify_panel_notification_icon_bg = 0x7f080096;
+        public static final int tooltip_frame_dark = 0x7f08009a;
+        public static final int tooltip_frame_light = 0x7f08009b;
     }
     public static final class id {
         private id() {}
@@ -1024,8 +1024,8 @@ public final class R {
         public static final int alertTitle = 0x7f090040;
         public static final int async = 0x7f090043;
         public static final int auto = 0x7f090044;
-        public static final int blocking = 0x7f090048;
-        public static final int bottom = 0x7f090049;
+        public static final int blocking = 0x7f090049;
+        public static final int bottom = 0x7f09004a;
         public static final int buttonPanel = 0x7f090072;
         public static final int center = 0x7f090077;
         public static final int checkbox = 0x7f09007b;
@@ -1139,20 +1139,20 @@ public final class R {
         public static final int title = 0x7f09015b;
         public static final int titleDividerNoCustom = 0x7f09015c;
         public static final int title_template = 0x7f09015d;
-        public static final int top = 0x7f09015f;
-        public static final int topPanel = 0x7f090160;
-        public static final int touch_outside = 0x7f090161;
-        public static final int transition_current_scene = 0x7f090162;
-        public static final int transition_layout_save = 0x7f090163;
-        public static final int transition_position = 0x7f090164;
-        public static final int transition_scene_layoutid_cache = 0x7f090165;
-        public static final int transition_transform = 0x7f090166;
-        public static final int uniform = 0x7f090181;
-        public static final int unlabeled = 0x7f090182;
-        public static final int up = 0x7f090183;
-        public static final int view_offset_helper = 0x7f090185;
-        public static final int visible = 0x7f090186;
-        public static final int wrap_content = 0x7f090189;
+        public static final int top = 0x7f090161;
+        public static final int topPanel = 0x7f090162;
+        public static final int touch_outside = 0x7f090163;
+        public static final int transition_current_scene = 0x7f090164;
+        public static final int transition_layout_save = 0x7f090165;
+        public static final int transition_position = 0x7f090166;
+        public static final int transition_scene_layoutid_cache = 0x7f090167;
+        public static final int transition_transform = 0x7f090168;
+        public static final int uniform = 0x7f090183;
+        public static final int unlabeled = 0x7f090184;
+        public static final int up = 0x7f090185;
+        public static final int view_offset_helper = 0x7f090187;
+        public static final int visible = 0x7f090188;
+        public static final int wrap_content = 0x7f09018b;
     }
     public static final class integer {
         private integer() {}

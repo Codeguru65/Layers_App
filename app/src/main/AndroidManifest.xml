@@ -16,7 +16,6 @@
         <activity android:name="com.example.deliveries.PartPay" />
         <activity android:name="com.example.deliveries.Account" />
         <activity android:name="com.example.deliveries.Cash" />
-        <activity android:name="com.example.deliveries.Deliveries" />
         <activity
             android:name=".Water"
             android:resizeableActivity="true" />

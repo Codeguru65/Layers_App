@@ -5,6 +5,8 @@ import android.os.Bundle
 import com.example.layers.R
 import android.content.Intent
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
@@ -20,12 +22,19 @@ class Inventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventory)
 
+        var mtitle: TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Inventory"
+        var back : Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            onBackPressed()
+        }
+
        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
 
        var dataList = ArrayList<Data>()
 
-       db.inventoryDAO().viewFeed().forEach(){
+       db.inventoryDAO().viewFeed().forEach{
            var item = Data(it.item , it.qty)
            dataList.add(item)
 
@@ -51,6 +60,6 @@ class Inventory : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-//        startActivity(Intent(this,ProdSub::class.java))
+        finish()
     }
 }

@@ -4,6 +4,9 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
@@ -12,21 +15,24 @@ import com.example.Database.DFU_Entity
 import com.example.Database.Inventory_Entity
 
 import kotlinx.android.synthetic.main.activity_daily_feed.*
+import kotlinx.android.synthetic.main.tool_bar.*
 import java.util.*
 
 
 class DailyFeedActivity : AppCompatActivity() {
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_feed)
-        setSupportActionBar(toolbar as Toolbar?)
-        //var tTitle = toolbar.findViewById(R.id.title)
 
+        var mtitle : TextView = findViewById(R.id.tool_title)
+        mtitle.text = "Feed"
+        var back : Button = findViewById(R.id.back)
+        back.setOnClickListener {
+            onBackPressed()
+        }
+
+        //var tTitle = toolbar.findViewById(R.id.title)
 
         var level10kg :Float? = null
         var level25kg :Float? = null

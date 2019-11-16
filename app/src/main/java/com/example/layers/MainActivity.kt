@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         btn_daily_diary.setOnClickListener {
             showDiaryDialog()
         }
@@ -55,15 +54,19 @@ class MainActivity : AppCompatActivity() {
         }
         btn_eggs.setOnClickListener {
             startActivity(Intent(this,EggP::class.java))
+
         }
         btn_mortality.setOnClickListener {
             startActivity(Intent(this,Mort::class.java))
+
         }
         btn_health.setOnClickListener {
             startActivity(Intent(this, Health::class.java))
+
         }
         btn_water.setOnClickListener {
-            startActivity(Intent(this,Water::class.java))
+            startActivity(Intent(this, Water::class.java))
+
         }
 
         dialog.show()
@@ -112,11 +115,11 @@ class MainActivity : AppCompatActivity() {
 
         var btnViewInventorry : Button = dialog.findViewById(R.id.btn_view_inventory)
         var btnEditInventory : Button = dialog.findViewById(R.id.btn_edit_inventory)
-        var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
+//        var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
 
        btnEditInventory.setOnClickListener {
            startActivity(Intent(this,edit_feed_inventory::class.java))
-           dialog.dismiss()
+
        }
 
         btnViewInventorry.setOnClickListener {
@@ -125,9 +128,9 @@ class MainActivity : AppCompatActivity() {
            // Toast.makeText(this, "the button is working ", Toast.LENGTH_SHORT).show()
         }
 
-        btnAddItem.setOnClickListener {
-
-        }
+//        btnAddItem.setOnClickListener {
+//
+//        }
 
         dialog.show()
     }
@@ -155,7 +158,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
 
-            dialog.dismiss()
+
         }
 
         btn25kg.setOnClickListener {
@@ -164,7 +167,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
 
-            dialog.dismiss()
+
         }
 
         btn50kg.setOnClickListener {
@@ -173,7 +176,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
 
-            dialog.dismiss()
+
         }
 
 
@@ -197,18 +200,12 @@ class MainActivity : AppCompatActivity() {
 
         btn_cash.setOnClickListener {
             startActivity(Intent(this, Cash::class.java))
-            finish()
-            dialog.dismiss()
         }
         btn_acc.setOnClickListener {
             startActivity(Intent(this,Account::class.java))
-            dialog.dismiss()
-            finish()
         }
         btn_part.setOnClickListener {
             startActivity(Intent(this,PartPay::class.java))
-            dialog.dismiss()
-            finish()
         }
 
         dialog.show()

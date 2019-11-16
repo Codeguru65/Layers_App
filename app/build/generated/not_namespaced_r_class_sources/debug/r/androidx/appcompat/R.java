@@ -632,20 +632,20 @@ public final class R {
         public static final int btn_radio_off_to_on_mtrl_animation = 0x7f08006a;
         public static final int btn_radio_on_mtrl = 0x7f08006b;
         public static final int btn_radio_on_to_off_mtrl_animation = 0x7f08006c;
-        public static final int notification_action_background = 0x7f08008a;
-        public static final int notification_bg = 0x7f08008b;
-        public static final int notification_bg_low = 0x7f08008c;
-        public static final int notification_bg_low_normal = 0x7f08008d;
-        public static final int notification_bg_low_pressed = 0x7f08008e;
-        public static final int notification_bg_normal = 0x7f08008f;
-        public static final int notification_bg_normal_pressed = 0x7f080090;
-        public static final int notification_icon_background = 0x7f080091;
-        public static final int notification_template_icon_bg = 0x7f080092;
-        public static final int notification_template_icon_low_bg = 0x7f080093;
-        public static final int notification_tile_bg = 0x7f080094;
-        public static final int notify_panel_notification_icon_bg = 0x7f080095;
-        public static final int tooltip_frame_dark = 0x7f080099;
-        public static final int tooltip_frame_light = 0x7f08009a;
+        public static final int notification_action_background = 0x7f08008b;
+        public static final int notification_bg = 0x7f08008c;
+        public static final int notification_bg_low = 0x7f08008d;
+        public static final int notification_bg_low_normal = 0x7f08008e;
+        public static final int notification_bg_low_pressed = 0x7f08008f;
+        public static final int notification_bg_normal = 0x7f080090;
+        public static final int notification_bg_normal_pressed = 0x7f080091;
+        public static final int notification_icon_background = 0x7f080092;
+        public static final int notification_template_icon_bg = 0x7f080093;
+        public static final int notification_template_icon_low_bg = 0x7f080094;
+        public static final int notification_tile_bg = 0x7f080095;
+        public static final int notify_panel_notification_icon_bg = 0x7f080096;
+        public static final int tooltip_frame_dark = 0x7f08009a;
+        public static final int tooltip_frame_light = 0x7f08009b;
     }
     public static final class id {
         private id() {}
@@ -705,7 +705,7 @@ public final class R {
         public static final int add = 0x7f09003f;
         public static final int alertTitle = 0x7f090040;
         public static final int async = 0x7f090043;
-        public static final int blocking = 0x7f090048;
+        public static final int blocking = 0x7f090049;
         public static final int buttonPanel = 0x7f090072;
         public static final int checkbox = 0x7f09007b;
         public static final int checked = 0x7f09007c;
@@ -787,11 +787,11 @@ public final class R {
         public static final int title = 0x7f09015b;
         public static final int titleDividerNoCustom = 0x7f09015c;
         public static final int title_template = 0x7f09015d;
-        public static final int topPanel = 0x7f090160;
-        public static final int unchecked = 0x7f090180;
-        public static final int uniform = 0x7f090181;
-        public static final int up = 0x7f090183;
-        public static final int wrap_content = 0x7f090189;
+        public static final int topPanel = 0x7f090162;
+        public static final int unchecked = 0x7f090182;
+        public static final int uniform = 0x7f090183;
+        public static final int up = 0x7f090185;
+        public static final int wrap_content = 0x7f09018b;
     }
     public static final class integer {
         private integer() {}
