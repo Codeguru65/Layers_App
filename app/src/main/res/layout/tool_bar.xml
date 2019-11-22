@@ -8,22 +8,22 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@drawable/icons8left50"
         android:clickable="true"
         android:elevation="5dp"
-        android:foreground="?android:attr/selectableItemBackground"/>
+        android:foreground="?android:attr/selectableItemBackground" />
 
 
     <TextView
         android:id="@+id/tool_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
         android:paddingLeft="10dp"
+        android:text=""
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"/>
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.Toolbar>

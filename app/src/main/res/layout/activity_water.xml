@@ -30,9 +30,9 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:inputType="date"
-            android:text="00/00/00"
+            android:text="Select Date"
             android:textAlignment="center"
-            android:textSize="22sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -75,7 +75,7 @@
 
 
                 <EditText
-                    android:id="@+id/et_whole_qty"
+                    android:id="@+id/waterReason"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -145,7 +145,7 @@
             android:id="@+id/btn_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/custom_button"
             android:text="save"
             android:textColor="#FFFFFF"
@@ -153,17 +153,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cv_whole" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemBackground="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu">
-
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -28,7 +28,4 @@ class Egg_Entity {
     @ColumnInfo
     var broken : Int = 0
 
-
-
-
 }

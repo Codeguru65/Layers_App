@@ -15,6 +15,8 @@ import com.example.Database.DFU_Entity
 import com.example.Database.Inventory_Entity
 
 import kotlinx.android.synthetic.main.activity_daily_feed.*
+import kotlinx.android.synthetic.main.activity_daily_feed.tvDate
+import kotlinx.android.synthetic.main.eggs.*
 import kotlinx.android.synthetic.main.tool_bar.*
 import java.util.*
 
@@ -26,7 +28,7 @@ class DailyFeedActivity : AppCompatActivity() {
         setContentView(R.layout.activity_daily_feed)
 
         var mtitle : TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Feed"
+
         var back : Button = findViewById(R.id.back)
         back.setOnClickListener {
             onBackPressed()
@@ -45,6 +47,17 @@ class DailyFeedActivity : AppCompatActivity() {
         val bagSize : Int = bundle!!.getInt("BAG_SIZE")
         Log.i("@bagsize","type : ${bagSize.toString()+"_kg_bag"}")
 
+
+
+        if (bagSize.toString().equals("10")){
+            mtitle.text = "Feed 10kg"
+        }
+        if (bagSize.toString().equals("25")) {
+            mtitle.text = "Feed 25kg"
+        }
+        if(bagSize.toString().equals("50")){
+            mtitle.text = "Feed 50kg"
+        }
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
@@ -131,39 +144,38 @@ class DailyFeedActivity : AppCompatActivity() {
                 msg = "not enough feed of the selected type"
                 Toast.makeText(this,msg, Toast.LENGTH_SHORT).show()
 
-            }else{
-                var dailyDiaryActivity = DFU_Entity()
-                dailyDiaryActivity.date=tvDate.text.toString()
-                dailyDiaryActivity.feedType=bagSize.toString()+"_kg_bag"
-                dailyDiaryActivity.quatity = requiredFeed
-                dailyDiaryActivity.openningFeed = level
-                dailyDiaryActivity.clossingFeed = clossingFeed
-                dailyDiaryActivity.syncStatus=false
+            }else {
 
-                db.feedTaskDAO().saveFeedTask(dailyDiaryActivity)
+                if (tvDate.text.toString().equals("Select Date")) {
+                    var msg = "Enter valid Date"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                } else {
+                    var dailyDiaryActivity = DFU_Entity()
+                    dailyDiaryActivity.date = tvDate.text.toString()
+                    dailyDiaryActivity.feedType = bagSize.toString() + "_kg_bag"
+                    dailyDiaryActivity.quatity = requiredFeed
+                    dailyDiaryActivity.openningFeed = level
+                    dailyDiaryActivity.clossingFeed = clossingFeed
+                    dailyDiaryActivity.syncStatus = false
 
-                // updating the database with the new level
+                    db.feedTaskDAO().saveFeedTask(dailyDiaryActivity)
 
-                var inventoryEntity = Inventory_Entity()
-                inventoryEntity.id = id
-                inventoryEntity.item = bagSize.toString()+"_kg_bag"
-                inventoryEntity.qty = clossingFeed
+                    // updating the database with the new level
 
-                db.inventoryDAO().addMoreFeed(inventoryEntity)
+                    var inventoryEntity = Inventory_Entity()
+                    inventoryEntity.id = id
+                    inventoryEntity.item = bagSize.toString() + "_kg_bag"
+                    inventoryEntity.qty = clossingFeed
 
-               msg = "feed records updated "
-                Toast.makeText(this,msg, Toast.LENGTH_SHORT).show()
+                    db.inventoryDAO().addMoreFeed(inventoryEntity)
 
+                    msg = "feed records updated "
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+
+                }
 
             }
-
-
-
-
-
-
-
-
 
 
            /* var num_whole = et_whole_qty.text.toString().toInt()
@@ -262,16 +274,9 @@ class DailyFeedActivity : AppCompatActivity() {
 
         }
 
-
         // data entry logic
 
-
     }
-
-
-
-
-
 
     override fun onBackPressed() {
         super.onBackPressed()

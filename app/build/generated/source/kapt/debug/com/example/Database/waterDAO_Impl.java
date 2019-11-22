@@ -24,7 +24,7 @@ public final class waterDAO_Impl implements waterDAO {
     this.__insertionAdapterOfWater_Entity = new EntityInsertionAdapter<Water_Entity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `Water_Entity` (`waterid`,`wdate`,`level`) VALUES (nullif(?, 0),?,?)";
+        return "INSERT OR ABORT INTO `Water_Entity` (`waterid`,`wdate`,`level`,`reason`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
@@ -39,6 +39,11 @@ public final class waterDAO_Impl implements waterDAO {
           stmt.bindNull(3);
         } else {
           stmt.bindString(3, value.getLevel());
+        }
+        if (value.getReason() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getReason());
         }
       }
     };
@@ -66,6 +71,7 @@ public final class waterDAO_Impl implements waterDAO {
       final int _cursorIndexOfWaterid = CursorUtil.getColumnIndexOrThrow(_cursor, "waterid");
       final int _cursorIndexOfWdate = CursorUtil.getColumnIndexOrThrow(_cursor, "wdate");
       final int _cursorIndexOfLevel = CursorUtil.getColumnIndexOrThrow(_cursor, "level");
+      final int _cursorIndexOfReason = CursorUtil.getColumnIndexOrThrow(_cursor, "reason");
       final List<Water_Entity> _result = new ArrayList<Water_Entity>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Water_Entity _item;
@@ -79,6 +85,9 @@ public final class waterDAO_Impl implements waterDAO {
         final String _tmpLevel;
         _tmpLevel = _cursor.getString(_cursorIndexOfLevel);
         _item.setLevel(_tmpLevel);
+        final String _tmpReason;
+        _tmpReason = _cursor.getString(_cursorIndexOfReason);
+        _item.setReason(_tmpReason);
         _result.add(_item);
       }
       return _result;

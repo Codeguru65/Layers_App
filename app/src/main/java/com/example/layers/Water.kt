@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.Database.Water_Entity
@@ -19,6 +20,7 @@ class Water : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_water)
 
         var mtitle: TextView = findViewById(R.id.tool_title)
         mtitle.text = "Water"
@@ -31,7 +33,7 @@ class Water : AppCompatActivity() {
             .allowMainThreadQueries().build()
 
 
-        setContentView(R.layout.activity_water)
+
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
@@ -62,19 +64,45 @@ class Water : AppCompatActivity() {
 
             datePicker.show()
 
-
         }
 
 
         btn_water.setOnClickListener {
             // val intent = Intent(this, Submenu::class.java)
 
+            if (tvDate.text.toString().equals("Select Date")) {
+                var msg = "Enter valid Date"
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            } else {
 
             var waterActivity = Water_Entity()
             waterActivity.wdate = tvDate.text.toString()
-            waterActivity.level = spinner.isSelected.toString()
 
-            db.waterTask().saveWaterTask(waterActivity)
+            if (spinner.selectedItem.toString().equals("Not Ideal")) {
+                if (waterReason.text.isNotBlank()) {
+                    waterActivity.level = spinner.selectedItem.toString()
+                    waterActivity.reason =  waterReason.text.toString()
+
+                    db.waterTask().saveWaterTask(waterActivity)
+
+                    var msg = "Saved"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                    waterReason.text.clear()
+                }
+                else{
+                    var msg = "Enter reason"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            if (spinner.selectedItem.toString().equals("Ideal")){
+                waterActivity.level = spinner.selectedItem.toString()
+                db.waterTask().saveWaterTask(waterActivity)
+
+
+                var msg = "Saved"
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            }
 
             Thread {
                 db.waterTask().viewWater().forEach {
@@ -86,8 +114,10 @@ class Water : AppCompatActivity() {
                     finish()
                 }
             }
+
+
         }
-    }
+    }}
     override fun onBackPressed() {
         super.onBackPressed()
         finish()

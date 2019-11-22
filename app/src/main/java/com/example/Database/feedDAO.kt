@@ -16,6 +16,10 @@ interface feedDAO {
     fun viewFeed() : List<DFU_Entity>
 
 
+    @Query( "select * from DFU_Entity where date is :dte")
+    fun viewHistory(dte: String): List<DFU_Entity>
+
+
 
 
 }

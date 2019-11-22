@@ -30,9 +30,9 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:inputType="date"
-            android:text="00/00/00"
+            android:text="Select Date"
             android:textAlignment="center"
-            android:textSize="22sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -70,7 +70,7 @@
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/hState"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/hState"
@@ -117,7 +117,7 @@
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/hCause"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/hCause"
@@ -177,7 +177,7 @@
 
 
                 <EditText
-                    android:id="@+id/et_qtr_qty"
+                    android:id="@+id/healthOther"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -190,17 +190,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemBackground="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu">
-
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -18,6 +18,7 @@
         <item>Weather</item>
         <item>Starvation</item>
         <item>Water</item>
+        <item>Other</item>
     </string-array>
     <string-array name="openF">
         <item>Starter</item>
@@ -25,9 +26,10 @@
         <item>Finisher</item>
     </string-array>
     <string-array name="eggQ">
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Dark</item>
+        <item>Light</item>
+        <item>Dirty</item>
+
     </string-array>
     <string-array name="eggS">
         <item>Uniform</item>

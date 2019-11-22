@@ -30,9 +30,9 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:inputType="date"
-            android:text="00/00/00"
+            android:text="Select Date"
             android:textAlignment="center"
-            android:textSize="22sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -75,11 +75,12 @@
 
 
                 <EditText
-                    android:id="@+id/et_whole_qty"
+                    android:id="@+id/mortNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:hint="number of eggs"
+                    android:inputType="number"
+                    android:hint="number of dead birds"
                     android:textColor="#008000"
                     android:textSize="18sp" />
 
@@ -128,7 +129,7 @@
 
 
                 <EditText
-                    android:id="@+id/et_qtr_qty"
+                    android:id="@+id/mortOther"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -206,17 +207,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cv_qtr" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemBackground="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu">
-
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

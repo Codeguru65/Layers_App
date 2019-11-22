@@ -114,18 +114,11 @@ class edit_feed_inventory : AppCompatActivity() {
         }
 
 
-        btnTest.setOnClickListener {
-            db.inventoryDAO().viewFeed().forEach(){
-                Log.i("@override","id: ${it.id}")
-                Log.i("@override","item: ${it.item}")
-                Log.i("@override","qty: ${it.qty}")
-            }
-        }
 
 
-
-        val bottomNavigation: BottomNavigationView = findViewById(R.id.btm_nav)
-        bottomNavigation.setOnNavigationItemSelectedListener(navListener)
+//
+//        val bottomNavigation: BottomNavigationView = findViewById(R.id.btm_nav)
+//        bottomNavigation.setOnNavigationItemSelectedListener(navListener)
 
     }
 

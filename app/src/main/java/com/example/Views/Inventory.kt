@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.Database.AppDb
+import com.example.Database.Inventory_Entity
 import com.example.dailythings.Adapter
 import com.example.dailythings.Data
 import com.example.dailythings.Supplier
@@ -30,6 +31,24 @@ class Inventory : AppCompatActivity() {
         }
 
        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
+
+
+        if (db.inventoryDAO().viewFeed().isNullOrEmpty()) {
+            var inventoryEntity1 = Inventory_Entity()
+            var inventoryEntity2 = Inventory_Entity()
+            var inventoryEntity3 = Inventory_Entity()
+            inventoryEntity1.item ="10_kg_bag"
+            inventoryEntity1.qty=0f
+            inventoryEntity2.item ="25_kg_bag"
+            inventoryEntity2.qty=0f
+            inventoryEntity3.item ="50_kg_bag"
+            inventoryEntity3.qty=0f
+
+            db.inventoryDAO().addtem(inventoryEntity1)
+            db.inventoryDAO().addtem(inventoryEntity2)
+            db.inventoryDAO().addtem(inventoryEntity3)
+
+        }
 
 
        var dataList = ArrayList<Data>()
@@ -56,6 +75,9 @@ class Inventory : AppCompatActivity() {
 
         val  adp = Adapter(this, dataList)
         recyclerView2.adapter = adp
+
+
+
     }
 
     override fun onBackPressed() {

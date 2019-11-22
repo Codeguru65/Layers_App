@@ -3,9 +3,14 @@ package com.example.layers
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import com.example.Database.AppDb
+import com.example.Database.Health_Entity
 import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.health.*
 import kotlinx.android.synthetic.main.health.tvDate
@@ -24,6 +29,8 @@ class Health : AppCompatActivity(){
         back.setOnClickListener {
             onBackPressed()
         }
+        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
+            .allowMainThreadQueries().build()
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -58,9 +65,59 @@ class Health : AppCompatActivity(){
 
 
         btn_health.setOnClickListener {
-            //val intent = Intent(this, Submenu::class.java)
-            //startActivity(intent)
-            finish()
+            if (tvDate.text.toString().equals("Select Date")) {
+                var msg = "Enter valid Date"
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            } else {
+                var hActivity = Health_Entity()
+                hActivity.hdate = tvDate.text.toString()
+
+
+                hActivity.healthS = hState.selectedItem.toString()
+
+
+
+                if (hState.selectedItem.toString().equals("Good Weather")) {
+                    db.healthTask().saveHealthTask(hActivity)
+                    var msg = "Saved"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                    healthOther.text.clear()
+
+
+                } else {
+                    if (hCause.selectedItem.toString().equals("Other")) {
+                        if (healthOther.text.isNotBlank()){
+                            hActivity.hcause = healthOther.text.toString()
+                            db.healthTask().saveHealthTask(hActivity)
+                            var msg = "Saved"
+                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            healthOther.text.clear()
+                        } else{
+                            var msg = "Enter Reason"
+                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        }
+
+
+                    } else {
+                        hActivity.hcause = hCause.selectedItem.toString()
+                        db.healthTask().saveHealthTask(hActivity)
+                        var msg = "Saved"
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        healthOther.text.clear()
+                    }
+                }
+                Thread {
+                    db.healthTask().viewHealth().forEach {
+                        Log.i("@override", "id : ${it.healthid}")
+                        Log.i("@override", "date: ${it.hdate}")
+                        Log.i("@override", "type : ${it.healthS}")
+
+
+                        finish()
+                    }
+                }
+            }
+
         }
     }
     override fun onBackPressed() {

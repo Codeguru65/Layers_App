@@ -7,6 +7,10 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.Window
 import android.widget.Button
+import android.widget.TextView
+import com.example.Views.Daily_Entries
+import com.example.Views.Egg_History
+import com.example.Views.Stock
 import com.example.deliveries.Account
 import com.example.deliveries.Cash
 import com.example.deliveries.PartPay
@@ -22,18 +26,17 @@ class MainActivity : AppCompatActivity() {
             showDiaryDialog()
         }
 
-        /**
-         * change the final method attached to the buttons i.e the finish() method
-         */
         btn_deliveries.setOnClickListener {
-            showDeliveries()
+            startActivity(Intent(this,PartPay::class.java))
+
         }
         btn_production.setOnClickListener {
             showProductionDialog()
 
         }
-    }
 
+    }
+    //this method is display the daily tasks dialogue
     private fun showDiaryDialog() {
         // create an alert builder
         val dialog = Dialog(this@MainActivity)
@@ -72,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-
+    //this method is display the production dialogue
     private fun showProductionDialog(){
         // create an alert builder
         val dialog = Dialog(this@MainActivity)
@@ -82,10 +85,8 @@ class MainActivity : AppCompatActivity() {
 
         //button handlers here
         var btnInventory : Button = dialog.findViewById(R.id.btn_inventory)
-        var btnReports   : Button = dialog.findViewById(R.id.btn_daily_entries)
-        var btnDailyEntries : Button = dialog.findViewById(R.id.btn_reports)
-
-
+        var btnReports   : Button = dialog.findViewById(R.id.btn_reports)
+        var btnDailyEntries : Button = dialog.findViewById(R.id.btn_daily_entries)
 
 
         btnInventory.setOnClickListener {
@@ -94,18 +95,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnDailyEntries.setOnClickListener {
-            showInventoryOptions()
+            showDailyEntriesOptions()
             dialog.dismiss()
         }
 
         btnReports.setOnClickListener {
-            showInventoryOptions()
-            dialog.dismiss()
         }
         dialog.show()
 
     }
 
+    //this method is display the inventory dialogue
     private fun showInventoryOptions() {
         val dialog = Dialog(this@MainActivity)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity() {
 
         var btnViewInventorry : Button = dialog.findViewById(R.id.btn_view_inventory)
         var btnEditInventory : Button = dialog.findViewById(R.id.btn_edit_inventory)
+        var btnViewStock  : Button  =dialog.findViewById(R.id.btn_view_stock)
 //        var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
 
        btnEditInventory.setOnClickListener {
@@ -128,6 +129,10 @@ class MainActivity : AppCompatActivity() {
            // Toast.makeText(this, "the button is working ", Toast.LENGTH_SHORT).show()
         }
 
+        btnViewStock.setOnClickListener {
+            startActivity(Intent(this,Stock::class.java))
+        }
+
 //        btnAddItem.setOnClickListener {
 //
 //        }
@@ -135,8 +140,30 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    //this method is display the daily entries dialogue
+    private fun showDailyEntriesOptions() {
+        // create an alert builder
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.daily_entries_dialog)
 
-    //this mothod is display the bag size dialogue
+
+        var btn_feed: Button = dialog.findViewById(R.id.btn_EFeed)
+        var btn_eggs: Button = dialog.findViewById(R.id.btn_EEgg)
+
+
+        btn_feed.setOnClickListener {
+            startActivity(Intent(this,Daily_Entries::class.java))
+        }
+        btn_eggs.setOnClickListener {
+            startActivity(Intent(this, Egg_History::class.java))
+
+        }
+        dialog.show()
+    }
+
+    //this method is display the bag size dialogue
     private fun showBagSizeDialog() {
         // create an alert builder
         val dialog = Dialog(this@MainActivity)

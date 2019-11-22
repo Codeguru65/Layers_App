@@ -55,8 +55,8 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="20kg bag"
-                android:textColor="#FFFFFF"/>
+                android:text="25kg bag"
+                android:textColor="#FFFFFF" />
 
 
             <Button

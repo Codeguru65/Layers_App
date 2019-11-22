@@ -16,5 +16,7 @@ class Water_Entity{
     @ColumnInfo
     var level :String? = null
 
+    @ColumnInfo
+    var reason : String = ""
 
 }
