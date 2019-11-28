@@ -67,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:hint="number of bags to add"
+                    android:inputType="number"
                     android:textColor="#008000"
                     android:textSize="18sp" />
 
@@ -118,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:hint="number of bags to add"
+                    android:inputType="number"
                     android:textColor="#008000"
                     android:textSize="18sp" />
 
@@ -169,6 +171,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:hint="number of bags to add"
+                    android:inputType="number"
                     android:textColor="#008000"
                     android:textSize="18sp" />
 

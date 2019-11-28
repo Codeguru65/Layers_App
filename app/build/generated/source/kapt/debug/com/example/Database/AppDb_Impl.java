@@ -39,6 +39,8 @@ public final class AppDb_Impl extends AppDb {
 
   private volatile stockDAO _stockDAO;
 
+  private volatile userDAO _userDAO;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -52,8 +54,9 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Health_Entity` (`healthid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `hdate` TEXT NOT NULL, `healthS` TEXT NOT NULL, `hcause` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Part_Entity` (`partid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT NOT NULL, `partDate` TEXT, `partProduct` TEXT, `type` TEXT, `partQuantity` INTEGER NOT NULL, `totalP` INTEGER NOT NULL, `paidPart` INTEGER NOT NULL, `owingP` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Stock_Entity` (`stockId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `item` TEXT NOT NULL, `quantity` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `User_Entity` (`userid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fname` TEXT NOT NULL, `lname` TEXT NOT NULL, `email` TEXT NOT NULL, `username` TEXT NOT NULL, `password` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8ee997ea2506a1037fa48f50051efcc4')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c9d5a0e2912190c713e74cb67ac4be8c')");
       }
 
       @Override
@@ -66,6 +69,7 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("DROP TABLE IF EXISTS `Health_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Part_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Stock_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `User_Entity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -224,9 +228,25 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoStockEntity + "\n"
                   + " Found:\n" + _existingStockEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsUserEntity = new HashMap<String, TableInfo.Column>(6);
+        _columnsUserEntity.put("userid", new TableInfo.Column("userid", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("fname", new TableInfo.Column("fname", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("lname", new TableInfo.Column("lname", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("email", new TableInfo.Column("email", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("username", new TableInfo.Column("username", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUserEntity.put("password", new TableInfo.Column("password", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysUserEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesUserEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoUserEntity = new TableInfo("User_Entity", _columnsUserEntity, _foreignKeysUserEntity, _indicesUserEntity);
+        final TableInfo _existingUserEntity = TableInfo.read(_db, "User_Entity");
+        if (! _infoUserEntity.equals(_existingUserEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "User_Entity(com.example.Database.User_Entity).\n"
+                  + " Expected:\n" + _infoUserEntity + "\n"
+                  + " Found:\n" + _existingUserEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "8ee997ea2506a1037fa48f50051efcc4", "e6786b171cc685995a9614c30803dc6f");
+    }, "c9d5a0e2912190c713e74cb67ac4be8c", "b4366ca7ffb7349e550a1d063406380b");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -239,7 +259,7 @@ public final class AppDb_Impl extends AppDb {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity");
   }
 
   @Override
@@ -256,6 +276,7 @@ public final class AppDb_Impl extends AppDb {
       _db.execSQL("DELETE FROM `Health_Entity`");
       _db.execSQL("DELETE FROM `Part_Entity`");
       _db.execSQL("DELETE FROM `Stock_Entity`");
+      _db.execSQL("DELETE FROM `User_Entity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -374,6 +395,20 @@ public final class AppDb_Impl extends AppDb {
           _stockDAO = new stockDAO_Impl(this);
         }
         return _stockDAO;
+      }
+    }
+  }
+
+  @Override
+  public userDAO userTask() {
+    if (_userDAO != null) {
+      return _userDAO;
+    } else {
+      synchronized(this) {
+        if(_userDAO == null) {
+          _userDAO = new userDAO_Impl(this);
+        }
+        return _userDAO;
       }
     }
   }

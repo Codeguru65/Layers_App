@@ -6,7 +6,7 @@ import com.example.production.Inventory
 import com.mysql.jdbc.authentication.CachingSha2PasswordPlugin
 
 
-@Database(entities = [(DFU_Entity::class), (Egg_Entity::class), (Inventory_Entity::class), (Water_Entity::class), (Mort_Entity::class),(Health_Entity::class), (Part_Entity::class),(Stock_Entity::class)],version = 1 )
+@Database(entities = [(DFU_Entity::class), (Egg_Entity::class), (Inventory_Entity::class), (Water_Entity::class), (Mort_Entity::class),(Health_Entity::class), (Part_Entity::class),(Stock_Entity::class),(User_Entity::class)],version = 1 )
 
 
 abstract class AppDb : RoomDatabase()
@@ -19,5 +19,6 @@ abstract class AppDb : RoomDatabase()
     abstract fun healthTask(): healthDAO
     abstract fun partTask(): partpayDAO
     abstract fun stockTask(): stockDAO
+    abstract fun userTask(): userDAO
 
 }

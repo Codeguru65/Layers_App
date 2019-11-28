@@ -38,13 +38,16 @@
                 android:layout_marginBottom="25dp"
                 />
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="56dp"
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/usericon">
+                android:background="@drawable/usericon"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/usericon" />
 
-            </ImageView>
 
         </RelativeLayout>
 

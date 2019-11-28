@@ -1186,6 +1186,7 @@ id btnLogin
 id btnPartSave
 id btnSave
 id btnSaveItem
+id btnSign
 id btn_10kg_bag
 id btn_25kg_bag
 id btn_50kg_bag
@@ -1207,6 +1208,7 @@ id btn_health
 id btn_help
 id btn_inflow
 id btn_inventory
+id btn_logout
 id btn_mort
 id btn_motality
 id btn_partP
@@ -1233,6 +1235,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id conPass
 id container
 id content
 id contentPanel
@@ -1281,6 +1284,7 @@ id eggPicked
 id eggsCash
 id eggs_Broken
 id eggs_Picked
+id email
 id end
 id end_padder
 id enterAlways
@@ -1305,6 +1309,7 @@ id fill_vertical
 id filled
 id fixed
 id floatingActionButton
+id fname
 id forever
 id ghost_view
 id gone
@@ -1341,6 +1346,8 @@ id linearLayout5
 id linearLayout8
 id listMode
 id list_item
+id lname
+id logout
 id ltext
 id masked
 id media_actions
@@ -1374,6 +1381,7 @@ id partPaid
 id partPrice
 id partQuantity
 id partTotal
+id pass
 id percent
 id pin
 id prodDescription
@@ -1507,6 +1515,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id user
 id view_offset_helper
 id visible
 id waterReason
@@ -1571,7 +1580,6 @@ layout activity_account
 layout activity_cash
 layout activity_daily__entries
 layout activity_daily_feed
-layout activity_daily_things_list
 layout activity_daily_viewer
 layout activity_deliveries
 layout activity_edit_feed_inventory
@@ -1583,6 +1591,7 @@ layout activity_main
 layout activity_mort
 layout activity_part_pay
 layout activity_prod_sub
+layout activity_sign_up
 layout activity_statistics
 layout activity_stock
 layout activity_water
@@ -1636,6 +1645,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout tool_bar
+layout user_dialog
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -1679,6 +1689,7 @@ string fab_transformation_sheet_behavior
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string mtrl_chip_close_icon_content_description
+string notification_channel_description
 string open
 string password_toggle_content_description
 string path_password_eye

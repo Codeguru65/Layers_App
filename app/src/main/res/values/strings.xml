@@ -4,6 +4,7 @@
         <item>Ideal</item>
         <item>Not Ideal</item>
     </string-array>
+    <string name="notification_channel_description">Reminder to Change Water and Monitor Health of birds</string>
     <string-array name="hState">
         <item>Good Health</item>
         <item>Bad Health</item>

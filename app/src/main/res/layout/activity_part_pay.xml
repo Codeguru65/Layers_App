@@ -88,6 +88,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="amount"
+                            android:inputType="number"
                             android:textColor="#008000"
                             android:textSize="18sp" />
                     </LinearLayout>
@@ -131,6 +132,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="amount"
+                            android:inputType="number"
                             android:textColor="#008000"
                             android:textSize="18sp" />
                     </LinearLayout>
@@ -174,6 +176,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="price per egg"
+                            android:inputType="number"
                             android:textColor="#008000"
                             android:textSize="18sp" />
                     </LinearLayout>
@@ -309,6 +312,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="eggs sold"
+                            android:inputType="number"
                             android:textColor="#008000"
                             android:textSize="18sp" />
 

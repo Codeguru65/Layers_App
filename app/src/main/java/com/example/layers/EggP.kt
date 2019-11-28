@@ -113,7 +113,7 @@ class EggP : AppCompatActivity() {
                     var stock = Stock_Entity()
                     stock.stockId = 1
 
-                    var picked = eggPicked.text.toString().toInt()
+                    var picked = eggPicked.text.toString().toInt() - egBreak.text.toString().toInt()
                     stock.stockItem = "Eggs"
                     stock.stockQty = startStock + picked
 

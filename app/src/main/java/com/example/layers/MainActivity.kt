@@ -1,13 +1,16 @@
 package com.example.layers
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
+import android.content.SharedPreferences
+import android.widget.Toast
+import com.example.Notifications.NotificationUtils
 import com.example.Views.Daily_Entries
 import com.example.Views.Egg_History
 import com.example.Views.Stock
@@ -15,15 +18,23 @@ import com.example.deliveries.Account
 import com.example.deliveries.Cash
 import com.example.deliveries.PartPay
 import com.example.production.Inventory
+import java.util.*
+import com.example.layers.LoginActivity.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val mNotificationTime = Calendar.getInstance().timeInMillis + 86400000 //Set after 24hrs from the current time.
+    private var mNotified = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btn_daily_diary.setOnClickListener {
             showDiaryDialog()
+        }
+        if (!mNotified) {
+            NotificationUtils().setNotification(mNotificationTime, this@MainActivity)
         }
 
         btn_deliveries.setOnClickListener {
@@ -32,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
         btn_production.setOnClickListener {
             showProductionDialog()
+
+        }
+
+        logout.setOnClickListener{
+            showOptions()
 
         }
 
@@ -237,6 +253,23 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
     }
+
+    private fun showOptions(){
+        var sp = getSharedPreferences("logStatus", MODE_PRIVATE)
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.user_dialog)
+
+        var user : Button = dialog.findViewById(R.id.btn_logout)
+        user.setOnClickListener{
+            startActivity(Intent(this, LoginActivity::class.java))
+            sp.edit().putBoolean("logged",false).apply()
+            finish()
+        }
+        dialog.show()
+    }
+
 
     override fun onBackPressed() {
         super.onBackPressed()
