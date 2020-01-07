@@ -43,12 +43,10 @@ class MainActivity : AppCompatActivity() {
         }
         btn_production.setOnClickListener {
             showProductionDialog()
-
         }
 
         logout.setOnClickListener{
             showOptions()
-
         }
 
     }
@@ -59,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.daily_tasts_dialog)
-
 
         var btn_feed: Button = dialog.findViewById(R.id.btn_feed)
         var btn_eggs: Button = dialog.findViewById(R.id.btn_eggs)
@@ -73,21 +70,16 @@ class MainActivity : AppCompatActivity() {
         }
         btn_eggs.setOnClickListener {
             startActivity(Intent(this,EggP::class.java))
-
         }
         btn_mortality.setOnClickListener {
             startActivity(Intent(this,Mort::class.java))
-
         }
         btn_health.setOnClickListener {
             startActivity(Intent(this, Health::class.java))
-
         }
         btn_water.setOnClickListener {
             startActivity(Intent(this, Water::class.java))
-
         }
-
         dialog.show()
     }
 
@@ -118,7 +110,6 @@ class MainActivity : AppCompatActivity() {
         btnReports.setOnClickListener {
         }
         dialog.show()
-
     }
 
     //this method is display the inventory dialogue
@@ -148,11 +139,9 @@ class MainActivity : AppCompatActivity() {
         btnViewStock.setOnClickListener {
             startActivity(Intent(this,Stock::class.java))
         }
-
 //        btnAddItem.setOnClickListener {
 //
 //        }
-
         dialog.show()
     }
 
@@ -188,11 +177,9 @@ class MainActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.bag_size_dialog)
 
 
-
         var btn10Kg: Button = dialog.findViewById(R.id.btn_10kg_bag)
         var btn25kg: Button = dialog.findViewById(R.id.btn_25kg_bag)
         var btn50kg: Button = dialog.findViewById(R.id.btn_50kg_bag)
-
 
         //onclick listener for showing the feed activity loaded with relevent information
         btn10Kg.setOnClickListener {
@@ -200,8 +187,6 @@ class MainActivity : AppCompatActivity() {
             val type : Int = 10
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
-
-
         }
 
         btn25kg.setOnClickListener {
@@ -209,8 +194,6 @@ class MainActivity : AppCompatActivity() {
             val type : Int = 25
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
-
-
         }
 
         btn50kg.setOnClickListener {
@@ -218,12 +201,7 @@ class MainActivity : AppCompatActivity() {
             val type : Int = 50
             intent.putExtra("BAG_SIZE", type)
             startActivity(intent)
-
-
         }
-
-
-
 
         dialog.show()
     }

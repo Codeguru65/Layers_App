@@ -1409,6 +1409,7 @@ id scrollView
 id scrollView3
 id scroll_view
 id scrollable
+id search2
 id search_badge
 id search_bar
 id search_button
@@ -1475,6 +1476,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id tool
+id tool2
 id tool_title
 id toolbar
 id top
@@ -1644,6 +1646,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout tool2
 layout tool_bar
 layout user_dialog
 menu bottom_nav_menu
