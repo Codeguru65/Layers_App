@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
@@ -29,73 +30,64 @@ class Egg_History : AppCompatActivity() {
             onBackPressed()
         }
 
-        val cal = Calendar.getInstance()
-        val year = cal.get(Calendar.YEAR)
-        val month = cal.get(Calendar.MONTH)
-        val day = cal.get(Calendar.DAY_OF_MONTH)
 
-
-
-
-
-        var trueMonth : Int?
-        var date : String ?
-
-        tvDate.setOnClickListener {
-            /* val nowDate = Calendar.getInstance()
-            val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->  } ,
-                nowDate.get(Calendar.YEAR),nowDate.get(Calendar.MONTH),nowDate.get(Calendar.DAY_OF_MONTH))
-            datePicker.show() */
-
-
-            val datePicker = DatePickerDialog(
-                this,
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    trueMonth = month + 1
-                    date = dayOfMonth.toString()+"/"+trueMonth+"/"+year
-                    tvDate.text = date
-                },
-                year,
-                month,
-                day
-            )
-
-            datePicker.show()
-
-
-        }
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
             .allowMainThreadQueries().build()
 
+        var dataList = ArrayList<DataH>()
 
+        db.eggTaskDAO().viewEgg().forEach{
+            var item = DataH(it.picked.toString() , it.broken.toFloat(), it.date)
 
-        buttonSearch.setOnClickListener {
+            dataList.add(item)
 
-            var date = tvDate.text.toString()
-
-
-
-            var dataList = ArrayList<DataH>()
-
-            db.eggTaskDAO().viewEggHistory(date).forEach{
-                var item = DataH(it.size.toString() , it.broken.toFloat(), it.eggid)
-
-                dataList.add(item)
-
-            }
-            for (it in dataList){
-                Log.i("@inventory"," description : ${it.description}")
-            }
-
-            val layout = LinearLayoutManager(this)
-            layout.orientation = LinearLayoutManager.VERTICAL
-            recyclerEggHistory.layoutManager = layout
-
-            val adp = EggAdapter(this, dataList)
-            recyclerEggHistory.adapter = adp
+        }
+        for (it in dataList){
+            Log.i("@inventory"," description : ${it.description}")
         }
 
-    }
+        val layout = LinearLayoutManager(this)
+        layout.orientation = LinearLayoutManager.VERTICAL
+        recyclerEggHistory.layoutManager = layout
+
+        val adp = EggAdapter(this, dataList)
+        recyclerEggHistory.adapter = adp
+        search.queryHint = "Search Date"
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+
+                var date = query
+
+                var dataList = ArrayList<DataH>()
+
+                db.eggTaskDAO().viewEggHistory(date).forEach{
+                    var item = DataH(it.picked.toString() , it.broken.toFloat(), it.date)
+
+                    dataList.add(item)
+
+                }
+                for (it in dataList){
+                    Log.i("@inventory"," description : ${it.description}")
+                }
+
+                val layout = LinearLayoutManager(this@Egg_History)
+                layout.orientation = LinearLayoutManager.VERTICAL
+                recyclerEggHistory.layoutManager = layout
+
+                val adp = EggAdapter(this@Egg_History, dataList)
+                recyclerEggHistory.adapter = adp
+
+                return false
+            }
+
+        })
+
+        }
 
     override fun onBackPressed() {
         super.onBackPressed()

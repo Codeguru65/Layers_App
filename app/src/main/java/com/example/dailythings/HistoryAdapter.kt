@@ -32,7 +32,7 @@ class HistoryAdapter (val context: Context,val  data: List<DataH>): RecyclerView
         fun setData(data: DataH?){
             itemView.bag_description.text = data!!.description
             itemView.qty.text = data.quantity.toString()
-           itemView.entryID.text = data!!.id.toString()
+           itemView.entryID.text = data!!.date.toString()
 
         }
 

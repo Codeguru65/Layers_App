@@ -1220,7 +1220,6 @@ id btn_view_stock
 id btn_water
 id btnfin2
 id buttonPanel
-id buttonSearch
 id cancel_action
 id cashPrice
 id cashProd
@@ -1409,7 +1408,7 @@ id scrollView
 id scrollView3
 id scroll_view
 id scrollable
-id search2
+id search
 id search_badge
 id search_bar
 id search_button

@@ -31,7 +31,7 @@ class EggAdapter (val context: Context,val  data: List<DataH>): RecyclerView.Ada
         fun setData(data: DataH?){
             itemView.eggs_Picked.text = data!!.description
             itemView.eggs_Broken.text = data.quantity.toString()
-            itemView.entryID.text = data!!.id.toString()
+            itemView.entryID.text = data!!.date.toString()
 
         }
 
