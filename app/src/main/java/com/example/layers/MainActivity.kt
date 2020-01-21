@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,PartPay::class.java))
 
         }
+        btn_inflow.setOnClickListener {
+            startActivity(Intent(this, Inflow::class.java))
+        }
         btn_production.setOnClickListener {
             showProductionDialog()
         }
@@ -207,7 +210,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun showDeliveries(){
+     private fun showDeliveries(){
         // create an alert builder
         val dialog = Dialog(this@MainActivity)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

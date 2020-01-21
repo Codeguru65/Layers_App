@@ -13,7 +13,7 @@ class Part_Entity {
 
 
     @ColumnInfo
-    var names: String = ""
+    var names: String = "Cash"
 
     @ColumnInfo
     var  partDate :String? = null
@@ -28,13 +28,13 @@ class Part_Entity {
     var partQuantity  :Int = 0
 
     @ColumnInfo
-    var totalP : Int = 0
+    var totalP : Float = 0f
 
     @ColumnInfo
-    var paidPart : Int = 0
+    var paidPart : Float = 0f
 
     @ColumnInfo
-    var owingP : Int = 0
+    var owingP : Float = 0f
 
 
 }

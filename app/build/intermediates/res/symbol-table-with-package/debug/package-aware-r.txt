@@ -39,11 +39,11 @@ animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array eggQ
 array eggS
-array fraction
 array hCause
 array hState
 array mort
 array openF
+array payType
 array prod
 array wlevel
 attr actionBarDivider
@@ -1176,12 +1176,14 @@ id back
 id bag_description
 id barrier
 id beginning
+id birdCount
 id blocking
 id bottom
 id bottomNavigationView
 id btnAccSave
 id btnCashSave
 id btnEggSave
+id btnInSave
 id btnLogin
 id btnPartSave
 id btnSave
@@ -1254,10 +1256,12 @@ id cvWaterInfo
 id cv_3qtr
 id cv_50kg
 id cv_half
+id cv_hole
 id cv_qtr
 id cv_qtrs
 id cv_qtrs2
 id cv_qtrs3
+id cv_type
 id cv_whole
 id date1
 id date_picker
@@ -1326,6 +1330,10 @@ id icon
 id icon_group
 id ifRoom
 id image
+id inCustomer
+id inOwed
+id inPaid
+id inTotal
 id info
 id invisible
 id italic
@@ -1381,6 +1389,7 @@ id partPrice
 id partQuantity
 id partTotal
 id pass
+id paySpin
 id percent
 id pin
 id prodDescription
@@ -1586,6 +1595,7 @@ layout activity_deliveries
 layout activity_edit_feed_inventory
 layout activity_egg__history
 layout activity_feed
+layout activity_inflow
 layout activity_inventory
 layout activity_login
 layout activity_main

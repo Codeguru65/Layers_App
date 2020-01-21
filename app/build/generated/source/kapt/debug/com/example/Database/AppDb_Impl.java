@@ -41,6 +41,10 @@ public final class AppDb_Impl extends AppDb {
 
   private volatile userDAO _userDAO;
 
+  private volatile birdDAO _birdDAO;
+
+  private volatile debitorsDAO _debitorsDAO;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -52,11 +56,13 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Water_Entity` (`waterid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `wdate` TEXT, `level` TEXT, `reason` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Mort_Entity` (`mortid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mdate` TEXT, `mortNum` INTEGER NOT NULL, `mcause` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Health_Entity` (`healthid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `hdate` TEXT NOT NULL, `healthS` TEXT NOT NULL, `hcause` TEXT NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Part_Entity` (`partid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT NOT NULL, `partDate` TEXT, `partProduct` TEXT, `type` TEXT, `partQuantity` INTEGER NOT NULL, `totalP` INTEGER NOT NULL, `paidPart` INTEGER NOT NULL, `owingP` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Part_Entity` (`partid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT NOT NULL, `partDate` TEXT, `partProduct` TEXT, `type` TEXT, `partQuantity` INTEGER NOT NULL, `totalP` REAL NOT NULL, `paidPart` REAL NOT NULL, `owingP` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Stock_Entity` (`stockId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `item` TEXT NOT NULL, `quantity` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `User_Entity` (`userid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fname` TEXT NOT NULL, `lname` TEXT NOT NULL, `email` TEXT NOT NULL, `username` TEXT NOT NULL, `password` TEXT NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Bird_Entity` (`birdId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `quantity` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Debitors_Entity` (`debtId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT, `debtDate` TEXT, `owingDebt` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c9d5a0e2912190c713e74cb67ac4be8c')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e8cd5a045b5d3ac83cfa5e1a0b29e85a')");
       }
 
       @Override
@@ -70,6 +76,8 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("DROP TABLE IF EXISTS `Part_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Stock_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `User_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Bird_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Debitors_Entity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -203,9 +211,9 @@ public final class AppDb_Impl extends AppDb {
         _columnsPartEntity.put("partProduct", new TableInfo.Column("partProduct", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPartEntity.put("type", new TableInfo.Column("type", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPartEntity.put("partQuantity", new TableInfo.Column("partQuantity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsPartEntity.put("totalP", new TableInfo.Column("totalP", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsPartEntity.put("paidPart", new TableInfo.Column("paidPart", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsPartEntity.put("owingP", new TableInfo.Column("owingP", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPartEntity.put("totalP", new TableInfo.Column("totalP", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPartEntity.put("paidPart", new TableInfo.Column("paidPart", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPartEntity.put("owingP", new TableInfo.Column("owingP", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysPartEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesPartEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoPartEntity = new TableInfo("Part_Entity", _columnsPartEntity, _foreignKeysPartEntity, _indicesPartEntity);
@@ -244,9 +252,35 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoUserEntity + "\n"
                   + " Found:\n" + _existingUserEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsBirdEntity = new HashMap<String, TableInfo.Column>(2);
+        _columnsBirdEntity.put("birdId", new TableInfo.Column("birdId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsBirdEntity.put("quantity", new TableInfo.Column("quantity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysBirdEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesBirdEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoBirdEntity = new TableInfo("Bird_Entity", _columnsBirdEntity, _foreignKeysBirdEntity, _indicesBirdEntity);
+        final TableInfo _existingBirdEntity = TableInfo.read(_db, "Bird_Entity");
+        if (! _infoBirdEntity.equals(_existingBirdEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Bird_Entity(com.example.Database.Bird_Entity).\n"
+                  + " Expected:\n" + _infoBirdEntity + "\n"
+                  + " Found:\n" + _existingBirdEntity);
+        }
+        final HashMap<String, TableInfo.Column> _columnsDebitorsEntity = new HashMap<String, TableInfo.Column>(4);
+        _columnsDebitorsEntity.put("debtId", new TableInfo.Column("debtId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDebitorsEntity.put("names", new TableInfo.Column("names", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDebitorsEntity.put("debtDate", new TableInfo.Column("debtDate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDebitorsEntity.put("owingDebt", new TableInfo.Column("owingDebt", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysDebitorsEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesDebitorsEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoDebitorsEntity = new TableInfo("Debitors_Entity", _columnsDebitorsEntity, _foreignKeysDebitorsEntity, _indicesDebitorsEntity);
+        final TableInfo _existingDebitorsEntity = TableInfo.read(_db, "Debitors_Entity");
+        if (! _infoDebitorsEntity.equals(_existingDebitorsEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Debitors_Entity(com.example.Database.Debitors_Entity).\n"
+                  + " Expected:\n" + _infoDebitorsEntity + "\n"
+                  + " Found:\n" + _existingDebitorsEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "c9d5a0e2912190c713e74cb67ac4be8c", "b4366ca7ffb7349e550a1d063406380b");
+    }, "e8cd5a045b5d3ac83cfa5e1a0b29e85a", "06c71abf042f4f374600c5e9db08bf63");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -259,7 +293,7 @@ public final class AppDb_Impl extends AppDb {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity","Bird_Entity","Debitors_Entity");
   }
 
   @Override
@@ -277,6 +311,8 @@ public final class AppDb_Impl extends AppDb {
       _db.execSQL("DELETE FROM `Part_Entity`");
       _db.execSQL("DELETE FROM `Stock_Entity`");
       _db.execSQL("DELETE FROM `User_Entity`");
+      _db.execSQL("DELETE FROM `Bird_Entity`");
+      _db.execSQL("DELETE FROM `Debitors_Entity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -409,6 +445,34 @@ public final class AppDb_Impl extends AppDb {
           _userDAO = new userDAO_Impl(this);
         }
         return _userDAO;
+      }
+    }
+  }
+
+  @Override
+  public birdDAO birdTask() {
+    if (_birdDAO != null) {
+      return _birdDAO;
+    } else {
+      synchronized(this) {
+        if(_birdDAO == null) {
+          _birdDAO = new birdDAO_Impl(this);
+        }
+        return _birdDAO;
+      }
+    }
+  }
+
+  @Override
+  public debitorsDAO debtTask() {
+    if (_debitorsDAO != null) {
+      return _debitorsDAO;
+    } else {
+      synchronized(this) {
+        if(_debitorsDAO == null) {
+          _debitorsDAO = new debitorsDAO_Impl(this);
+        }
+        return _debitorsDAO;
       }
     }
   }

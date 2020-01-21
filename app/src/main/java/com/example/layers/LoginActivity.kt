@@ -7,10 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.room.Room
-import com.example.Database.AppDb
-import com.example.Database.Inventory_Entity
-import com.example.Database.Stock_Entity
-import com.example.Database.User_Entity
+import com.example.Database.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -82,6 +79,14 @@ class LoginActivity : AppCompatActivity() {
 
                 db.stockTask().addEggs(stock)
             }
+            if (db.birdTask().viewBird().isNullOrEmpty()){
+                var bird = Bird_Entity()
+                bird.birdQty = 0
+
+                db.birdTask().addBird(bird)
+            }
+
+
         }
             tvRegister.setOnClickListener {
                 startActivity(Intent(this, SignUpActivity::class.java))

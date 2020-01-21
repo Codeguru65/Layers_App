@@ -39,12 +39,13 @@
     <string name="open"></string>
     <string-array name="prod">
         <item>Eggs</item>
+        <item>Birds</item>
     </string-array>
 
-    <string-array name="fraction">
-        <item>quarter bag</item>
-        <item>half bag</item>
-        <item>3 quarter bag</item>
+    <string-array name="payType">
+        <item>Cash</item>
+        <item>Account</item>
+        <item>Part Pay</item>
     </string-array>
 
 

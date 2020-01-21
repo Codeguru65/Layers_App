@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.room.Room
 import com.example.Database.AppDb
+import com.example.Database.Bird_Entity
 import com.example.Database.Mort_Entity
 import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.activity_mort.*
@@ -76,31 +77,56 @@ class Mort : AppCompatActivity() {
             } else {
                 var mortActivity = Mort_Entity()
                 mortActivity.mdate = tvDate.text.toString()
-                mortActivity.mortNum = mortNum.text.toString().toInt()
+
+                var birdActivity = Bird_Entity()
+                birdActivity.birdId = 1
+
+
                 if(spinner.selectedItem.toString().equals("Other")){
                     if(mortOther.text.toString().isNotBlank()){
                     mortActivity.mcause = mortOther.text.toString()
-                        db.mortTask().saveMortTask(mortActivity)
 
-                        var msg = "Saved"
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        mortNum.text.clear()
-                        mortOther.text.clear()
                     }
                     else{
                         var msg  = "Enter Cause Description"
                         Toast.makeText(this,msg, Toast.LENGTH_SHORT).show()
                     }
                 }
-                else{
+                else {
                     mortActivity.mcause = spinner.selectedItem.toString()
-                    db.mortTask().saveMortTask(mortActivity)
-                    var msg = "Saved"
-                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                    mortNum.text.clear()
-                    mortOther.text.clear()
-                }
 
+                    if (birdCount.text.isNotEmpty() && mortNum.text.isNullOrEmpty()) {
+                        birdActivity.birdQty = birdCount.text.toString().toInt()
+                        db.birdTask().addMoreBird(birdActivity)
+
+                        var msg = " Bird Count Saved"
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        mortNum.text.clear()
+                        mortOther.text.clear()
+                        birdCount.text.clear()
+                    } else if (mortNum.text.isNotEmpty() && birdCount.text.isNullOrEmpty()) {
+                        mortActivity.mortNum = mortNum.text.toString().toInt()
+                        db.mortTask().saveMortTask(mortActivity)
+
+                        var msg = "Mortality Saved"
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        mortNum.text.clear()
+                        mortOther.text.clear()
+                        birdCount.text.clear()
+                    } else {
+                        mortActivity.mortNum = mortNum.text.toString().toInt()
+                        birdActivity.birdQty = birdCount.text.toString().toInt()
+
+                        db.birdTask().addMoreBird(birdActivity)
+                        db.mortTask().saveMortTask(mortActivity)
+
+                        var msg = "Saved"
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        mortNum.text.clear()
+                        mortOther.text.clear()
+                        birdCount.text.clear()
+                    }
+                }
 
 
                 Thread {

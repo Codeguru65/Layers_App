@@ -12,8 +12,6 @@ interface inventoryDAO {
     fun viewFeed() : List<Inventory_Entity>
 
 
-
-
     @Insert()
     fun addtem(item : Inventory_Entity)
 

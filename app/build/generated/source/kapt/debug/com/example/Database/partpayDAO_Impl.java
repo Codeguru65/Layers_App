@@ -51,9 +51,9 @@ public final class partpayDAO_Impl implements partpayDAO {
           stmt.bindString(5, value.getType());
         }
         stmt.bindLong(6, value.getPartQuantity());
-        stmt.bindLong(7, value.getTotalP());
-        stmt.bindLong(8, value.getPaidPart());
-        stmt.bindLong(9, value.getOwingP());
+        stmt.bindDouble(7, value.getTotalP());
+        stmt.bindDouble(8, value.getPaidPart());
+        stmt.bindDouble(9, value.getOwingP());
       }
     };
   }
@@ -108,14 +108,14 @@ public final class partpayDAO_Impl implements partpayDAO {
         final int _tmpPartQuantity;
         _tmpPartQuantity = _cursor.getInt(_cursorIndexOfPartQuantity);
         _item.setPartQuantity(_tmpPartQuantity);
-        final int _tmpTotalP;
-        _tmpTotalP = _cursor.getInt(_cursorIndexOfTotalP);
+        final float _tmpTotalP;
+        _tmpTotalP = _cursor.getFloat(_cursorIndexOfTotalP);
         _item.setTotalP(_tmpTotalP);
-        final int _tmpPaidPart;
-        _tmpPaidPart = _cursor.getInt(_cursorIndexOfPaidPart);
+        final float _tmpPaidPart;
+        _tmpPaidPart = _cursor.getFloat(_cursorIndexOfPaidPart);
         _item.setPaidPart(_tmpPaidPart);
-        final int _tmpOwingP;
-        _tmpOwingP = _cursor.getInt(_cursorIndexOfOwingP);
+        final float _tmpOwingP;
+        _tmpOwingP = _cursor.getFloat(_cursorIndexOfOwingP);
         _item.setOwingP(_tmpOwingP);
         _result.add(_item);
       }
