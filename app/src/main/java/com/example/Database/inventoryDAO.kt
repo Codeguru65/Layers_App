@@ -11,12 +11,14 @@ interface inventoryDAO {
     @Query("select * from Inventory_Entity")
     fun viewFeed() : List<Inventory_Entity>
 
+    @Query("select * from Inventory_Entity where id = :id")
+    fun readFeed(id : Int) : List<Inventory_Entity>
 
-    @Insert()
+    @Insert
     fun addtem(item : Inventory_Entity)
 
     @Update
-    fun addMoreFeed(feed : Inventory_Entity )
+    fun addMoreFeed(feed : Inventory_Entity)
 
 
 

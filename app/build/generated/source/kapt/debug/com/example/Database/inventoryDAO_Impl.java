@@ -116,4 +116,38 @@ public final class inventoryDAO_Impl implements inventoryDAO {
       _statement.release();
     }
   }
+
+  @Override
+  public List<Inventory_Entity> readFeed(final int id) {
+    final String _sql = "select * from Inventory_Entity where id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, id);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfItem = CursorUtil.getColumnIndexOrThrow(_cursor, "item");
+      final int _cursorIndexOfQty = CursorUtil.getColumnIndexOrThrow(_cursor, "quantity");
+      final List<Inventory_Entity> _result = new ArrayList<Inventory_Entity>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Inventory_Entity _item;
+        _item = new Inventory_Entity();
+        final int _tmpId;
+        _tmpId = _cursor.getInt(_cursorIndexOfId);
+        _item.setId(_tmpId);
+        final String _tmpItem;
+        _tmpItem = _cursor.getString(_cursorIndexOfItem);
+        _item.setItem(_tmpItem);
+        final float _tmpQty;
+        _tmpQty = _cursor.getFloat(_cursorIndexOfQty);
+        _item.setQty(_tmpQty);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

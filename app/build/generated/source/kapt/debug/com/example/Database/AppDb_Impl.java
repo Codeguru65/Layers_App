@@ -45,6 +45,10 @@ public final class AppDb_Impl extends AppDb {
 
   private volatile debitorsDAO _debitorsDAO;
 
+  private volatile paymentDAO _paymentDAO;
+
+  private volatile creditorsDOA _creditorsDOA;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -61,8 +65,10 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `User_Entity` (`userid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fname` TEXT NOT NULL, `lname` TEXT NOT NULL, `email` TEXT NOT NULL, `username` TEXT NOT NULL, `password` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Bird_Entity` (`birdId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `quantity` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Debitors_Entity` (`debtId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT, `debtDate` TEXT, `owingDebt` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Creditors_Entity` (`credId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `credNames` TEXT, `credDate` TEXT, `owingCred` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Payment_Entity` (`payid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameS` TEXT NOT NULL, `payDate` TEXT, `payProduct` TEXT, `payType` TEXT, `payQuantity` INTEGER NOT NULL, `totalPay` REAL NOT NULL, `paidPay` REAL NOT NULL, `owingPay` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e8cd5a045b5d3ac83cfa5e1a0b29e85a')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e65461bcd5360b8ae5be45893264749d')");
       }
 
       @Override
@@ -78,6 +84,8 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("DROP TABLE IF EXISTS `User_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Bird_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Debitors_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Creditors_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Payment_Entity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -278,9 +286,42 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoDebitorsEntity + "\n"
                   + " Found:\n" + _existingDebitorsEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsCreditorsEntity = new HashMap<String, TableInfo.Column>(4);
+        _columnsCreditorsEntity.put("credId", new TableInfo.Column("credId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCreditorsEntity.put("credNames", new TableInfo.Column("credNames", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCreditorsEntity.put("credDate", new TableInfo.Column("credDate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCreditorsEntity.put("owingCred", new TableInfo.Column("owingCred", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysCreditorsEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesCreditorsEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoCreditorsEntity = new TableInfo("Creditors_Entity", _columnsCreditorsEntity, _foreignKeysCreditorsEntity, _indicesCreditorsEntity);
+        final TableInfo _existingCreditorsEntity = TableInfo.read(_db, "Creditors_Entity");
+        if (! _infoCreditorsEntity.equals(_existingCreditorsEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Creditors_Entity(com.example.Database.Creditors_Entity).\n"
+                  + " Expected:\n" + _infoCreditorsEntity + "\n"
+                  + " Found:\n" + _existingCreditorsEntity);
+        }
+        final HashMap<String, TableInfo.Column> _columnsPaymentEntity = new HashMap<String, TableInfo.Column>(9);
+        _columnsPaymentEntity.put("payid", new TableInfo.Column("payid", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("nameS", new TableInfo.Column("nameS", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("payDate", new TableInfo.Column("payDate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("payProduct", new TableInfo.Column("payProduct", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("payType", new TableInfo.Column("payType", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("payQuantity", new TableInfo.Column("payQuantity", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("totalPay", new TableInfo.Column("totalPay", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("paidPay", new TableInfo.Column("paidPay", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPaymentEntity.put("owingPay", new TableInfo.Column("owingPay", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysPaymentEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesPaymentEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoPaymentEntity = new TableInfo("Payment_Entity", _columnsPaymentEntity, _foreignKeysPaymentEntity, _indicesPaymentEntity);
+        final TableInfo _existingPaymentEntity = TableInfo.read(_db, "Payment_Entity");
+        if (! _infoPaymentEntity.equals(_existingPaymentEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Payment_Entity(com.example.Database.Payment_Entity).\n"
+                  + " Expected:\n" + _infoPaymentEntity + "\n"
+                  + " Found:\n" + _existingPaymentEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "e8cd5a045b5d3ac83cfa5e1a0b29e85a", "06c71abf042f4f374600c5e9db08bf63");
+    }, "e65461bcd5360b8ae5be45893264749d", "b7f3320bcdf47b72fed86d7082f02f03");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -293,7 +334,7 @@ public final class AppDb_Impl extends AppDb {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity","Bird_Entity","Debitors_Entity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity","Bird_Entity","Debitors_Entity","Creditors_Entity","Payment_Entity");
   }
 
   @Override
@@ -313,6 +354,8 @@ public final class AppDb_Impl extends AppDb {
       _db.execSQL("DELETE FROM `User_Entity`");
       _db.execSQL("DELETE FROM `Bird_Entity`");
       _db.execSQL("DELETE FROM `Debitors_Entity`");
+      _db.execSQL("DELETE FROM `Creditors_Entity`");
+      _db.execSQL("DELETE FROM `Payment_Entity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -473,6 +516,34 @@ public final class AppDb_Impl extends AppDb {
           _debitorsDAO = new debitorsDAO_Impl(this);
         }
         return _debitorsDAO;
+      }
+    }
+  }
+
+  @Override
+  public paymentDAO payTask() {
+    if (_paymentDAO != null) {
+      return _paymentDAO;
+    } else {
+      synchronized(this) {
+        if(_paymentDAO == null) {
+          _paymentDAO = new paymentDAO_Impl(this);
+        }
+        return _paymentDAO;
+      }
+    }
+  }
+
+  @Override
+  public creditorsDOA credTask() {
+    if (_creditorsDOA != null) {
+      return _creditorsDOA;
+    } else {
+      synchronized(this) {
+        if(_creditorsDOA == null) {
+          _creditorsDOA = new creditorsDOA_Impl(this);
+        }
+        return _creditorsDOA;
       }
     }
   }

@@ -56,12 +56,6 @@ class PartPay : AppCompatActivity() {
 
 
         tvDate.setOnClickListener {
-            /* val nowDate = Calendar.getInstance()
-            val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->  } ,
-                nowDate.get(Calendar.YEAR),nowDate.get(Calendar.MONTH),nowDate.get(Calendar.DAY_OF_MONTH))
-            datePicker.show() */
-
-
             val datePicker = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
@@ -137,23 +131,10 @@ class PartPay : AppCompatActivity() {
         })
 
         var datalist = db.partTask().viewPart()
-        tvDate.setOnClickListener {
 
-            val datePicker = DatePickerDialog(
-                this,
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    trueMonth = month + 1
-                    date = dayOfMonth.toString() + "/" + trueMonth + "/" + year
-                    tvDate.text = date
-                },
-                year,
-                month,
-                day
-            )
 
-            datePicker.show()
+        // auto completion code
 
-        }
         var list = ArrayList<String?>()
         datalist.forEach {
             list.add(it.names)
@@ -307,7 +288,8 @@ class PartPay : AppCompatActivity() {
 
                     if (partPaid.text.toString().toFloat() < partTotal.text.toString().toFloat()) {
                         if (partCustomer.text.isNullOrEmpty()) {
-                            var msg = "Please make sure to enter "
+                            var msg = "Please make sure to enter Customer name "
+                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         } else {
                             if ((db.debtTask().viewDebt(partCustomer.text.toString())).isNullOrEmpty()) {
                                 debt.owingDebt = owing
@@ -333,8 +315,6 @@ class PartPay : AppCompatActivity() {
             }
 
         }
-
-
 
     override fun onBackPressed() {
         super.onBackPressed()

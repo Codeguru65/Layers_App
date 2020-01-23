@@ -57,20 +57,6 @@
                 android:text="View Stock"
                 android:textColor="#FFFFFF" />
 
-            <Button
-                android:id="@+id/btn_edit_inventory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="4dp"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="center"
-                android:text="Add Inventory Item"
-                android:textColor="#FFFFFF" />
-
 
         </LinearLayout>
 

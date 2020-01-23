@@ -42,7 +42,6 @@ class Inflow : AppCompatActivity() {
         var trueMonth: Int?
         var date: String?
 
-        var debtActivity = Debitors_Entity()
 
         var datalist = db.debtTask().viewDebitors()
         tvDate.setOnClickListener {
@@ -62,6 +61,9 @@ class Inflow : AppCompatActivity() {
             datePicker.show()
 
         }
+
+        //autoCompleting code
+
         var list = ArrayList<String?>()
         datalist.forEach {
            list.add(it.names)
@@ -77,6 +79,7 @@ class Inflow : AppCompatActivity() {
         var auto = findViewById<AutoCompleteTextView>(R.id.inCustomer)
                 auto.setAdapter(adapter)
 
+        //auto generating code
         inCustomer.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}

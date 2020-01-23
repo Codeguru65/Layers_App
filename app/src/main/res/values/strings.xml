@@ -48,6 +48,19 @@
         <item>Part Pay</item>
     </string-array>
 
+    <string-array name="pay">
+        <item>Purchase</item>
+        <item>Account Settling</item>
+    </string-array>
+
+    <string-array name="pprod">
+        <item>Feed 10kg</item>
+        <item>Feed 25kg</item>
+        <item>Feed 50kg</item>
+        <item>Medication</item>
+        <item>Birds</item>
+    </string-array>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

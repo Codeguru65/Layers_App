@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         btn_production.setOnClickListener {
             showProductionDialog()
         }
+        btn_accounting.setOnClickListener {
+            showAccounting()
+        }
 
         logout.setOnClickListener{
             showOptions()
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
         //button handlers here
         var btnInventory : Button = dialog.findViewById(R.id.btn_inventory)
-        var btnReports   : Button = dialog.findViewById(R.id.btn_reports)
+        var btnPayments   : Button = dialog.findViewById(R.id.btn_payments)
         var btnDailyEntries : Button = dialog.findViewById(R.id.btn_daily_entries)
 
 
@@ -110,7 +113,9 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
-        btnReports.setOnClickListener {
+        btnPayments.setOnClickListener {
+            showPayments()
+            dialog.dismiss()
         }
         dialog.show()
     }
@@ -124,14 +129,9 @@ class MainActivity : AppCompatActivity() {
 
 
         var btnViewInventorry : Button = dialog.findViewById(R.id.btn_view_inventory)
-        var btnEditInventory : Button = dialog.findViewById(R.id.btn_edit_inventory)
+
         var btnViewStock  : Button  =dialog.findViewById(R.id.btn_view_stock)
 //        var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
-
-       btnEditInventory.setOnClickListener {
-           startActivity(Intent(this,edit_feed_inventory::class.java))
-
-       }
 
         btnViewInventorry.setOnClickListener {
             startActivity(Intent(this,Inventory::class.java))
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-     private fun showDeliveries(){
+     private fun showAccounting(){
         // create an alert builder
         val dialog = Dialog(this@MainActivity)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -218,19 +218,23 @@ class MainActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.deliveries_dialog)
 
 
-        var btn_cash: Button = dialog.findViewById(R.id.btn_cash)
-        var btn_acc: Button = dialog.findViewById(R.id.btn_acc)
-        var btn_part: Button = dialog.findViewById(R.id.btn_partP)
+        var btn_debtors: Button = dialog.findViewById(R.id.btn_debtors)
+        var btn_creditors: Button = dialog.findViewById(R.id.btn_creditors)
+        var btn_stock: Button = dialog.findViewById(R.id.btn_stock)
+         var btn_summary: Button = dialog.findViewById(R.id.btn_summary)
 
-        btn_cash.setOnClickListener {
-            startActivity(Intent(this, Cash::class.java))
+        btn_debtors.setOnClickListener {
+
         }
-        btn_acc.setOnClickListener {
-            startActivity(Intent(this,Account::class.java))
+        btn_creditors.setOnClickListener {
+
         }
-        btn_part.setOnClickListener {
-            startActivity(Intent(this,PartPay::class.java))
+        btn_stock.setOnClickListener {
+
         }
+         btn_summary.setOnClickListener {
+
+         }
 
         dialog.show()
     }
@@ -251,6 +255,27 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun showPayments(){
+        // create an alert builder
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.pay_ments)
+
+
+        var btn_acc: Button = dialog.findViewById(R.id.accPay)
+        var btn_purch: Button = dialog.findViewById(R.id.purchPay)
+
+
+        btn_acc.setOnClickListener {
+            startActivity(Intent(this, AccPay::class.java))
+        }
+        btn_purch.setOnClickListener {
+            startActivity(Intent(this, Payments::class.java))
+        }
+
+        dialog.show()
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()

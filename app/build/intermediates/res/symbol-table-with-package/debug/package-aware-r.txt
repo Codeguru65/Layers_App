@@ -43,7 +43,9 @@ array hCause
 array hState
 array mort
 array openF
+array pay
 array payType
+array pprod
 array prod
 array wlevel
 attr actionBarDivider
@@ -1110,6 +1112,7 @@ id META
 id SHIFT
 id SYM
 id accCustomer
+id accPay
 id accPrice
 id accQuantity
 id accTotal
@@ -1186,6 +1189,8 @@ id btnEggSave
 id btnInSave
 id btnLogin
 id btnPartSave
+id btnPayAccSave
+id btnPaySave
 id btnSave
 id btnSaveItem
 id btnSign
@@ -1194,15 +1199,14 @@ id btn_25kg_bag
 id btn_50kg_bag
 id btn_EEgg
 id btn_EFeed
-id btn_acc
 id btn_accounting
 id btn_alerts
-id btn_cash
+id btn_creditors
 id btn_daily_diary
 id btn_daily_entries
+id btn_debtors
 id btn_deliveries
 id btn_details
-id btn_edit_inventory
 id btn_eggs
 id btn_feed
 id btn_hDetails
@@ -1213,9 +1217,10 @@ id btn_inventory
 id btn_logout
 id btn_mort
 id btn_motality
-id btn_partP
+id btn_payments
 id btn_production
-id btn_reports
+id btn_stock
+id btn_summary
 id btn_training
 id btn_view_inventory
 id btn_view_stock
@@ -1389,7 +1394,17 @@ id partPrice
 id partQuantity
 id partTotal
 id pass
+id payAccOwing
+id payAccPaid
+id payAccSupplier
+id payAccTotal
+id payOwing
+id payPaid
+id payPrice
+id payQuantity
 id paySpin
+id paySupplier
+id payTotal
 id percent
 id pin
 id prodDescription
@@ -1397,6 +1412,7 @@ id prodPartSpin
 id prodSpin
 id progress_circular
 id progress_horizontal
+id purchPay
 id qty
 id qtyStock
 id radio
@@ -1586,6 +1602,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_acc_pay
 layout activity_account
 layout activity_cash
 layout activity_daily__entries
@@ -1601,6 +1618,7 @@ layout activity_login
 layout activity_main
 layout activity_mort
 layout activity_part_pay
+layout activity_payments
 layout activity_prod_sub
 layout activity_sign_up
 layout activity_statistics
@@ -1650,6 +1668,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout pay_ments
 layout production_dialogue
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

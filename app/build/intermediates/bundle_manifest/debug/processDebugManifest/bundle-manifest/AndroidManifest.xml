@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.layers.AccPay" />
+        <activity android:name="com.example.layers.Payments" />
         <activity android:name="com.example.layers.Inflow" />
         <activity
             android:name="com.example.layers.SignUpActivity"
