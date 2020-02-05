@@ -172,41 +172,44 @@ class Payments : AppCompatActivity() {
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             } else {
 
-                //payment
-                // object
+                if (paySupplier.text.isNullOrEmpty() || payQuantity.text.isNullOrEmpty() || payPrice.text.isNullOrEmpty() || payPaid.text.isNullOrEmpty()) {
+                    Toast.makeText(this, "Enter All Values", Toast.LENGTH_SHORT).show()
+                } else {
 
-                var payAct = Payment_Entity()
-                payAct.payProduct = prodSpin.selectedItem.toString()
-                payAct.payQuantity = payQuantity.text.toString().toInt()
-                payAct.paidPay = payPaid.text.toString().toFloat()
-                payAct.nameS = paySupplier.text.toString()
-                payAct.totalPay = payTotal.text.toString().toFloat()
-                payAct.payDate = tvDate.text.toString()
-                payAct.owingPay = payOwing.text.toString().toFloat()
-                payAct.payType = "Purchase"
+                    //payment
+                    // object
 
-                //inventory
-                //object
+                    var payAct = Payment_Entity()
+                    payAct.payProduct = prodSpin.selectedItem.toString()
+                    payAct.payQuantity = payQuantity.text.toString().toInt()
+                    payAct.paidPay = payPaid.text.toString().toFloat()
+                    payAct.nameS = paySupplier.text.toString()
+                    payAct.totalPay = payTotal.text.toString().toFloat()
+                    payAct.payDate = tvDate.text.toString()
+                    payAct.owingPay = payOwing.text.toString().toFloat()
+                    payAct.payType = "Purchase"
 
-                var inAct = Inventory_Entity()
-                var birdActivity = Bird_Entity()
-                birdActivity.birdId = 1
+                    //inventory
+                    //object
 
-                //cred
-                //object
+                    var inAct = Inventory_Entity()
+                    var birdActivity = Bird_Entity()
+                    birdActivity.birdId = 1
 
-                var cred = Creditors_Entity()
-                cred.credDate = tvDate.text.toString()
+                    //cred
+                    //object
 
-                //saving a purchase
+                    var cred = Creditors_Entity()
+                    cred.credDate = tvDate.text.toString()
+
+                    //saving a purchase
                     if (payOwing.text.toString().toFloat() == 0f) {
 
                         if (paySupplier.text.isNullOrEmpty()) {
                             payAct.nameS = "General Supplier"
                         }
                         db.payTask().savePayTask(payAct)
-                    }
-                    else {
+                    } else {
                         if (paySupplier.text.isNullOrEmpty()) {
                             var msg = "Enter supplier name"
                             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
@@ -219,13 +222,13 @@ class Payments : AppCompatActivity() {
                             if (deb.isNotEmpty()) {
                                 deb.forEach {
                                     cred.credNames = it.credNames
-                                    cred.owingCred =  it.owingCred + payOwing.text.toString().toFloat()
+                                    cred.owingCred =
+                                        it.owingCred + payOwing.text.toString().toFloat()
                                     cred.credId = it.credId
 
                                     db.credTask().updateCred(cred)
                                 }
-                            }
-                            else {
+                            } else {
                                 cred.credNames = paySupplier.text.toString()
                                 cred.owingCred = payOwing.text.toString().toFloat()
                                 db.credTask().addCred(cred)
@@ -276,15 +279,16 @@ class Payments : AppCompatActivity() {
                         }
                     }
 
-                var msg = "Purchase Made"
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                    var msg = "Purchase Made"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
-                paySupplier.text.clear()
-                payQuantity.text.clear()
-                payPrice.text.clear()
-                payTotal.text = " 0"
-                payPaid.text.clear()
-                payOwing.text = " 0"
+                    paySupplier.text.clear()
+                    payQuantity.text.clear()
+                    payPrice.text.clear()
+                    payTotal.text = " 0"
+                    payPaid.text.clear()
+                    payOwing.text = " 0"
+                }
             }
         }
 

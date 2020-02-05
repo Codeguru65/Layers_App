@@ -93,42 +93,45 @@ class Mort : AppCompatActivity() {
                     }
                 }
                 else {
-                    mortActivity.mcause = spinner.selectedItem.toString()
-
-                    if (birdCount.text.isNotEmpty() && mortNum.text.isNullOrEmpty()) {
-                        birdActivity.birdQty = birdCount.text.toString().toInt()
-                        db.birdTask().addMoreBird(birdActivity)
-
-                        var msg = " Bird Count Saved"
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        mortNum.text.clear()
-                        mortOther.text.clear()
-                        birdCount.text.clear()
-                    } else if (mortNum.text.isNotEmpty() && birdCount.text.isNullOrEmpty()) {
-                        mortActivity.mortNum = mortNum.text.toString().toInt()
-                        db.mortTask().saveMortTask(mortActivity)
-
-                        var msg = "Mortality Saved"
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        mortNum.text.clear()
-                        mortOther.text.clear()
-                        birdCount.text.clear()
+                    if (birdCount.text.isNullOrEmpty() && mortNum.text.isNullOrEmpty()) {
+                        Toast.makeText(this, "Fill the Relevant Fields", Toast.LENGTH_SHORT).show()
                     } else {
-                        mortActivity.mortNum = mortNum.text.toString().toInt()
-                        birdActivity.birdQty = birdCount.text.toString().toInt()
+                        mortActivity.mcause = spinner.selectedItem.toString()
 
-                        db.birdTask().addMoreBird(birdActivity)
-                        db.mortTask().saveMortTask(mortActivity)
+                        if (birdCount.text.isNotEmpty() && mortNum.text.isNullOrEmpty()) {
+                            birdActivity.birdQty = birdCount.text.toString().toInt()
+                            db.birdTask().addMoreBird(birdActivity)
 
-                        var msg = "Saved"
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        mortNum.text.clear()
-                        mortOther.text.clear()
-                        birdCount.text.clear()
+                            var msg = " Bird Count Saved"
+                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            mortNum.text.clear()
+                            mortOther.text.clear()
+                            birdCount.text.clear()
+                        } else if (mortNum.text.isNotEmpty() && birdCount.text.isNullOrEmpty()) {
+                            mortActivity.mortNum = mortNum.text.toString().toInt()
+                            db.mortTask().saveMortTask(mortActivity)
+
+                            var msg = "Mortality Saved"
+                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            mortNum.text.clear()
+                            mortOther.text.clear()
+                            birdCount.text.clear()
+                        } else {
+                            mortActivity.mortNum = mortNum.text.toString().toInt()
+                            birdActivity.birdQty = birdCount.text.toString().toInt()
+
+                            db.birdTask().addMoreBird(birdActivity)
+                            db.mortTask().saveMortTask(mortActivity)
+
+                            var msg = "Saved"
+                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            mortNum.text.clear()
+                            mortOther.text.clear()
+                            birdCount.text.clear()
+                        }
                     }
+
                 }
-
-
                 Thread {
                     db.mortTask().viewMort().forEach {
                         Log.i("@override", "id : ${it.mortid}")

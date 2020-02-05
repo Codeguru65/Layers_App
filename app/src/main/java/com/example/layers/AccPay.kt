@@ -123,41 +123,45 @@ class AccPay : AppCompatActivity() {
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             }
             else {
+                if (payAccSupplier.text.isNullOrEmpty()  || payAccPaid.text.isNullOrEmpty()) {
+                    Toast.makeText(this, "Enter All Values", Toast.LENGTH_SHORT).show()
+                } else {
 
-                var payAct = Payment_Entity()
-                payAct.payProduct = "Account Payment"
-                payAct.payQuantity = 0
-                payAct.paidPay = payAccPaid.text.toString().toFloat()
-                payAct.nameS = payAccSupplier.text.toString()
-                payAct.totalPay = payAccTotal.text.toString().toFloat()
-                payAct.payDate = tvDate.text.toString()
-                payAct.owingPay = payAccOwing.text.toString().toFloat()
-                payAct.payType = "Account Payment"
+                    var payAct = Payment_Entity()
+                    payAct.payProduct = "Account Payment"
+                    payAct.payQuantity = 0
+                    payAct.paidPay = payAccPaid.text.toString().toFloat()
+                    payAct.nameS = payAccSupplier.text.toString()
+                    payAct.totalPay = payAccTotal.text.toString().toFloat()
+                    payAct.payDate = tvDate.text.toString()
+                    payAct.owingPay = payAccOwing.text.toString().toFloat()
+                    payAct.payType = "Account Payment"
 
-                var cred = Creditors_Entity()
-                cred.credDate = tvDate.text.toString()
+                    var cred = Creditors_Entity()
+                    cred.credDate = tvDate.text.toString()
 
-                //saving the transaction
+                    //saving the transaction
 
-                db.payTask().savePayTask(payAct)
+                    db.payTask().savePayTask(payAct)
 
-                var deb = db.credTask().viewCred(payAccSupplier.text.toString())
+                    var deb = db.credTask().viewCred(payAccSupplier.text.toString())
 
-                deb.forEach {
-                    cred.credNames = it.credNames
-                    cred.owingCred =  it.owingCred - payAccPaid.text.toString().toFloat()
-                    cred.credId = it.credId
+                    deb.forEach {
+                        cred.credNames = it.credNames
+                        cred.owingCred = it.owingCred - payAccPaid.text.toString().toFloat()
+                        cred.credId = it.credId
 
-                    db.credTask().updateCred(cred)
+                        db.credTask().updateCred(cred)
+                    }
+
+                    var msg = "Purchase Made"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+                    payAccSupplier.text.clear()
+                    payAccTotal.text = " 0"
+                    payAccPaid.text.clear()
+                    payAccOwing.text = " 0"
                 }
-
-                var msg = "Purchase Made"
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-
-                payAccSupplier.text.clear()
-                payAccTotal.text = " 0"
-                payAccPaid.text.clear()
-                payAccOwing.text = " 0"
             }
         }
 

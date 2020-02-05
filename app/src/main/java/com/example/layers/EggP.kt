@@ -89,46 +89,54 @@ class EggP : AppCompatActivity() {
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             } else {
 
+                if (eggPicked.text.isNullOrEmpty()) {
+                    Toast.makeText(this, "Please Enter Eggs Picked", Toast.LENGTH_SHORT).show()
+                } else {
+                    var bR: Int
+                    //updating egg table
+                    var dailyEggActivity = Egg_Entity()
+                    dailyEggActivity.date = tvDate.text.toString()
+                    dailyEggActivity.size = spinSize.selectedItem.toString()
+                    dailyEggActivity.quality = spinQua.selectedItem.toString()
+                    dailyEggActivity.picked = eggPicked.text.toString().toInt()
 
-                //updating egg table
-                var dailyEggActivity = Egg_Entity()
-                dailyEggActivity.date = tvDate.text.toString()
-                dailyEggActivity.size = spinSize.selectedItem.toString()
-                dailyEggActivity.quality = spinQua.selectedItem.toString()
-                dailyEggActivity.picked = eggPicked.text.toString().toInt()
-                dailyEggActivity.broken = egBreak.text.toString().toInt()
+                    if (egBreak.text.isNullOrEmpty()) {
+                        dailyEggActivity.broken = 0
+                        bR = 0
+                    } else {
 
-
-                db.eggTaskDAO().saveEggTask(dailyEggActivity)
-
-                // updating the database with the new level
-
-                var startStock: Int
-
-                db.stockTask().viewStock().forEach {
-                    startStock = it.stockQty
+                        dailyEggActivity.broken = egBreak.text.toString().toInt()
+                        bR = egBreak.text.toString().toInt()
+                    }
+                    db.eggTaskDAO().saveEggTask(dailyEggActivity)
 
                     // updating the database with the new level
 
-                    var stock = Stock_Entity()
-                    stock.stockId = 1
+                    var startStock: Int
 
-                    var picked = eggPicked.text.toString().toInt() - egBreak.text.toString().toInt()
-                    stock.stockItem = "Eggs"
-                    stock.stockQty = startStock + picked
+                    db.stockTask().viewStock().forEach {
+                        startStock = it.stockQty
 
-                    db.stockTask().addMoreEggs(stock)
+                        // updating the database with the new level
 
+                        var stock = Stock_Entity()
+                        stock.stockId = 1
+
+                        var picked = eggPicked.text.toString().toInt() - bR
+                        stock.stockItem = "Eggs"
+                        stock.stockQty = startStock + picked
+
+                        db.stockTask().addMoreEggs(stock)
+
+                    }
+
+
+                    var msg = "Saved"
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                    eggPicked.text.clear()
+                    egBreak.text.clear()
                 }
-
-
-
-                var msg = "Saved"
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                eggPicked.text.clear()
-                egBreak.text.clear()
             }
-
         }
     }
         override fun onBackPressed() {

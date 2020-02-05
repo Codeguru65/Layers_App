@@ -41,7 +41,8 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="FEED"
+                android:text="Feed"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -55,7 +56,8 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="EGG production"
+                android:text="Egg Production"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -69,8 +71,10 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="mortality"
+                android:text="Mortality"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
+
             <Button
                 android:id="@+id/btn_health"
                 android:layout_width="match_parent"
@@ -82,7 +86,8 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="health"
+                android:text="Health"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -96,7 +101,8 @@
                 android:layout_marginBottom="20dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="water"
+                android:text="Water"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

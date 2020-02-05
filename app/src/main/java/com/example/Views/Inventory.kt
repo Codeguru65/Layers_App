@@ -14,7 +14,6 @@ import com.example.Database.AppDb
 import com.example.Database.Inventory_Entity
 import com.example.dailythings.Adapter
 import com.example.dailythings.Data
-import com.example.dailythings.Supplier
 import kotlinx.android.synthetic.main.activity_inventory.*
 
 class Inventory : AppCompatActivity() {
@@ -37,11 +36,11 @@ class Inventory : AppCompatActivity() {
             var inventoryEntity1 = Inventory_Entity()
             var inventoryEntity2 = Inventory_Entity()
             var inventoryEntity3 = Inventory_Entity()
-            inventoryEntity1.item ="10_kg_bag"
+            inventoryEntity1.item ="10kg Bag"
             inventoryEntity1.qty=0f
-            inventoryEntity2.item ="25_kg_bag"
+            inventoryEntity2.item ="25kg Bag"
             inventoryEntity2.qty=0f
-            inventoryEntity3.item ="50_kg_bag"
+            inventoryEntity3.item ="50kg Bag"
             inventoryEntity3.qty=0f
 
             db.inventoryDAO().addtem(inventoryEntity1)

@@ -125,4 +125,66 @@ public final class paymentDAO_Impl implements paymentDAO {
       _statement.release();
     }
   }
+
+  @Override
+  public List<Payment_Entity> viewPayD(final String date) {
+    final String _sql = "select * from Payment_Entity where payDate = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (date == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, date);
+    }
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _cursorIndexOfPayid = CursorUtil.getColumnIndexOrThrow(_cursor, "payid");
+      final int _cursorIndexOfNameS = CursorUtil.getColumnIndexOrThrow(_cursor, "nameS");
+      final int _cursorIndexOfPayDate = CursorUtil.getColumnIndexOrThrow(_cursor, "payDate");
+      final int _cursorIndexOfPayProduct = CursorUtil.getColumnIndexOrThrow(_cursor, "payProduct");
+      final int _cursorIndexOfPayType = CursorUtil.getColumnIndexOrThrow(_cursor, "payType");
+      final int _cursorIndexOfPayQuantity = CursorUtil.getColumnIndexOrThrow(_cursor, "payQuantity");
+      final int _cursorIndexOfTotalPay = CursorUtil.getColumnIndexOrThrow(_cursor, "totalPay");
+      final int _cursorIndexOfPaidPay = CursorUtil.getColumnIndexOrThrow(_cursor, "paidPay");
+      final int _cursorIndexOfOwingPay = CursorUtil.getColumnIndexOrThrow(_cursor, "owingPay");
+      final List<Payment_Entity> _result = new ArrayList<Payment_Entity>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Payment_Entity _item;
+        _item = new Payment_Entity();
+        final int _tmpPayid;
+        _tmpPayid = _cursor.getInt(_cursorIndexOfPayid);
+        _item.setPayid(_tmpPayid);
+        final String _tmpNameS;
+        _tmpNameS = _cursor.getString(_cursorIndexOfNameS);
+        _item.setNameS(_tmpNameS);
+        final String _tmpPayDate;
+        _tmpPayDate = _cursor.getString(_cursorIndexOfPayDate);
+        _item.setPayDate(_tmpPayDate);
+        final String _tmpPayProduct;
+        _tmpPayProduct = _cursor.getString(_cursorIndexOfPayProduct);
+        _item.setPayProduct(_tmpPayProduct);
+        final String _tmpPayType;
+        _tmpPayType = _cursor.getString(_cursorIndexOfPayType);
+        _item.setPayType(_tmpPayType);
+        final int _tmpPayQuantity;
+        _tmpPayQuantity = _cursor.getInt(_cursorIndexOfPayQuantity);
+        _item.setPayQuantity(_tmpPayQuantity);
+        final float _tmpTotalPay;
+        _tmpTotalPay = _cursor.getFloat(_cursorIndexOfTotalPay);
+        _item.setTotalPay(_tmpTotalPay);
+        final float _tmpPaidPay;
+        _tmpPaidPay = _cursor.getFloat(_cursorIndexOfPaidPay);
+        _item.setPaidPay(_tmpPaidPay);
+        final float _tmpOwingPay;
+        _tmpOwingPay = _cursor.getFloat(_cursorIndexOfOwingPay);
+        _item.setOwingPay(_tmpOwingPay);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

@@ -60,11 +60,11 @@ class LoginActivity : AppCompatActivity() {
                 var inventoryEntity1 = Inventory_Entity()
                 var inventoryEntity2 = Inventory_Entity()
                 var inventoryEntity3 = Inventory_Entity()
-                inventoryEntity1.item = "10_kg_bag"
+                inventoryEntity1.item = "10kg Bags"
                 inventoryEntity1.qty = 0f
-                inventoryEntity2.item = "25_kg_bag"
+                inventoryEntity2.item = "25kg Bags"
                 inventoryEntity2.qty = 0f
-                inventoryEntity3.item = "50_kg_bag"
+                inventoryEntity3.item = "50kg Bags"
                 inventoryEntity3.qty = 0f
 
                 db.inventoryDAO().addtem(inventoryEntity1)

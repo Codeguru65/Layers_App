@@ -14,12 +14,18 @@ import com.example.Notifications.NotificationUtils
 import com.example.Views.Daily_Entries
 import com.example.Views.Egg_History
 import com.example.Views.Stock
+import com.example.accounting.Creditors
+import com.example.accounting.Debtors
+import com.example.accounting.Outflows
+import com.example.accounting.Transcations
 import com.example.deliveries.Account
 import com.example.deliveries.Cash
 import com.example.deliveries.PartPay
 import com.example.production.Inventory
 import java.util.*
 import com.example.layers.LoginActivity.*
+import kotlinx.android.synthetic.main.trans_dialog.*
+import kotlinx.coroutines.CoroutineScope
 
 
 class MainActivity : AppCompatActivity() {
@@ -222,18 +228,22 @@ class MainActivity : AppCompatActivity() {
         var btn_creditors: Button = dialog.findViewById(R.id.btn_creditors)
         var btn_stock: Button = dialog.findViewById(R.id.btn_stock)
          var btn_summary: Button = dialog.findViewById(R.id.btn_summary)
-
+         var btn_transcation: Button = dialog.findViewById(R.id.btn_transcations)
         btn_debtors.setOnClickListener {
-
+            startActivity(Intent(this, Debtors::class.java))
         }
         btn_creditors.setOnClickListener {
-
+        startActivity(Intent(this, Creditors::class.java))
         }
         btn_stock.setOnClickListener {
 
         }
          btn_summary.setOnClickListener {
 
+         }
+         btn_transcation.setOnClickListener {
+            showTrans()
+             dialog.dismiss()
          }
 
         dialog.show()
@@ -276,6 +286,25 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
     }
+    private fun showTrans(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.trans_dialog)
+
+        var inf : Button = dialog.findViewById(R.id.btn_inflows)
+        var outf : Button = dialog.findViewById(R.id.btn_outflows)
+
+
+        inf.setOnClickListener {
+            startActivity(Intent(this ,Transcations::class.java))
+        }
+        outf.setOnClickListener {
+            startActivity(Intent(this, Outflows::class.java))
+        }
+        dialog.show()
+    }
+
 
     override fun onBackPressed() {
         super.onBackPressed()

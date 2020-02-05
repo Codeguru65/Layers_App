@@ -150,31 +150,39 @@ class DailyFeedActivity : AppCompatActivity() {
                     var msg = "Enter valid Date"
                     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                 } else {
-                    var dailyDiaryActivity = DFU_Entity()
-                    dailyDiaryActivity.date = tvDate.text.toString()
-                    dailyDiaryActivity.feedType = bagSize.toString() + "_kg_bag"
-                    dailyDiaryActivity.quatity = requiredFeed
-                    dailyDiaryActivity.openningFeed = level
-                    dailyDiaryActivity.clossingFeed = clossingFeed
-                    dailyDiaryActivity.syncStatus = false
 
-                    db.feedTaskDAO().saveFeedTask(dailyDiaryActivity)
+                    if (et_whole_qty.text.toString().isNullOrEmpty() && et_qtr_qty.text.toString().isNullOrEmpty() && et_half_qty.text.toString().isNullOrEmpty() && et_3qtr_qty.text.toString().isNullOrEmpty()) {
+                        Toast.makeText(this, "Enter Quantity", Toast.LENGTH_SHORT).show()
+                    } else {
+                        var dailyDiaryActivity = DFU_Entity()
+                        dailyDiaryActivity.date = tvDate.text.toString()
+                        dailyDiaryActivity.feedType = bagSize.toString() + "_kg_bag"
+                        dailyDiaryActivity.quatity = requiredFeed
+                        dailyDiaryActivity.openningFeed = level
+                        dailyDiaryActivity.clossingFeed = clossingFeed
+                        dailyDiaryActivity.syncStatus = false
 
-                    // updating the database with the new level
+                        db.feedTaskDAO().saveFeedTask(dailyDiaryActivity)
 
-                    var inventoryEntity = Inventory_Entity()
-                    inventoryEntity.id = id
-                    inventoryEntity.item = bagSize.toString() + "_kg_bag"
-                    inventoryEntity.qty = clossingFeed
+                        // updating the database with the new level
 
-                    db.inventoryDAO().addMoreFeed(inventoryEntity)
+                        var inventoryEntity = Inventory_Entity()
+                        inventoryEntity.id = id
+                        inventoryEntity.item = bagSize.toString() + "_kg_bag"
+                        inventoryEntity.qty = clossingFeed
 
-                    msg = "feed records updated "
-                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        db.inventoryDAO().addMoreFeed(inventoryEntity)
 
+                        msg = "feed records updated "
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+                        et_whole_qty.text.clear()
+                        et_qtr_qty.text.clear()
+                        et_half_qty.text.clear()
+                        et_3qtr_qty.text.clear()
+                    }
 
                 }
-
             }
 
 

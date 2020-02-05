@@ -186,133 +186,144 @@ class PartPay : AppCompatActivity() {
                 var msg = "Enter valid Date"
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             } else {
-
-                // setting conditions for confirming sale
-
-                if (startStock == 0) {
-                    var msg = "No Available Stock"
-                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                if (partQuantity.text.isNullOrEmpty() || partPrice.text.isNullOrEmpty() || partPaid.text.isNullOrEmpty()) {
+                    Toast.makeText(
+                        this,
+                        " Please Enter All Relevant Fields",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
 
-                    //cash payment
-                    if (paySpin.selectedItem.toString().equals("Cash")) {
+                    // setting conditions for confirming sale
 
-                        var cashActivity = Part_Entity()
-                        cashActivity.partDate = tvDate.text.toString()
-                        cashActivity.partProduct = prodPartSpin.selectedItem.toString()
-                        cashActivity.partQuantity = partQuantity.text.toString().toInt()
-                        cashActivity.totalP =
-                            (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
-                        cashActivity.paidPart = partPaid.text.toString().toFloat()
-                        cashActivity.type = "Cash"
-
-                        db.partTask().savePartTask(cashActivity)
-
-                        var msg = "Cash Purchase Made"
+                    if (startStock == 0) {
+                        var msg = "No Available Stock"
                         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                    }
+                    } else {
 
-                    //account payment
-                    if (paySpin.selectedItem.toString().equals("Account")) {
-                        if (partCustomer.text.isNullOrEmpty()) {
-                            var msg = "Please Enter Customer Name"
-                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        } else {
-                            var accActivity = Part_Entity()
-                            accActivity.names = partCustomer.text.toString()
-                            accActivity.partDate = tvDate.text.toString()
-                            accActivity.partProduct = prodPartSpin.selectedItem.toString()
-                            accActivity.partQuantity = partQuantity.text.toString().toInt()
-                            accActivity.totalP =
+
+                        //cash payment
+                        if (paySpin.selectedItem.toString().equals("Cash")) {
+
+                            var cashActivity = Part_Entity()
+                            cashActivity.partDate = tvDate.text.toString()
+                            cashActivity.partProduct = prodPartSpin.selectedItem.toString()
+                            cashActivity.partQuantity = partQuantity.text.toString().toInt()
+                            cashActivity.totalP =
                                 (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
-                            accActivity.paidPart = partPaid.text.toString().toFloat()
-                            accActivity.owingP = accActivity.totalP
-                            accActivity.type = "Account"
+                            cashActivity.paidPart = partPaid.text.toString().toFloat()
+                            cashActivity.type = "Cash"
 
-                            db.partTask().savePartTask(accActivity)
+                            db.partTask().savePartTask(cashActivity)
 
-                            var msg = "Account Purchase Made"
+                            var msg = "Cash Purchase Made"
                             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         }
-                    }
 
-                    //part payment
-                    if (paySpin.selectedItem.toString().equals("Part Pay")) {
-                        if (partCustomer.text.isNullOrEmpty()) {
-                            var msg = "Please Enter Customer Name"
-                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        } else {
-                            var partActivity = Part_Entity()
-                            partActivity.names = partCustomer.text.toString()
-                            partActivity.partDate = tvDate.text.toString()
-                            partActivity.partProduct = prodPartSpin.selectedItem.toString()
-                            partActivity.partQuantity = partQuantity.text.toString().toInt()
-                            partActivity.totalP =
-                                (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
-                            partActivity.paidPart = partPaid.text.toString().toFloat()
-                            partActivity.owingP = partActivity.totalP - partActivity.paidPart
-                            partActivity.type = "Part Payment"
-
-                            db.partTask().savePartTask(partActivity)
-
-                            var msg = "Part Payment Purchase Made"
-                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        }
-                    }
-
-
-                    // reading quantity from the database
-
-                    db.stockTask().viewStock().forEach {
-                        //                    startStock = it.stockQty
-
-                        // updating the database with the new level
-
-                        var stock = Stock_Entity()
-                        stock.stockId = 1
-
-                        var prePurchase = partQuantity.text.toString().toInt()
-                        stock.stockItem = "Eggs"
-                        stock.stockQty = startStock - prePurchase
-
-                        db.stockTask().addMoreEggs(stock)
-
-                    }
-
-                    var debt = Debitors_Entity()
-                    debt.debtDate = tvDate.text.toString()
-                    debt.names = partCustomer.text.toString()
-                    var owing =
-                        partTotal.text.toString().toFloat() - partPaid.text.toString().toFloat()
-
-
-                    if (partPaid.text.toString().toFloat() < partTotal.text.toString().toFloat()) {
-                        if (partCustomer.text.isNullOrEmpty()) {
-                            var msg = "Please make sure to enter Customer name "
-                            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                        } else {
-                            if ((db.debtTask().viewDebt(partCustomer.text.toString())).isNullOrEmpty()) {
-                                debt.owingDebt = owing
-
-                                db.debtTask().addDebt(debt)
+                        //account payment
+                        if (paySpin.selectedItem.toString().equals("Account")) {
+                            if (partCustomer.text.isNullOrEmpty()) {
+                                var msg = "Please Enter Customer Name"
+                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                             } else {
-                                var debtor = db.debtTask().viewDebt(partCustomer.text.toString())
-                                debtor.forEach {
-                                    debt.owingDebt = it.owingDebt + owing
-                                    db.debtTask().updateDebt(debt)
+                                var accActivity = Part_Entity()
+                                accActivity.names = partCustomer.text.toString()
+                                accActivity.partDate = tvDate.text.toString()
+                                accActivity.partProduct = prodPartSpin.selectedItem.toString()
+                                accActivity.partQuantity = partQuantity.text.toString().toInt()
+                                accActivity.totalP =
+                                    (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
+                                accActivity.paidPart = partPaid.text.toString().toFloat()
+                                accActivity.owingP = accActivity.totalP
+                                accActivity.type = "Account"
+
+                                db.partTask().savePartTask(accActivity)
+
+                                var msg = "Account Purchase Made"
+                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                        //part payment
+                        if (paySpin.selectedItem.toString().equals("Part Pay")) {
+                            if (partCustomer.text.isNullOrEmpty()) {
+                                var msg = "Please Enter Customer Name"
+                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            } else {
+                                var partActivity = Part_Entity()
+                                partActivity.names = partCustomer.text.toString()
+                                partActivity.partDate = tvDate.text.toString()
+                                partActivity.partProduct = prodPartSpin.selectedItem.toString()
+                                partActivity.partQuantity = partQuantity.text.toString().toInt()
+                                partActivity.totalP =
+                                    (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
+                                partActivity.paidPart = partPaid.text.toString().toFloat()
+                                partActivity.owingP = partActivity.totalP - partActivity.paidPart
+                                partActivity.type = "Part Payment"
+
+                                db.partTask().savePartTask(partActivity)
+
+                                var msg = "Part Payment Purchase Made"
+                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+
+                        // reading quantity from the database
+
+                        db.stockTask().viewStock().forEach {
+                            //                    startStock = it.stockQty
+
+                            // updating the database with the new level
+
+                            var stock = Stock_Entity()
+                            stock.stockId = 1
+
+                            var prePurchase = partQuantity.text.toString().toInt()
+                            stock.stockItem = "Eggs"
+                            stock.stockQty = startStock - prePurchase
+
+                            db.stockTask().addMoreEggs(stock)
+
+                        }
+
+                        var debt = Debitors_Entity()
+                        debt.debtDate = tvDate.text.toString()
+                        debt.names = partCustomer.text.toString()
+                        var owing =
+                            partTotal.text.toString().toFloat() - partPaid.text.toString().toFloat()
+
+
+                        if (partPaid.text.toString().toFloat() < partTotal.text.toString().toFloat()) {
+                            if (partCustomer.text.isNullOrEmpty()) {
+                                var msg = "Please make sure to enter Customer name "
+                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                            } else {
+                                if ((db.debtTask().viewDebt(partCustomer.text.toString())).isNullOrEmpty()) {
+                                    debt.owingDebt = owing
+
+                                    db.debtTask().addDebt(debt)
+                                } else {
+                                    var debtor =
+                                        db.debtTask().viewDebt(partCustomer.text.toString())
+                                    debtor.forEach {
+                                        debt.owingDebt = it.owingDebt + owing
+                                        db.debtTask().updateDebt(debt)
+                                    }
                                 }
                             }
                         }
-                    }
                         partCustomer.text.clear()
                         partQuantity.text.clear()
                         partPrice.text.clear()
                         partTotal.text = " 0"
                         partPaid.text.clear()
                         partOwed.text = " 0"
+
                     }
                 }
             }
+        }
 
         }
 

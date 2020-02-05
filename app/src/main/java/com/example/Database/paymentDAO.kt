@@ -14,4 +14,8 @@ interface paymentDAO {
     @Query("select * from Payment_Entity")
     fun viewPay() : List<Payment_Entity>
 
+
+    @Query("select * from Payment_Entity where payDate = :date")
+    fun viewPayD(date: String) : List<Payment_Entity>
+
 }

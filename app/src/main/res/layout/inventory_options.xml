@@ -40,7 +40,8 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="view inventory"
+                android:text="View Inventory"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -55,6 +56,7 @@
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:text="View Stock"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 
 

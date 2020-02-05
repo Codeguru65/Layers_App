@@ -65,15 +65,15 @@
                             android:layout_height="wrap_content"
                             android:text="Confirm Password"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/conPass"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="textPassword"
                             android:textColor="#008000"
-                            android:textSize="18sp"
-                            android:inputType="textPassword"/>
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -108,7 +108,7 @@
                             android:layout_height="wrap_content"
                             android:text="Username"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/user"
@@ -116,7 +116,7 @@
                             android:layout_height="wrap_content"
                             android:hint="username"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -153,7 +153,7 @@
                             android:layout_height="wrap_content"
                             android:text="First Name"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/fname"
@@ -161,7 +161,7 @@
                             android:layout_height="wrap_content"
                             android:hint="name "
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -197,7 +197,7 @@
                             android:layout_height="wrap_content"
                             android:text="Last Name"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/lname"
@@ -206,7 +206,8 @@
                             android:ems="10"
                             android:hint="surname"
                             android:inputType="textPersonName"
-                            android:textColor="#008000" />
+                            android:textColor="#008000"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -245,7 +246,7 @@
                             android:fitsSystemWindows="true"
                             android:text="Email"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/email"
@@ -253,7 +254,7 @@
                             android:layout_height="wrap_content"
                             android:hint="example@gmail.com"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -289,7 +290,7 @@
                             android:layout_height="wrap_content"
                             android:text="Password"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/pass"
@@ -297,7 +298,8 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPassword"
-                            android:textColor="#008000" />
+                            android:textColor="#008000"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 

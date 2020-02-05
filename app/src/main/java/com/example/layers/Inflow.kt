@@ -125,40 +125,45 @@ class Inflow : AppCompatActivity() {
                 var msg = "Enter a valid Date"
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             } else {
-                var customer = db.debtTask().viewDebt(inCustomer.text.toString())
+                if (inCustomer.text.isNullOrEmpty() || inPaid.text.isNullOrEmpty()) {
+                    Toast.makeText(this, "Enter all Details", Toast.LENGTH_SHORT).show()
+                } else {
+                    var customer = db.debtTask().viewDebt(inCustomer.text.toString())
 
-                customer.forEach {
-                    it.names = inCustomer.text.toString()
-                    it.owingDebt =
-                        inTotal.text.toString().toFloat() - inPaid.text.toString().toFloat()
-                    it.debtDate = tvDate.text.toString()
+                    customer.forEach {
+                        it.names = inCustomer.text.toString()
+                        it.owingDebt =
+                            inTotal.text.toString().toFloat() - inPaid.text.toString().toFloat()
+                        it.debtDate = tvDate.text.toString()
 
-                    db.debtTask().updateDebt(it)
+                        db.debtTask().updateDebt(it)
 
 
-                    var payActivity = Part_Entity()
-                    payActivity.names = inCustomer.text.toString()
-                    payActivity.type = " Due Payment"
-                    payActivity.partDate = tvDate.text.toString()
-                    payActivity.paidPart = inPaid.text.toString().toFloat()
-                    payActivity.partProduct = "Eggs"
-                    payActivity.totalP = inTotal.text.toString().toFloat()
-                    payActivity.owingP =
-                        inTotal.text.toString().toFloat() - inPaid.text.toString().toFloat()
+                        var payActivity = Part_Entity()
+                        payActivity.names = inCustomer.text.toString()
+                        payActivity.type = " Due Payment"
+                        payActivity.partDate = tvDate.text.toString()
+                        payActivity.paidPart = inPaid.text.toString().toFloat()
+                        payActivity.partProduct = "Eggs"
+                        payActivity.totalP = inTotal.text.toString().toFloat()
+                        payActivity.owingP =
+                            inTotal.text.toString().toFloat() - inPaid.text.toString().toFloat()
 
-                    db.partTask().savePartTask(payActivity)
+                        db.partTask().savePartTask(payActivity)
 
-                    var msg = "Payment Made"
-                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        var msg = "Payment Made"
+                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+                    }
+
+                    inCustomer.text.clear()
+                    inTotal.text = " 0"
+                    inPaid.text.clear()
+                    inOwed.text = " 0"
 
                 }
-
-                inCustomer.text.clear()
-                inTotal.text = " 0"
-                inPaid.text.clear()
-                inOwed.text = " 0"
-
             }
+
         }
 
     }

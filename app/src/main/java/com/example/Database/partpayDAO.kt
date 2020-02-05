@@ -13,4 +13,8 @@ interface partpayDAO {
 
     @Query("select * from Part_Entity")
     fun viewPart() : List<Part_Entity>
+
+    @Query("select * from Part_Entity where partDate = :date")
+    fun viewPartD(date : String) : List<Part_Entity>
+
 }

@@ -80,7 +80,7 @@
                             android:layout_height="wrap_content"
                             android:text="Price"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/accPrice"
@@ -88,7 +88,7 @@
                             android:layout_height="wrap_content"
                             android:hint="price per egg"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -125,7 +125,7 @@
                             android:layout_height="wrap_content"
                             android:text="Customer"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/accCustomer"
@@ -133,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:hint="name and surname"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:text="Product"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <Spinner
                             android:id="@+id/prodSpin"
@@ -213,7 +213,7 @@
                             android:layout_height="wrap_content"
                             android:text="Quantity"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/accQuantity"
@@ -221,7 +221,7 @@
                             android:layout_height="wrap_content"
                             android:hint="eggs sold"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -257,7 +257,7 @@
                             android:layout_height="wrap_content"
                             android:text="Total Value"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/accTotal"
@@ -265,7 +265,7 @@
                             android:layout_height="wrap_content"
                             android:hint="total cost"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 

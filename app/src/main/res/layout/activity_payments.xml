@@ -34,16 +34,17 @@
             android:inputType="date"
             android:text="Select a Date"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <ScrollView
-            android:layout_width="354dp"
-            android:layout_height="479dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDate">
 
@@ -55,7 +56,7 @@
                 <androidx.cardview.widget.CardView
 
                     android:id="@+id/cv_qtrs2"
-                    android:layout_width="340dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
                     android:layout_marginStart="6dp"
@@ -81,16 +82,17 @@
                             android:layout_height="wrap_content"
                             android:text="Owing Amount ($)"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/payOwing"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
+                            android:padding="5dp"
                             android:text=" 0"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -99,7 +101,7 @@
                 <androidx.cardview.widget.CardView
 
                     android:id="@+id/cv_qtrs3"
-                    android:layout_width="340dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
                     android:layout_marginStart="6dp"
@@ -125,7 +127,7 @@
                             android:layout_height="wrap_content"
                             android:text="Paid Amount ($)"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/payPaid"
@@ -134,7 +136,7 @@
                             android:hint="Amount"
                             android:inputType="number"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -169,7 +171,7 @@
                             android:layout_height="wrap_content"
                             android:text="Price ($)"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/payPrice"
@@ -178,7 +180,7 @@
                             android:hint="Price per item"
                             android:inputType="number"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -215,7 +217,7 @@
                             android:layout_height="wrap_content"
                             android:text="Supplier"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <AutoCompleteTextView
                             android:id="@+id/paySupplier"
@@ -223,7 +225,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Supplier Name "
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -259,7 +261,7 @@
                             android:layout_height="wrap_content"
                             android:text="Product"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <Spinner
                             android:id="@+id/prodSpin"
@@ -305,7 +307,7 @@
                             android:fitsSystemWindows="true"
                             android:text="Quantity"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <EditText
                             android:id="@+id/payQuantity"
@@ -314,7 +316,7 @@
                             android:hint="Items"
                             android:inputType="number"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -324,7 +326,7 @@
                 <androidx.cardview.widget.CardView
 
                     android:id="@+id/cv_qtrs"
-                    android:layout_width="340dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
                     android:layout_marginStart="6dp"
@@ -350,7 +352,7 @@
                             android:layout_height="wrap_content"
                             android:text="Total Due ($)"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/payTotal"
@@ -358,9 +360,10 @@
                             android:layout_height="wrap_content"
                             android:fitsSystemWindows="true"
                             android:inputType="number"
+                            android:padding="5dp"
                             android:text="  0"
                             android:textColor="#008000"
-                            android:textSize="18sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
 
@@ -370,15 +373,14 @@
                     android:id="@+id/btnPaySave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="132dp"
-                    android:layout_marginLeft="132dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="100dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/custom_button"
                     android:text="save"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cv_qtrs2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
