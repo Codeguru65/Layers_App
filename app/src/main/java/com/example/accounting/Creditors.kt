@@ -2,7 +2,9 @@ package com.example.accounting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Button
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
@@ -47,6 +49,7 @@ class Creditors : AppCompatActivity() {
         credTotal.text = total.toString()
 
     }
+
 
     override fun onBackPressed() {
         super.onBackPressed()

@@ -29,11 +29,6 @@ class Water : AppCompatActivity() {
             onBackPressed()
         }
 
-        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
-            .allowMainThreadQueries().build()
-
-
-
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
@@ -42,6 +37,24 @@ class Water : AppCompatActivity() {
 
         var trueMonth: Int?
         var date: String?
+
+        val datePicker2 = DatePickerDialog(
+                this,
+        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            trueMonth = month + 1
+            date = dayOfMonth.toString() + "/" + trueMonth + "/" + year
+            tvDate.text = date
+        },
+        year,
+        month,
+        day
+        )
+
+        datePicker2.show()
+
+        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
+            .allowMainThreadQueries().build()
+
 
         tvDate.setOnClickListener {
             /* val nowDate = Calendar.getInstance()

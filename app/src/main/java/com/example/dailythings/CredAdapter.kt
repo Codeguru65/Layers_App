@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.layers.R
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.crediitors_item.view.*
@@ -27,8 +28,12 @@ class CredAdapter (val context: Context,val  data: List<Data>): RecyclerView.Ada
         val data = data[position]
         holder.setData(data)
 
+        holder.itemView.setOnClickListener {
+            var msg = data.description
 
+        }
     }
+
 
     inner class MyVieiwHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun setData(data: Data?){

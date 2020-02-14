@@ -14,10 +14,7 @@ import com.example.Notifications.NotificationUtils
 import com.example.Views.Daily_Entries
 import com.example.Views.Egg_History
 import com.example.Views.Stock
-import com.example.accounting.Creditors
-import com.example.accounting.Debtors
-import com.example.accounting.Outflows
-import com.example.accounting.Transcations
+import com.example.accounting.*
 import com.example.deliveries.Account
 import com.example.deliveries.Cash
 import com.example.deliveries.PartPay
@@ -215,7 +212,7 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-
+    //displaying the accounting dialogue
      private fun showAccounting(){
         // create an alert builder
         val dialog = Dialog(this@MainActivity)
@@ -224,25 +221,18 @@ class MainActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.deliveries_dialog)
 
 
-        var btn_debtors: Button = dialog.findViewById(R.id.btn_debtors)
-        var btn_creditors: Button = dialog.findViewById(R.id.btn_creditors)
-        var btn_stock: Button = dialog.findViewById(R.id.btn_stock)
+         var btn_accounts: Button = dialog.findViewById(R.id.btn_accounts)
+         var btn_stock: Button = dialog.findViewById(R.id.btn_stock)
          var btn_summary: Button = dialog.findViewById(R.id.btn_summary)
-         var btn_transcation: Button = dialog.findViewById(R.id.btn_transcations)
-        btn_debtors.setOnClickListener {
-            startActivity(Intent(this, Debtors::class.java))
-        }
-        btn_creditors.setOnClickListener {
-        startActivity(Intent(this, Creditors::class.java))
-        }
+
         btn_stock.setOnClickListener {
 
         }
          btn_summary.setOnClickListener {
 
          }
-         btn_transcation.setOnClickListener {
-            showTrans()
+         btn_accounts.setOnClickListener {
+             showAccounts()
              dialog.dismiss()
          }
 
@@ -302,6 +292,37 @@ class MainActivity : AppCompatActivity() {
         outf.setOnClickListener {
             startActivity(Intent(this, Outflows::class.java))
         }
+        dialog.show()
+    }
+
+    private fun showAccounts(){
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.accounts_dialog)
+
+        var btn_debtors: Button = dialog.findViewById(R.id.btn_debtors)
+        var btn_creditors: Button = dialog.findViewById(R.id.btn_creditors)
+        var btn_transcation: Button = dialog.findViewById(R.id.btn_transcations)
+        var btn_clients: Button = dialog.findViewById(R.id.btn_clients)
+
+        btn_debtors.setOnClickListener {
+            startActivity(Intent(this, Debtors::class.java))
+            dialog.dismiss()
+        }
+        btn_creditors.setOnClickListener {
+            startActivity(Intent(this, Creditors::class.java))
+            dialog.dismiss()
+        }
+
+        btn_transcation.setOnClickListener {
+            showTrans()
+            dialog.dismiss()
+        }
+        btn_clients.setOnClickListener {
+            startActivity(Intent(this, Clients::class.java))
+        }
+
         dialog.show()
     }
 

@@ -72,7 +72,7 @@ class Outflows : AppCompatActivity() {
 
         var dataList = ArrayList<DataH>()
         var total  = 0f
-        db.payTask().viewPayD(dateTime.format(DateTimeFormatter.ofPattern("d/M/yyyy "))).forEach{
+        db.payTask().viewPayD(LocalDateTime.now().format(DateTimeFormatter.ofPattern("d/M/yyyy "))).forEach{
             var item = DataH(it.payid.toString() , it.totalPay, it.payDate)
             total += it.totalPay
             dataList.add(item)

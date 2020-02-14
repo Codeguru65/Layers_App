@@ -37,6 +37,20 @@ class AccPay : AppCompatActivity() {
         var trueMonth: Int?
         var date: String?
 
+        val datePicker = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                trueMonth = month + 1
+                date = dayOfMonth.toString() + "/" + trueMonth + "/" + year
+                tvDate.text = date
+            },
+            year,
+            month,
+            day
+        )
+
+        datePicker.show()
+
         tvDate.setOnClickListener {
 
             val datePicker = DatePickerDialog(

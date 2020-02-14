@@ -4,12 +4,12 @@
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
-        "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
+        "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -156,12 +156,12 @@
         "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/layout/activity_acc_pay.xml"
     },
     {
-        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/layout_activity_statistics.xml.flat",
@@ -178,6 +178,10 @@
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable_icons8plusmath26.png.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/drawable/icons8plusmath26.png"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-mdpi_daily_diary.png.flat",
@@ -368,6 +372,10 @@
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png"
     },
     {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/layout_accounts_dialog.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/layout/accounts_dialog.xml"
+    },
+    {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
@@ -474,6 +482,10 @@
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_icn_done_round.png.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/mipmap-xxhdpi/icn_done_round.png"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/layout_client_item.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/layout/client_item.xml"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-hdpi_book.png.flat",
@@ -654,6 +666,10 @@
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/interpolator_btn_checkbox_checked_mtrl_animation_interpolator_0.xml.flat",
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/layout_activity_clients.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/layout/activity_clients.xml"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable_abc_cab_background_top_material.xml.flat",
@@ -884,6 +900,10 @@
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/2e2076e6216b29ee97192fe17edf1ebc/core-1.1.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable_icons8checkmark48.png.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/drawable/icons8checkmark48.png"
+    },
+    {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-ldpi_book.png.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/drawable-ldpi/book.png"
     },
@@ -1082,6 +1102,10 @@
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_home_24px.png.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/drawable-xxhdpi/home_24px.png"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable_icons8plusmath52.png.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/drawable/icons8plusmath52.png"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/anim_abc_fade_out.xml.flat",
@@ -1960,6 +1984,10 @@
         "source": "/Users/Vision/.gradle/caches/transforms-2/files-2.1/3788f3b56b5ecd3ba5f93b17ed23495d/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/layout_activity_new_client.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/layout/activity_new_client.xml"
+    },
+    {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable-hdpi_support.png.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/drawable-hdpi/support.png"
     },
@@ -2394,6 +2422,10 @@
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/layout_egg_history_item.xml.flat",
         "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/layout/egg_history_item.xml"
+    },
+    {
+        "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/menu_main_menu.xml.flat",
+        "source": "/Users/Vision/Documents/Projects/Layers_App/app/src/main/res/menu/main_menu.xml"
     },
     {
         "merged": "/Users/Vision/Documents/Projects/Layers_App/app/build/intermediates/res/merged/debug/drawable_abc_ic_menu_overflow_material.xml.flat",

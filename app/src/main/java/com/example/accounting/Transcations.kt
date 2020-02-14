@@ -1,6 +1,7 @@
 package com.example.accounting
 
 import android.app.DatePickerDialog
+import android.database.DefaultDatabaseErrorHandler
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,7 @@ import com.example.dailythings.DataH
 import com.example.dailythings.TransAdapter
 import com.example.layers.R
 import kotlinx.android.synthetic.main.activity_transcations.*
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -72,7 +74,8 @@ class Transcations : AppCompatActivity() {
 
         var dataList = ArrayList<DataH>()
         var total  = 0f
-        db.partTask().viewPartD(dateTime.format(DateTimeFormatter.ofPattern("d/M/yyyy "))).forEach{
+        dataList.clear()
+        db.partTask().viewPartD(LocalDateTime.now().format(DateTimeFormatter.ofPattern("d/M/yyyy"))).forEach{
             var item = DataH(it.partid.toString() , it.totalP, it.partDate)
             total += it.totalP
             dataList.add(item)

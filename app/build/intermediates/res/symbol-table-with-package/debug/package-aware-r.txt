@@ -37,6 +37,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array clientS
 array eggQ
 array eggS
 array hCause
@@ -1074,10 +1075,13 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icn_done_background
 drawable icon_done
+drawable icons8checkmark48
 drawable icons8invoice50
 drawable icons8left50
 drawable icons8maintenance50
 drawable icons8newproduct80
+drawable icons8plusmath26
+drawable icons8plusmath52
 drawable icons8shipped50
 drawable icons8wrench50
 drawable inventory
@@ -1170,6 +1174,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addressC
 id alertTitle
 id all
 id always
@@ -1186,6 +1191,7 @@ id bottom
 id bottomNavigationView
 id btnAccSave
 id btnCashSave
+id btnClient
 id btnEggSave
 id btnInSave
 id btnLogin
@@ -1201,7 +1207,9 @@ id btn_50kg_bag
 id btn_EEgg
 id btn_EFeed
 id btn_accounting
+id btn_accounts
 id btn_alerts
+id btn_clients
 id btn_creditors
 id btn_daily_diary
 id btn_daily_entries
@@ -1242,8 +1250,13 @@ id chains
 id checkbox
 id checked
 id chronometer
+id clientPhone
+id clientT
+id clientType
+id clientname
 id clip_horizontal
 id clip_vertical
+id cname
 id collapseActionView
 id conPass
 id container
@@ -1253,6 +1266,7 @@ id coordinator
 id credTotal
 id cred_name
 id cred_owed
+id ct
 id custom
 id customPanel
 id cvAcc
@@ -1389,8 +1403,10 @@ id mortOther
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id name2
 id navigation_header_container
 id never
+id newClient
 id none
 id normal
 id notification_background
@@ -1425,6 +1441,7 @@ id paySpin
 id paySupplier
 id payTotal
 id percent
+id phone
 id pin
 id prodDescription
 id prodPartSpin
@@ -1435,6 +1452,7 @@ id purchPay
 id qty
 id qtyStock
 id radio
+id recyclerClients
 id recyclerCred
 id recyclerDebt
 id recyclerEggHistory
@@ -1464,6 +1482,7 @@ id scrollView
 id scrollView2
 id scrollView3
 id scrollView4
+id scrollView5
 id scroll_view
 id scrollable
 id search
@@ -1637,9 +1656,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout accounts_dialog
 layout activity_acc_pay
 layout activity_account
 layout activity_cash
+layout activity_clients
 layout activity_creditors
 layout activity_daily__entries
 layout activity_daily_feed
@@ -1654,6 +1675,7 @@ layout activity_inventory
 layout activity_login
 layout activity_main
 layout activity_mort
+layout activity_new_client
 layout activity_outflows
 layout activity_part_pay
 layout activity_payments
@@ -1665,6 +1687,7 @@ layout activity_transcations
 layout activity_water
 layout bag_size_dialog
 layout base
+layout client_item
 layout crediitors_item
 layout custom_dialog
 layout daily_entries_dialog
@@ -1721,6 +1744,7 @@ layout trans_dialog
 layout trans_item
 layout user_dialog
 menu bottom_nav_menu
+menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap icn_done

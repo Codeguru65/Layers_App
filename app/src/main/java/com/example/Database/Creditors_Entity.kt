@@ -3,7 +3,7 @@ package com.example.Database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.ForeignKey
+
 
 @Entity
 class Creditors_Entity {

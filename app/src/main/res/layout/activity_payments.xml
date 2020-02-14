@@ -39,6 +39,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnPaySave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.95"
+            app:srcCompat="@drawable/icons8checkmark48" />
+
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -64,9 +77,11 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="6dp"
                     android:layout_marginRight="6dp"
+                    android:layout_marginBottom="30dp"
                     android:clickable="true"
                     app:cardCornerRadius="3dp"
                     app:cardElevation="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cv_qtrs3">
@@ -369,20 +384,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <Button
-                    android:id="@+id/btnPaySave"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/custom_button"
-                    android:text="save"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cv_qtrs2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

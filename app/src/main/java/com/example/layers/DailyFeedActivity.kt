@@ -47,8 +47,6 @@ class DailyFeedActivity : AppCompatActivity() {
         val bagSize : Int = bundle!!.getInt("BAG_SIZE")
         Log.i("@bagsize","type : ${bagSize.toString()+"_kg_bag"}")
 
-
-
         if (bagSize.toString().equals("10")){
             mtitle.text = "Feed 10kg"
         }
@@ -58,17 +56,28 @@ class DailyFeedActivity : AppCompatActivity() {
         if(bagSize.toString().equals("50")){
             mtitle.text = "Feed 50kg"
         }
+
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
 
-
-
-
-
         var trueMonth : Int?
         var date : String ?
+
+        val datePicker = DatePickerDialog(
+                this,
+        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            trueMonth = month + 1
+            date = dayOfMonth.toString()+"/"+trueMonth+"/"+year
+            tvDate.text = date
+        },
+        year,
+        month,
+        day
+        )
+
+        datePicker.show()
 
         tvDate.setOnClickListener {
             /* val nowDate = Calendar.getInstance()
@@ -91,14 +100,11 @@ class DailyFeedActivity : AppCompatActivity() {
 
             datePicker.show()
 
-
         }
 
         //getting values from the activity
 
-
         btnSave.setOnClickListener {
-
 
             var numWhole = 0f
             var numQtr = 0f
@@ -185,87 +191,6 @@ class DailyFeedActivity : AppCompatActivity() {
                 }
             }
 
-
-           /* var num_whole = et_whole_qty.text.toString().toInt()
-            var num_qtr  = et_qtr_qty.text.toString().toInt()
-            var num_half = et_half_qty.text.toString().toInt()
-            var num_3qtr = et_3qtr_qty.text.toString().toInt()
-*/
-
-
-            //quantity = whole + size[(10kg_num * fraction) + (25kg_num * faction) + (50kg_num * fraction)
-
-           // var totalFeedTypeUsed = num_whole + bagSize * ((num_qtr * 0.25) + (num_half * 0.5) +(num_3qtr * 0.75))
-
-
-           /* if(!TextUtils.isEmpty(et_whole_qty.text.toString())){
-                whole = et_whole_qty.text.toString().toInt()
-
-                Thread{
-                    var dailyFeedActivity = DFU_Entity()
-                    dailyFeedActivity.date = tvDate.text.toString()
-                    dailyFeedActivity.feedType = bagSize+"whole"
-                    dailyFeedActivity.quatity=et_whole_qty.text.toString().toInt()
-
-                    db.feedTaskDAO().saveFeedTask(dailyFeedActivity)
-                }.start()
-
-
-
-
-                //Toast.makeText(this,"whole bags added",Toast.LENGTH_SHORT).show()
-            }else{
-               // Toast.makeText(this,"no 3/4 bags",Toast.LENGTH_SHORT).show()
-            }
-
-            if(!TextUtils.isEmpty(et_qtr_qty.text.toString())){
-                qtr = et_whole_qty.text.toString().toInt()
-                Thread{
-                    var dailyFeedActivity = DFU_Entity()
-                    dailyFeedActivity.date = tvDate.text.toString()
-                    dailyFeedActivity.feedType = bagSize+"quarter"
-                    dailyFeedActivity.quatity=et_qtr_qty.text.toString().toInt()
-
-                    db.feedTaskDAO().saveFeedTask(dailyFeedActivity)
-                }.start()
-                // Toast.makeText(this,"quarter bags added",Toast.LENGTH_SHORT).show()
-            }else{
-                //Toast.makeText(this,"no 3/4 bags",Toast.LENGTH_SHORT).show()
-            }
-
-            if(!TextUtils.isEmpty(et_half_qty.text.toString())){
-                half = et_whole_qty.text.toString().toInt()
-                Thread{
-                    var dailyFeedActivity = DFU_Entity()
-                    dailyFeedActivity.date = tvDate.text.toString()
-                    dailyFeedActivity.feedType = bagSize+"half"
-                    dailyFeedActivity.quatity=et_half_qty.text.toString().toInt()
-
-                    db.feedTaskDAO().saveFeedTask(dailyFeedActivity)
-                }.start()
-                //Toast.makeText(this,"half bags added",Toast.LENGTH_SHORT).show()
-            }else{
-                //Toast.makeText(this,"no 3/4 bags",Toast.LENGTH_SHORT).show()
-            }
-
-            if(!TextUtils.isEmpty(et_3qtr_qty.text.toString())){
-                three_qrt = et_whole_qty.text.toString().toInt()
-                Thread{
-                    var dailyFeedActivity = DFU_Entity()
-                    dailyFeedActivity.date = tvDate.text.toString()
-                    dailyFeedActivity.feedType = bagSize+"3 quarter"
-                    dailyFeedActivity.quatity=et_3qtr_qty.text.toString().toInt()
-
-                    db.feedTaskDAO().saveFeedTask(dailyFeedActivity)
-                }.start()
-                Toast.makeText(this,"3 quarter bags added",Toast.LENGTH_SHORT).show()
-            }else{
-               // Toast.makeText(this,"no 3/4 bags",Toast.LENGTH_SHORT).show()
-            }
-
-            */
-
-
            Thread{
                db.feedTaskDAO().viewFeed().forEach{
                Log.i("@override","id : ${it.id}")
@@ -281,8 +206,6 @@ class DailyFeedActivity : AppCompatActivity() {
             }.start()
 
         }
-
-        // data entry logic
 
     }
 

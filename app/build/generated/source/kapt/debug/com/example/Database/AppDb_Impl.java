@@ -49,6 +49,8 @@ public final class AppDb_Impl extends AppDb {
 
   private volatile creditorsDOA _creditorsDOA;
 
+  private volatile clientsDAO _clientsDAO;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -67,8 +69,9 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Debitors_Entity` (`debtId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT, `debtDate` TEXT, `owingDebt` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Creditors_Entity` (`credId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `credNames` TEXT, `credDate` TEXT, `owingCred` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Payment_Entity` (`payid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameS` TEXT NOT NULL, `payDate` TEXT, `payProduct` TEXT, `payType` TEXT, `payQuantity` INTEGER NOT NULL, `totalPay` REAL NOT NULL, `paidPay` REAL NOT NULL, `owingPay` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Client_Entity` (`clientID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameClient` TEXT, `clientType` TEXT, `address` TEXT, `phone` TEXT, `email` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e65461bcd5360b8ae5be45893264749d')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '15cfc471c86bd9bb42cc03e6428b087b')");
       }
 
       @Override
@@ -86,6 +89,7 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("DROP TABLE IF EXISTS `Debitors_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Creditors_Entity`");
         _db.execSQL("DROP TABLE IF EXISTS `Payment_Entity`");
+        _db.execSQL("DROP TABLE IF EXISTS `Client_Entity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -319,9 +323,25 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoPaymentEntity + "\n"
                   + " Found:\n" + _existingPaymentEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsClientEntity = new HashMap<String, TableInfo.Column>(6);
+        _columnsClientEntity.put("clientID", new TableInfo.Column("clientID", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("nameClient", new TableInfo.Column("nameClient", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("clientType", new TableInfo.Column("clientType", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("address", new TableInfo.Column("address", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("phone", new TableInfo.Column("phone", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("email", new TableInfo.Column("email", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysClientEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesClientEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoClientEntity = new TableInfo("Client_Entity", _columnsClientEntity, _foreignKeysClientEntity, _indicesClientEntity);
+        final TableInfo _existingClientEntity = TableInfo.read(_db, "Client_Entity");
+        if (! _infoClientEntity.equals(_existingClientEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "Client_Entity(com.example.Database.Client_Entity).\n"
+                  + " Expected:\n" + _infoClientEntity + "\n"
+                  + " Found:\n" + _existingClientEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "e65461bcd5360b8ae5be45893264749d", "b7f3320bcdf47b72fed86d7082f02f03");
+    }, "15cfc471c86bd9bb42cc03e6428b087b", "a5ff0970e94da63fd71af8f796d4b023");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -334,7 +354,7 @@ public final class AppDb_Impl extends AppDb {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity","Bird_Entity","Debitors_Entity","Creditors_Entity","Payment_Entity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "DFU_Entity","Egg_Entity","Inventory_Entity","Water_Entity","Mort_Entity","Health_Entity","Part_Entity","Stock_Entity","User_Entity","Bird_Entity","Debitors_Entity","Creditors_Entity","Payment_Entity","Client_Entity");
   }
 
   @Override
@@ -356,6 +376,7 @@ public final class AppDb_Impl extends AppDb {
       _db.execSQL("DELETE FROM `Debitors_Entity`");
       _db.execSQL("DELETE FROM `Creditors_Entity`");
       _db.execSQL("DELETE FROM `Payment_Entity`");
+      _db.execSQL("DELETE FROM `Client_Entity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -544,6 +565,20 @@ public final class AppDb_Impl extends AppDb {
           _creditorsDOA = new creditorsDOA_Impl(this);
         }
         return _creditorsDOA;
+      }
+    }
+  }
+
+  @Override
+  public clientsDAO clientTask() {
+    if (_clientsDAO != null) {
+      return _clientsDAO;
+    } else {
+      synchronized(this) {
+        if(_clientsDAO == null) {
+          _clientsDAO = new clientsDAO_Impl(this);
+        }
+        return _clientsDAO;
       }
     }
   }

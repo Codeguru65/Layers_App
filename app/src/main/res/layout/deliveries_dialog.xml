@@ -30,8 +30,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <Button
-                android:id="@+id/btn_debtors"
+                android:id="@+id/btn_accounts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -41,38 +42,7 @@
                 android:layout_marginBottom="4dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="Debtors"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
-
-
-            <Button
-                android:id="@+id/btn_creditors"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="4dp"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="center"
-                android:text="Creditors"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
-
-            <Button
-                android:id="@+id/btn_transcations"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="4dp"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="center"
-                android:text="Transcations"
+                android:text="Accounts"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF" />
 

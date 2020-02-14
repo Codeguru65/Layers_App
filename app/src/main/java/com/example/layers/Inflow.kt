@@ -43,6 +43,21 @@ class Inflow : AppCompatActivity() {
         var date: String?
 
 
+        val datePicker2 = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                trueMonth = month + 1
+                date = dayOfMonth.toString() + "/" + trueMonth + "/" + year
+                tvDate.text = date
+            },
+            year,
+            month,
+            day
+        )
+
+        datePicker2.show()
+
+
         var datalist = db.debtTask().viewDebitors()
         tvDate.setOnClickListener {
 

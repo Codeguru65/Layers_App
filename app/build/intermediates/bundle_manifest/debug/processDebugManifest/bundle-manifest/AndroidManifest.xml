@@ -23,7 +23,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.accounting.NewClient" />
+        <activity android:name="com.example.accounting.Clients" />
         <activity android:name="com.example.accounting.Outflows" />
         <activity android:name="com.example.accounting.Transcations" />
         <activity android:name="com.example.accounting.Creditors" />
