@@ -22,12 +22,9 @@ class AccPay : AppCompatActivity() {
         setContentView(R.layout.activity_acc_pay)
 
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Account Payments"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct  = supportActionBar
+        acct!!.title="Account Payments"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -179,5 +176,10 @@ class AccPay : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

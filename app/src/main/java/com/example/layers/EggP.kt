@@ -2,22 +2,14 @@ package com.example.layers
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.content.Intent
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.Database.Egg_Entity
 import com.example.Database.Stock_Entity
-import kotlinx.android.synthetic.main.activity_daily_feed.*
 import kotlinx.android.synthetic.main.eggs.*
-import kotlinx.android.synthetic.main.eggs.toolbar
 import kotlinx.android.synthetic.main.eggs.tvDate
-import kotlinx.android.synthetic.main.tool_bar.*
-import java.lang.Exception
 import java.util.*
 
 
@@ -27,12 +19,9 @@ class EggP : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.eggs)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Egg Production"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct = supportActionBar
+        acct!!.title = "Egg Production"
+        acct.setDisplayHomeAsUpEnabled(true)
 
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
@@ -156,7 +145,14 @@ class EggP : AppCompatActivity() {
             }
         }
     }
-        override fun onBackPressed() {
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+
+    override fun onBackPressed() {
             super.onBackPressed()
             finish()
         }

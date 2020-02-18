@@ -33,6 +33,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var acct  = supportActionBar
+        acct!!.title="Dashboard"
+
+
+
         btn_daily_diary.setOnClickListener {
             showDiaryDialog()
         }
@@ -54,9 +60,9 @@ class MainActivity : AppCompatActivity() {
             showAccounting()
         }
 
-        logout.setOnClickListener{
-            showOptions()
-        }
+//        logout.setOnClickListener{
+//            showOptions()
+//        }
 
     }
     //this method is display the daily tasks dialogue
@@ -130,24 +136,18 @@ class MainActivity : AppCompatActivity() {
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.inventory_options)
 
-
         var btnViewInventorry : Button = dialog.findViewById(R.id.btn_view_inventory)
-
         var btnViewStock  : Button  =dialog.findViewById(R.id.btn_view_stock)
-//        var btnAddItem : Button = dialog.findViewById(R.id.btn_add_item)
 
         btnViewInventorry.setOnClickListener {
             startActivity(Intent(this,Inventory::class.java))
-
-           // Toast.makeText(this, "the button is working ", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
         }
 
         btnViewStock.setOnClickListener {
             startActivity(Intent(this,Stock::class.java))
+            dialog.dismiss()
         }
-//        btnAddItem.setOnClickListener {
-//
-//        }
         dialog.show()
     }
 
@@ -166,10 +166,11 @@ class MainActivity : AppCompatActivity() {
 
         btn_feed.setOnClickListener {
             startActivity(Intent(this,Daily_Entries::class.java))
+            dialog.dismiss()
         }
         btn_eggs.setOnClickListener {
             startActivity(Intent(this, Egg_History::class.java))
-
+            dialog.dismiss()
         }
         dialog.show()
     }
@@ -269,9 +270,11 @@ class MainActivity : AppCompatActivity() {
 
         btn_acc.setOnClickListener {
             startActivity(Intent(this, AccPay::class.java))
+            dialog.dismiss()
         }
         btn_purch.setOnClickListener {
             startActivity(Intent(this, Payments::class.java))
+            dialog.dismiss()
         }
 
         dialog.show()
@@ -288,9 +291,11 @@ class MainActivity : AppCompatActivity() {
 
         inf.setOnClickListener {
             startActivity(Intent(this ,Transcations::class.java))
+            dialog.dismiss()
         }
         outf.setOnClickListener {
             startActivity(Intent(this, Outflows::class.java))
+            dialog.dismiss()
         }
         dialog.show()
     }
@@ -321,6 +326,7 @@ class MainActivity : AppCompatActivity() {
         }
         btn_clients.setOnClickListener {
             startActivity(Intent(this, Clients::class.java))
+            dialog.dismiss()
         }
 
         dialog.show()

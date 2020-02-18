@@ -22,12 +22,9 @@ class Water : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_water)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Water"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct = supportActionBar
+        acct!!.title = "Water"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -131,6 +128,11 @@ class Water : AppCompatActivity() {
 
         }
     }}
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     override fun onBackPressed() {
         super.onBackPressed()
         finish()

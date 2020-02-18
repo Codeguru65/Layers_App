@@ -27,11 +27,12 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
-<!--    <SearchView android:id="@+id/search"-->
+<!--    <SearchView-->
+<!--        android:id="@+id/search"-->
 <!--        android:title="@string/search_title"-->
 <!--        android:icon="@drawable/ic_search"-->
 <!--        android:showAsAction="collapseActionView|ifRoom"-->
 <!--        android:actionViewClass="android.widget.SearchView" />-->
-<!--         />-->
+
 
 </androidx.appcompat.widget.Toolbar>

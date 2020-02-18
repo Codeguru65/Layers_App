@@ -21,4 +21,11 @@ interface clientsDAO{
     @Query("select * from Client_Entity where clientType is :type")
     fun viewSp(type: String): List<Client_Entity>
 
+    @Query("select * from Client_Entity where nameClient like :phrase")
+    fun fil(phrase: String?): List<Client_Entity>
+
+
+    @Query("select * from Client_Entity")
+    abstract fun viewClient(): List<Client_Entity>
+
 }

@@ -26,13 +26,9 @@ class PartPay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_part_pay)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Deliveries"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
-
+        var acct = supportActionBar
+        acct!!.title = "Deliveries"
+        acct.setDisplayHomeAsUpEnabled(true)
         //Database connection
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
@@ -338,6 +334,11 @@ class PartPay : AppCompatActivity() {
         }
 
         }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()

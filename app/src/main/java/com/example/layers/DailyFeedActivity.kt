@@ -1,5 +1,6 @@
 package com.example.layers
 
+import android.app.ActionBar
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,15 +28,8 @@ class DailyFeedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_feed)
 
-        var mtitle : TextView = findViewById(R.id.tool_title)
-
-        var back : Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
-
-        //var tTitle = toolbar.findViewById(R.id.title)
-
+        var acct = supportActionBar
+        acct!!.title = " ]"
         var level10kg :Float? = null
         var level25kg :Float? = null
         var level50kg :Float? = null
@@ -48,14 +42,17 @@ class DailyFeedActivity : AppCompatActivity() {
         Log.i("@bagsize","type : ${bagSize.toString()+"_kg_bag"}")
 
         if (bagSize.toString().equals("10")){
-            mtitle.text = "Feed 10kg"
+            acct.title = "Feed 10kg"
         }
         if (bagSize.toString().equals("25")) {
-            mtitle.text = "Feed 25kg"
+            acct.title = "Feed 25kg"
         }
         if(bagSize.toString().equals("50")){
-            mtitle.text = "Feed 50kg"
+            acct.title = "Feed 50kg"
         }
+
+        acct.setDisplayHomeAsUpEnabled(true)
+
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -207,6 +204,11 @@ class DailyFeedActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onBackPressed() {

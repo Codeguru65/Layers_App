@@ -20,12 +20,9 @@ class Payments : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payments)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Purchase"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct  = supportActionBar
+        acct!!.title="Purcahse"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -307,6 +304,11 @@ class Payments : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
 

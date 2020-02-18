@@ -1,33 +1,36 @@
 package com.example.accounting
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.Database.AppDb
-import com.example.Database.Client_Entity
 import com.example.dailythings.ClientAdapter
 import com.example.dailythings.DataC
-import com.example.layers.R
 import kotlinx.android.synthetic.main.activity_clients.*
+import android.view.Menu
+import android.widget.Adapter
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.layers.R
 
 
 class Clients : AppCompatActivity() {
+
+    lateinit var adp : ClientAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clients)
 
+        var acct = supportActionBar
+        acct!!.title = "Clients"
+        acct.setDisplayHomeAsUpEnabled(true)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Clients"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -42,7 +45,7 @@ class Clients : AppCompatActivity() {
         layout.orientation = LinearLayoutManager.VERTICAL
         recyclerClients.layoutManager = layout
 
-        val adp = ClientAdapter(this, datalIst)
+        adp = ClientAdapter(this, datalIst)
         recyclerClients.adapter = adp
 
 
@@ -52,4 +55,45 @@ class Clients : AppCompatActivity() {
         }
 
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
+
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+
+        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+
+        val searchItem = menu?.findItem(R.id.search)
+
+        val searchView = searchItem?.actionView as SearchView
+
+
+        searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                adp.filter.filter(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adp.filter.filter(newText)
+                return false
+
+            }
+
+        })
+
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
+
 }

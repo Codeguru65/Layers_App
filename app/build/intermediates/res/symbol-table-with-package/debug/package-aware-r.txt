@@ -1082,6 +1082,9 @@ drawable icons8maintenance50
 drawable icons8newproduct80
 drawable icons8plusmath26
 drawable icons8plusmath52
+drawable icons8search24
+drawable icons8search30
+drawable icons8search50
 drawable icons8shipped50
 drawable icons8wrench50
 drawable inventory
@@ -1391,7 +1394,6 @@ id linearLayout9
 id listMode
 id list_item
 id lname
-id logout
 id ltext
 id masked
 id media_actions
@@ -1569,7 +1571,6 @@ id tv10kgBag
 id tv20kgBags
 id tv50kgBags
 id tv5kgBags
-id tvDashboard
 id tvDate
 id tvKgTotal
 id tvRegister

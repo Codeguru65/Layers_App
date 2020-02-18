@@ -28,13 +28,9 @@ class Outflows : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_outflows)
 
-
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Outflow Transactions"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct = supportActionBar
+        acct!!.title="Outflow Transactions"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -67,6 +63,8 @@ class Outflows : AppCompatActivity() {
         }
 
 
+
+
         var db  = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
 
@@ -81,6 +79,11 @@ class Outflows : AppCompatActivity() {
 
         val layout = LinearLayoutManager(this)
         val adp = OutAdapter(this, dataList)
+
+        layout.orientation = LinearLayoutManager.VERTICAL
+        recyclerOut.layoutManager = layout
+        recyclerOut.adapter = adp
+        tot.text = total.toString()
 
 
         tvDate.addTextChangedListener(object : TextWatcher {
@@ -109,10 +112,11 @@ class Outflows : AppCompatActivity() {
 
         })
 
-        layout.orientation = LinearLayoutManager.VERTICAL
-        recyclerOut.layoutManager = layout
-        recyclerOut.adapter = adp
-        tot.text = total.toString()
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

@@ -16,12 +16,9 @@ class Stock : AppCompatActivity() {
         setContentView(R.layout.activity_stock)
 
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Stock"
-        var back : Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct  = supportActionBar
+        acct!!.title="Stock"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -30,6 +27,11 @@ class Stock : AppCompatActivity() {
             qtyStock.text = it.stockQty.toString()
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onBackPressed() {

@@ -22,12 +22,9 @@ class Inventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventory)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Inventory"
-        var back : Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct  = supportActionBar
+        acct!!.title="Inventory"
+        acct.setDisplayHomeAsUpEnabled(true)
 
        var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -77,6 +74,11 @@ class Inventory : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onBackPressed() {

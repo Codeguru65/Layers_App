@@ -23,13 +23,9 @@ class Egg_History : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_egg__history)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Egg Picking History"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
-
+        var acct  = supportActionBar
+        acct!!.title="Egg Production History"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
             .allowMainThreadQueries().build()
@@ -52,42 +48,47 @@ class Egg_History : AppCompatActivity() {
 
         val adp = EggAdapter(this, dataList)
         recyclerEggHistory.adapter = adp
-        search.queryHint = "Search Date"
-        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-
-                var date = query
-
-                var dataList = ArrayList<DataH>()
-
-                db.eggTaskDAO().viewEggHistory(date).forEach{
-                    var item = DataH(it.picked.toString() , it.broken.toFloat(), it.date)
-
-                    dataList.add(item)
-
-                }
-                for (it in dataList){
-                    Log.i("@inventory"," description : ${it.description}")
-                }
-
-                val layout = LinearLayoutManager(this@Egg_History)
-                layout.orientation = LinearLayoutManager.VERTICAL
-                recyclerEggHistory.layoutManager = layout
-
-                val adp = EggAdapter(this@Egg_History, dataList)
-                recyclerEggHistory.adapter = adp
-
-                return false
-            }
-
-        })
+//        search.queryHint = "Search Date"
+//        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//
+//            override fun onQueryTextChange(newText: String): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//
+//                var date = query
+//
+//                var dataList = ArrayList<DataH>()
+//
+//                db.eggTaskDAO().viewEggHistory(date).forEach{
+//                    var item = DataH(it.picked.toString() , it.broken.toFloat(), it.date)
+//
+//                    dataList.add(item)
+//
+//                }
+//                for (it in dataList){
+//                    Log.i("@inventory"," description : ${it.description}")
+//                }
+//
+//                val layout = LinearLayoutManager(this@Egg_History)
+//                layout.orientation = LinearLayoutManager.VERTICAL
+//                recyclerEggHistory.layoutManager = layout
+//
+//                val adp = EggAdapter(this@Egg_History, dataList)
+//                recyclerEggHistory.adapter = adp
+//
+//                return false
+//            }
+//
+//        })
 
         }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()

@@ -19,13 +19,9 @@ class NewClient : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_client)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "New Account"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
-
+        var acct = supportActionBar
+        acct!!.title= "New Account"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -52,8 +48,12 @@ class NewClient : AppCompatActivity() {
                 startActivity(Intent(this, Clients::class.java))
                 finish()
 
-
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

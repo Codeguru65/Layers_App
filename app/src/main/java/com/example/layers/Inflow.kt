@@ -26,12 +26,9 @@ class Inflow : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inflow)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Inflow"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct = supportActionBar
+        acct!!.title = "Inflow"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         var db = Room.databaseBuilder(applicationContext,AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -181,5 +178,10 @@ class Inflow : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

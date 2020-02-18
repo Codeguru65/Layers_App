@@ -30,12 +30,10 @@ class Transcations : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transcations)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Inflow Transaction"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct = supportActionBar
+        acct!!.title = "Inflow Transactions"
+        acct.setDisplayHomeAsUpEnabled(true)
+
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -66,7 +64,6 @@ class Transcations : AppCompatActivity() {
             datePicker.show()
 
         }
-
 
 
         var db  = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
@@ -120,4 +117,10 @@ class Transcations : AppCompatActivity() {
         tot.text = total.toString()
 
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
 }

@@ -20,12 +20,9 @@ class Creditors : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_creditors)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Creditors"
-        var back: Button = findViewById(R.id.back)
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        var acct  = supportActionBar
+        acct!!.title="Creditors"
+        acct.setDisplayHomeAsUpEnabled(true)
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
             .allowMainThreadQueries().build()
@@ -50,6 +47,10 @@ class Creditors : AppCompatActivity() {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()

@@ -22,13 +22,10 @@ class Health : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.health)
 
-        var mtitle: TextView = findViewById(R.id.tool_title)
-        mtitle.text = "Health"
-        var back : Button = findViewById(R.id.back)
+        var acct = supportActionBar
+        acct!!.title = "Health"
+        acct.setDisplayHomeAsUpEnabled(true)
 
-        back.setOnClickListener {
-            onBackPressed()
-        }
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB")
             .allowMainThreadQueries().build()
 
@@ -135,10 +132,14 @@ class Health : AppCompatActivity(){
 
         }
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
-
     }
 
 }
