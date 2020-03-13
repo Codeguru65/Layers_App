@@ -223,19 +223,45 @@ class MainActivity : AppCompatActivity() {
 
 
          var btn_accounts: Button = dialog.findViewById(R.id.btn_accounts)
-         var btn_stock: Button = dialog.findViewById(R.id.btn_stock)
          var btn_summary: Button = dialog.findViewById(R.id.btn_summary)
 
-        btn_stock.setOnClickListener {
-
-        }
          btn_summary.setOnClickListener {
-
+            showReports()
+             dialog.dismiss()
          }
          btn_accounts.setOnClickListener {
              showAccounts()
              dialog.dismiss()
          }
+
+        dialog.show()
+    }
+
+    private fun showReports() {
+        val dialog = Dialog(this@MainActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.report_dialog)
+
+
+        var btn_debtors: Button = dialog.findViewById(R.id.btn_debtors)
+        var btn_creditors: Button = dialog.findViewById(R.id.btn_creditors)
+        var btn_transactions: Button = dialog.findViewById(R.id.btn_transcations)
+
+
+        btn_creditors.setOnClickListener {
+            startActivity(Intent(this ,Creditors::class.java))
+            dialog.dismiss()
+        }
+        btn_debtors.setOnClickListener {
+            startActivity(Intent(this, Debtors::class.java))
+            dialog.dismiss()
+        }
+        btn_transactions.setOnClickListener {
+            startActivity(Intent(this, Transcations::class.java))
+            dialog.dismiss()
+        }
+
 
         dialog.show()
     }
@@ -306,24 +332,14 @@ class MainActivity : AppCompatActivity() {
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.accounts_dialog)
 
-        var btn_debtors: Button = dialog.findViewById(R.id.btn_debtors)
-        var btn_creditors: Button = dialog.findViewById(R.id.btn_creditors)
-        var btn_transcation: Button = dialog.findViewById(R.id.btn_transcations)
-        var btn_clients: Button = dialog.findViewById(R.id.btn_clients)
+        var btn_clients: Button = dialog.findViewById(R.id.btn_customers)
+        var btn_suppliers: Button = dialog.findViewById(R.id.btn_suppliers)
 
-        btn_debtors.setOnClickListener {
-            startActivity(Intent(this, Debtors::class.java))
-            dialog.dismiss()
-        }
-        btn_creditors.setOnClickListener {
-            startActivity(Intent(this, Creditors::class.java))
+        btn_suppliers.setOnClickListener {
+            startActivity(Intent(this, Suppliers::class.java))
             dialog.dismiss()
         }
 
-        btn_transcation.setOnClickListener {
-            showTrans()
-            dialog.dismiss()
-        }
         btn_clients.setOnClickListener {
             startActivity(Intent(this, Clients::class.java))
             dialog.dismiss()

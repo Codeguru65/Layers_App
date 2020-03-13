@@ -1,6 +1,7 @@
 package com.example.deliveries
 
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.layers.R
@@ -9,11 +10,15 @@ import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import androidx.room.Room
 import com.example.Database.*
+import com.example.accounting.NewClient
+import com.example.accounting.NewSupplier
 import com.example.layers.MainActivity
 import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.activity_daily_feed.*
@@ -21,6 +26,17 @@ import kotlinx.android.synthetic.main.activity_part_pay.tvDate
 import java.util.*
 
 class PartPay : AppCompatActivity() {
+
+    val positiveButtonClick = { dialog: DialogInterface, which: Int ->
+        startActivity(Intent(this, NewClient::class.java))
+    }
+    val negativeButtonClick = { dialog: DialogInterface, which: Int ->
+        Toast.makeText(applicationContext,
+            "Cancel", Toast.LENGTH_SHORT).show()
+    }
+    val neutralButtonClick = { dialog: DialogInterface, which: Int ->
+        startActivity(Intent(this, NewSupplier::class.java))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -138,14 +154,14 @@ class PartPay : AppCompatActivity() {
 
         })
 
-        var datalist = db.partTask().viewPart()
+        var datalist = db.clientTask().viewClient()
 
 
         // auto completion code
 
         var list = ArrayList<String?>()
         datalist.forEach {
-            list.add(it.names)
+            list.add(it.nameClient)
         }
 
         val array = arrayOfNulls<String>(list.size)
@@ -193,7 +209,8 @@ class PartPay : AppCompatActivity() {
             if (tvDate.text.toString().equals("Select a Date")) {
                 var msg = "Enter valid Date"
                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-            } else {
+            }
+            else {
                 if (partQuantity.text.isNullOrEmpty() || partPrice.text.isNullOrEmpty() || partPaid.text.isNullOrEmpty()) {
                     Toast.makeText(
                         this,
@@ -228,53 +245,44 @@ class PartPay : AppCompatActivity() {
                             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         }
 
+                        val dat = db.clientTask().veiwClient()
+
                         //account payment
                         if (paySpin.selectedItem.toString().equals("Account")) {
                             if (partCustomer.text.isNullOrEmpty()) {
                                 var msg = "Please Enter Customer Name"
                                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                             } else {
-                                var accActivity = Part_Entity()
-                                accActivity.names = partCustomer.text.toString()
-                                accActivity.partDate = tvDate.text.toString()
-                                accActivity.partProduct = prodPartSpin.selectedItem.toString()
-                                accActivity.partQuantity = partQuantity.text.toString().toInt()
-                                accActivity.totalP =
-                                    (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
-                                accActivity.paidPart = partPaid.text.toString().toFloat()
-                                accActivity.owingP = accActivity.totalP
-                                accActivity.type = "Account"
 
-                                db.partTask().savePartTask(accActivity)
+                                if(dat.isNullOrEmpty()){
+                                    basicAlert()
+                                }
+                                else {
+                                    var accActivity = Part_Entity()
+                                    accActivity.names = partCustomer.text.toString()
+                                    accActivity.partDate = tvDate.text.toString()
+                                    accActivity.partProduct = prodPartSpin.selectedItem.toString()
+                                    accActivity.partQuantity = partQuantity.text.toString().toInt()
+                                    accActivity.totalP =
+                                        (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
+                                    accActivity.paidPart = partPaid.text.toString().toFloat()
 
-                                var msg = "Account Purchase Made"
-                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                                    if(partPaid.text.equals("0")) {
+                                        accActivity.owingP = accActivity.totalP
+                                    }
+                                    else{
+                                        accActivity.owingP = accActivity.totalP - accActivity.paidPart
+                                    }
+                                    accActivity.type = "Account"
+
+                                    db.partTask().savePartTask(accActivity)
+
+                                    var msg = "Account Purchase Made"
+                                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                                }
                             }
                         }
 
-                        //part payment
-                        if (paySpin.selectedItem.toString().equals("Part Pay")) {
-                            if (partCustomer.text.isNullOrEmpty()) {
-                                var msg = "Please Enter Customer Name"
-                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                            } else {
-                                var partActivity = Part_Entity()
-                                partActivity.names = partCustomer.text.toString()
-                                partActivity.partDate = tvDate.text.toString()
-                                partActivity.partProduct = prodPartSpin.selectedItem.toString()
-                                partActivity.partQuantity = partQuantity.text.toString().toInt()
-                                partActivity.totalP =
-                                    (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
-                                partActivity.paidPart = partPaid.text.toString().toFloat()
-                                partActivity.owingP = partActivity.totalP - partActivity.paidPart
-                                partActivity.type = "Part Payment"
-
-                                db.partTask().savePartTask(partActivity)
-
-                                var msg = "Part Payment Purchase Made"
-                                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                            }
-                        }
 
 
                         // reading quantity from the database
@@ -295,30 +303,22 @@ class PartPay : AppCompatActivity() {
 
                         }
 
-                        var debt = Debitors_Entity()
-                        debt.debtDate = tvDate.text.toString()
-                        debt.names = partCustomer.text.toString()
-                        var owing =
-                            partTotal.text.toString().toFloat() - partPaid.text.toString().toFloat()
+                        //updating debts
 
-
+                        var debt = Client_Entity()
+                        debt.balDate = tvDate.text.toString()
+                        debt.nameClient = partCustomer.text.toString()
+                        var owing = partTotal.text.toString().toFloat() - partPaid.text.toString().toFloat()
+                        
                         if (partPaid.text.toString().toFloat() < partTotal.text.toString().toFloat()) {
                             if (partCustomer.text.isNullOrEmpty()) {
                                 var msg = "Please make sure to enter Customer name "
                                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                             } else {
-                                if ((db.debtTask().viewDebt(partCustomer.text.toString())).isNullOrEmpty()) {
-                                    debt.owingDebt = owing
-
-                                    db.debtTask().addDebt(debt)
-                                } else {
-                                    var debtor =
-                                        db.debtTask().viewDebt(partCustomer.text.toString())
-                                    debtor.forEach {
-                                        debt.owingDebt = it.owingDebt + owing
-                                        db.debtTask().updateDebt(debt)
+                                        db.clientTask().viewD(partCustomer.text.toString()).forEach {
+                                        debt.owing = it.owing + owing
+                                        db.clientTask().updateClient(debt)
                                     }
-                                }
                             }
                         }
                         partCustomer.text.clear()
@@ -334,6 +334,20 @@ class PartPay : AppCompatActivity() {
         }
 
         }
+
+    private fun basicAlert() {
+        val builder = AlertDialog.Builder(this)
+        with(builder)
+        {
+            setTitle("Account Not Found")
+            setMessage("Create New Account?")
+            setPositiveButton("Customer", DialogInterface.OnClickListener(function = positiveButtonClick))
+            setNegativeButton("Cancel", negativeButtonClick)
+            setNeutralButton("Supplier", DialogInterface.OnClickListener(function = neutralButtonClick))
+            show()
+        }
+
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

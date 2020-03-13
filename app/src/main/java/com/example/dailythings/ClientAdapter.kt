@@ -44,11 +44,8 @@ class ClientAdapter (val context: Context,val  data: List<DataC>): RecyclerView.
                filterList = filterResults?.values as List<DataC>
                notifyDataSetChanged()
            }
-
-
        }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVieiwHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.client_item, parent,false)
@@ -60,7 +57,7 @@ class ClientAdapter (val context: Context,val  data: List<DataC>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: MyVieiwHolder, position: Int) {
-        val dataZ =filterList[position]
+        val dataZ = filterList[position]
         holder.setData(dataZ)
 
     }
@@ -70,9 +67,6 @@ class ClientAdapter (val context: Context,val  data: List<DataC>): RecyclerView.
             itemView.clientname.text = data!!.name
             itemView.clientType.text = data.type
             itemView.clientPhone.text = data.contact
-
         }
-
     }
-
 }

@@ -55,7 +55,7 @@ class Inflow : AppCompatActivity() {
         datePicker2.show()
 
 
-        var datalist = db.debtTask().viewDebitors()
+        var datalist = db.clientTask().viewClient()
         tvDate.setOnClickListener {
 
             val datePicker = DatePickerDialog(
@@ -78,7 +78,7 @@ class Inflow : AppCompatActivity() {
 
         var list = ArrayList<String?>()
         datalist.forEach {
-           list.add(it.names)
+           list.add(it.nameClient)
         }
 
         val array = arrayOfNulls<String>(list.size)
@@ -101,13 +101,13 @@ class Inflow : AppCompatActivity() {
                     inTotal.text = " 0"
                 }
                 else{
-                    var customer = db.debtTask().viewDebt(inCustomer.text.toString())
+                    var customer = db.clientTask().fil(inCustomer.text.toString())
                     if (customer.isNullOrEmpty()){
                         inTotal.text = " 0"
                     }
                     else {
                         customer.forEach {
-                            inTotal.text = it.owingDebt.toString()
+                            inTotal.text = it.owing.toString()
                         }
                     }
 
@@ -140,15 +140,15 @@ class Inflow : AppCompatActivity() {
                 if (inCustomer.text.isNullOrEmpty() || inPaid.text.isNullOrEmpty()) {
                     Toast.makeText(this, "Enter all Details", Toast.LENGTH_SHORT).show()
                 } else {
-                    var customer = db.debtTask().viewDebt(inCustomer.text.toString())
+                    var customer = db.clientTask().viewD(inCustomer.text.toString())
 
                     customer.forEach {
-                        it.names = inCustomer.text.toString()
-                        it.owingDebt =
+                        it.nameClient = inCustomer.text.toString()
+                        it.owing =
                             inTotal.text.toString().toFloat() - inPaid.text.toString().toFloat()
-                        it.debtDate = tvDate.text.toString()
+                        it.balDate = tvDate.text.toString()
 
-                        db.debtTask().updateDebt(it)
+                        db.clientTask().updateClient(it)
 
 
                         var payActivity = Part_Entity()

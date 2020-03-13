@@ -27,9 +27,9 @@ class Debtors : AppCompatActivity() {
 
         var dataList = ArrayList<Data>()
         var total  = 0f
-        db.debtTask().viewDebitors().forEach{
-            var item = Data(it.names , it.owingDebt)
-            total += it.owingDebt
+        db.clientTask().viewBal("owing").forEach{
+            var item = Data(it.nameClient , it.owing)
+            total += it.owing
             dataList.add(item)
 
         }

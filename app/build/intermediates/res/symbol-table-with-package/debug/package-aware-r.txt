@@ -1178,6 +1178,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addressC
+id addressS
 id alertTitle
 id all
 id always
@@ -1195,6 +1196,7 @@ id bottomNavigationView
 id btnAccSave
 id btnCashSave
 id btnClient
+id btnClients
 id btnEggSave
 id btnInSave
 id btnLogin
@@ -1211,9 +1213,8 @@ id btn_EEgg
 id btn_EFeed
 id btn_accounting
 id btn_accounts
-id btn_alerts
-id btn_clients
 id btn_creditors
+id btn_customers
 id btn_daily_diary
 id btn_daily_entries
 id btn_debtors
@@ -1223,7 +1224,6 @@ id btn_eggs
 id btn_feed
 id btn_hDetails
 id btn_health
-id btn_help
 id btn_inflow
 id btn_inflows
 id btn_inventory
@@ -1233,8 +1233,8 @@ id btn_motality
 id btn_outflows
 id btn_payments
 id btn_production
-id btn_stock
 id btn_summary
+id btn_suppliers
 id btn_training
 id btn_transcations
 id btn_view_inventory
@@ -1254,7 +1254,6 @@ id checkbox
 id checked
 id chronometer
 id clientPhone
-id clientT
 id clientType
 id clientname
 id clip_horizontal
@@ -1321,6 +1320,7 @@ id eggsCash
 id eggs_Broken
 id eggs_Picked
 id email
+id emailS
 id end
 id end_padder
 id enterAlways
@@ -1444,6 +1444,7 @@ id paySupplier
 id payTotal
 id percent
 id phone
+id phoneS
 id pin
 id prodDescription
 id prodPartSpin
@@ -1508,6 +1509,7 @@ id showTitle
 id smallLabel
 id snackbar_action
 id snackbar_text
+id sname
 id snap
 id snapMargins
 id spacer
@@ -1677,6 +1679,7 @@ layout activity_login
 layout activity_main
 layout activity_mort
 layout activity_new_client
+layout activity_new_supplier
 layout activity_outflows
 layout activity_part_pay
 layout activity_payments
@@ -1684,6 +1687,7 @@ layout activity_prod_sub
 layout activity_sign_up
 layout activity_statistics
 layout activity_stock
+layout activity_suppliers
 layout activity_transcations
 layout activity_water
 layout bag_size_dialog
@@ -1735,6 +1739,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout pay_ments
 layout production_dialogue
+layout report_dialog
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

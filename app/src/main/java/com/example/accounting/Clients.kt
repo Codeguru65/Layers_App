@@ -28,7 +28,7 @@ class Clients : AppCompatActivity() {
         setContentView(R.layout.activity_clients)
 
         var acct = supportActionBar
-        acct!!.title = "Clients"
+        acct!!.title = "Customer"
         acct.setDisplayHomeAsUpEnabled(true)
 
 
@@ -36,8 +36,8 @@ class Clients : AppCompatActivity() {
 
         var datalIst = ArrayList<DataC>()
 
-        db.clientTask().veiwClient().forEach {
-            var item = DataC(it.nameClient, it.clientType, it.phone)
+        db.clientTask().viewSp("Customer").forEach {
+            var item = DataC(it.nameClient, it.email, it.phone)
             datalIst.add(item)
         }
 
@@ -56,10 +56,7 @@ class Clients : AppCompatActivity() {
 
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-
 
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)

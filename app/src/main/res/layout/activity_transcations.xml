@@ -24,7 +24,7 @@
                 android:layout_marginRight="10dp"
                 android:gravity="center"
                 android:inputType="date"
-                android:text="Select Date"
+                android:text="Click To Select Date"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

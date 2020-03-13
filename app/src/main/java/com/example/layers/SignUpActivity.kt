@@ -17,13 +17,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_sign_up)
 
-    var mtitle: TextView = findViewById(R.id.tool_title)
-    mtitle.text = "Sign Up"
-    var back: Button = findViewById(R.id.back)
-    back.setOnClickListener {
-        onBackPressed()
-    }
-
+    var acct = supportActionBar
+    acct!!.title = "Sign Up"
+    acct.setDisplayHomeAsUpEnabled(true)
 
     var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
@@ -68,13 +64,16 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 pass.text.clear()
         }
 
-
-
-
         }
 
     }
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 
 
     override fun onBackPressed() {

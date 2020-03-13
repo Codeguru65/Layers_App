@@ -26,4 +26,13 @@ class Client_Entity(){
     @ColumnInfo
     var email: String? = null
 
+    @ColumnInfo
+    var owing: Float = 0f
+
+    @ColumnInfo
+    var owed : Float = 0f
+
+    @ColumnInfo
+    var balDate: String? = null
+
 }

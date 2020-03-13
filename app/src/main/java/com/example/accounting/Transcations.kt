@@ -40,13 +40,9 @@ class Transcations : AppCompatActivity() {
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
 
-
         var trueMonth: Int?
         var date: String?
 
-        val dateTime = LocalDateTime.now()
-
-        tvDate.text = dateTime.format(DateTimeFormatter.ofPattern("d/M/yyyy "))
 
         tvDate.setOnClickListener {
             val datePicker = DatePickerDialog(
@@ -65,14 +61,13 @@ class Transcations : AppCompatActivity() {
 
         }
 
-
         var db  = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
 
         var dataList = ArrayList<DataH>()
         var total  = 0f
         dataList.clear()
-        db.partTask().viewPartD(LocalDateTime.now().format(DateTimeFormatter.ofPattern("d/M/yyyy"))).forEach{
+        db.partTask().viewPart().forEach{
             var item = DataH(it.partid.toString() , it.totalP, it.partDate)
             total += it.totalP
             dataList.add(item)

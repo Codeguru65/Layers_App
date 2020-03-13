@@ -20,7 +20,7 @@ class NewClient : AppCompatActivity() {
         setContentView(R.layout.activity_new_client)
 
         var acct = supportActionBar
-        acct!!.title= "New Account"
+        acct!!.title= "New Customer"
         acct.setDisplayHomeAsUpEnabled(true)
 
         var db = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
@@ -36,7 +36,7 @@ class NewClient : AppCompatActivity() {
                 client.email = email.text.toString()
                 client.address = addressC.text.toString()
                 client.phone = phone.text.toString()
-                client.clientType = clientT.selectedItem.toString()
+                client.clientType = "Customer"
 
                 db.clientTask().addClient(client)
 

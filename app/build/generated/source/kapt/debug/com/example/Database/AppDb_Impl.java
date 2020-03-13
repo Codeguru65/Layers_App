@@ -69,9 +69,9 @@ public final class AppDb_Impl extends AppDb {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Debitors_Entity` (`debtId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `names` TEXT, `debtDate` TEXT, `owingDebt` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Creditors_Entity` (`credId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `credNames` TEXT, `credDate` TEXT, `owingCred` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Payment_Entity` (`payid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameS` TEXT NOT NULL, `payDate` TEXT, `payProduct` TEXT, `payType` TEXT, `payQuantity` INTEGER NOT NULL, `totalPay` REAL NOT NULL, `paidPay` REAL NOT NULL, `owingPay` REAL NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Client_Entity` (`clientID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameClient` TEXT, `clientType` TEXT, `address` TEXT, `phone` TEXT, `email` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Client_Entity` (`clientID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameClient` TEXT, `clientType` TEXT, `address` TEXT, `phone` TEXT, `email` TEXT, `owing` REAL NOT NULL, `owed` REAL NOT NULL, `balDate` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '15cfc471c86bd9bb42cc03e6428b087b')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cfd1d298f54a080494d00c4f366228e9')");
       }
 
       @Override
@@ -323,13 +323,16 @@ public final class AppDb_Impl extends AppDb {
                   + " Expected:\n" + _infoPaymentEntity + "\n"
                   + " Found:\n" + _existingPaymentEntity);
         }
-        final HashMap<String, TableInfo.Column> _columnsClientEntity = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsClientEntity = new HashMap<String, TableInfo.Column>(9);
         _columnsClientEntity.put("clientID", new TableInfo.Column("clientID", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsClientEntity.put("nameClient", new TableInfo.Column("nameClient", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsClientEntity.put("clientType", new TableInfo.Column("clientType", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsClientEntity.put("address", new TableInfo.Column("address", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsClientEntity.put("phone", new TableInfo.Column("phone", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsClientEntity.put("email", new TableInfo.Column("email", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("owing", new TableInfo.Column("owing", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("owed", new TableInfo.Column("owed", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsClientEntity.put("balDate", new TableInfo.Column("balDate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysClientEntity = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesClientEntity = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoClientEntity = new TableInfo("Client_Entity", _columnsClientEntity, _foreignKeysClientEntity, _indicesClientEntity);
@@ -341,7 +344,7 @@ public final class AppDb_Impl extends AppDb {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "15cfc471c86bd9bb42cc03e6428b087b", "a5ff0970e94da63fd71af8f796d4b023");
+    }, "cfd1d298f54a080494d00c4f366228e9", "b85479157b157b0978bd104aa96cf8ae");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

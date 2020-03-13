@@ -25,6 +25,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.accounting.NewSupplier" />
+        <activity android:name="com.example.accounting.Suppliers" />
         <activity android:name="com.example.accounting.NewClient" />
         <activity android:name="com.example.accounting.Clients" />
         <activity android:name="com.example.accounting.Outflows" />

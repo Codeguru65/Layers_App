@@ -62,7 +62,7 @@
                     android:layout_width="123dp"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:text="Client Type :"
+                    android:text="Email :"
                     android:textColor="#088000"
                     android:textSize="16sp" />
 
