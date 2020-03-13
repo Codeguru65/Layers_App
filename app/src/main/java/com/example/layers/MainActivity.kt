@@ -258,7 +258,7 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         btn_transactions.setOnClickListener {
-            startActivity(Intent(this, Transcations::class.java))
+            showTrans()
             dialog.dismiss()
         }
 

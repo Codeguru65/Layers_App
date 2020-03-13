@@ -17,6 +17,7 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.*
+import com.example.Database.Client_Entity
 import com.example.Database.Part_Entity
 
 
@@ -141,19 +142,27 @@ class Inflow : AppCompatActivity() {
                     Toast.makeText(this, "Enter all Details", Toast.LENGTH_SHORT).show()
                 } else {
                     var customer = db.clientTask().viewD(inCustomer.text.toString())
-
+                    var debt = Client_Entity()
+                   // updating debt
                     customer.forEach {
-                        it.nameClient = inCustomer.text.toString()
-                        it.owing =
+                       debt.nameClient =  it.nameClient
+                        debt.clientID = it.clientID
+                        debt.clientType = it.clientType
+                        debt.address = it.address
+                        debt.phone = it.phone
+                        debt.email = it.email
+                        debt.owed = it.owed
+                        debt.owing =
                             inTotal.text.toString().toFloat() - inPaid.text.toString().toFloat()
-                        it.balDate = tvDate.text.toString()
+                        debt.balDate = tvDate.text.toString()
 
-                        db.clientTask().updateClient(it)
+                        db.clientTask().updateClient(debt)
 
 
+                        //entering the transaction
                         var payActivity = Part_Entity()
                         payActivity.names = inCustomer.text.toString()
-                        payActivity.type = " Due Payment"
+                        payActivity.type = "Due Payment"
                         payActivity.partDate = tvDate.text.toString()
                         payActivity.paidPart = inPaid.text.toString().toFloat()
                         payActivity.partProduct = "Eggs"

@@ -28,33 +28,38 @@ class LoginActivity : AppCompatActivity() {
             finish()
 
 
-        }else{
-        btnLogin.setOnClickListener {
+        }else
+        {
+            btnLogin.setOnClickListener {
             var user = etUsername.text.toString()
             var pass = etPwd.text.toString()
             var userS = db.userTask().viewUser(user)
             var usse: List<User_Entity>? = db.userTask().checkUsers()
-            if (user.isBlank()) {
-                var msg = "Enter Login Information"
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-            } else {
-                if (usse?.size == 0) {
-                    var msg = "User not Found! Please Register"
-                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                } else {
-                    if (user.equals(userS.username) && pass.equals(userS.password)) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        sp.edit().putBoolean("logged",true).apply()
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        var msg = "Incorrect password"
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-                    }
+//            if (user.isBlank()) {
+//                var msg = "Enter Login Information"
+//                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+//            } else {
+//                if (usse?.size == 0) {
+//                    var msg = "User not Found! Please Register"
+//                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+//                } else {
+//                    if (user.equals(userS.username) && pass.equals(userS.password)) {
+//                        val intent = Intent(this, MainActivity::class.java)
+//                        sp.edit().putBoolean("logged",true).apply()
+//                        startActivity(intent)
+//                        finish()
+//                    } else {
+//                        var msg = "Incorrect password"
+//                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+//                    }
+//
+//                }
+//            }
 
-                }
-            }
-
+                val intent = Intent(this, MainActivity::class.java)
+                sp.edit().putBoolean("logged",true).apply()
+                startActivity(intent)
+                finish()
 
             if (db.inventoryDAO().viewFeed().isNullOrEmpty()) {
                 var inventoryEntity1 = Inventory_Entity()

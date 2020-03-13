@@ -226,7 +226,10 @@ class PartPay : AppCompatActivity() {
                         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                     } else {
 
-
+                        if (partQuantity.text.toString().toInt() > startStock) {
+                            Toast.makeText(this, "Not Enough Stock", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
                         //cash payment
                         if (paySpin.selectedItem.toString().equals("Cash")) {
 
@@ -245,7 +248,7 @@ class PartPay : AppCompatActivity() {
                             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                         }
 
-                        val dat = db.clientTask().veiwClient()
+                        val dat = db.clientTask().viewD(partCustomer.text.toString())
 
                         //account payment
                         if (paySpin.selectedItem.toString().equals("Account")) {
@@ -254,10 +257,9 @@ class PartPay : AppCompatActivity() {
                                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                             } else {
 
-                                if(dat.isNullOrEmpty()){
+                                if (dat.isNullOrEmpty()) {
                                     basicAlert()
-                                }
-                                else {
+                                } else {
                                     var accActivity = Part_Entity()
                                     accActivity.names = partCustomer.text.toString()
                                     accActivity.partDate = tvDate.text.toString()
@@ -267,22 +269,21 @@ class PartPay : AppCompatActivity() {
                                         (partQuantity.text.toString().toInt()) * (partPrice.text.toString().toFloat())
                                     accActivity.paidPart = partPaid.text.toString().toFloat()
 
-                                    if(partPaid.text.equals("0")) {
+                                    if (partPaid.text.equals("0")) {
                                         accActivity.owingP = accActivity.totalP
-                                    }
-                                    else{
-                                        accActivity.owingP = accActivity.totalP - accActivity.paidPart
+                                    } else {
+                                        accActivity.owingP =
+                                            accActivity.totalP - accActivity.paidPart
                                     }
                                     accActivity.type = "Account"
 
                                     db.partTask().savePartTask(accActivity)
 
-                                    var msg = "Account Purchase Made"
-                                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+//                                    var msg = "Account Purchase Made"
+//                                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                                 }
                             }
                         }
-
 
 
                         // reading quantity from the database
@@ -307,18 +308,28 @@ class PartPay : AppCompatActivity() {
 
                         var debt = Client_Entity()
                         debt.balDate = tvDate.text.toString()
-                        debt.nameClient = partCustomer.text.toString()
-                        var owing = partTotal.text.toString().toFloat() - partPaid.text.toString().toFloat()
-                        
+                        var owing =
+                            partTotal.text.toString().toFloat() - partPaid.text.toString().toFloat()
+
                         if (partPaid.text.toString().toFloat() < partTotal.text.toString().toFloat()) {
                             if (partCustomer.text.isNullOrEmpty()) {
                                 var msg = "Please make sure to enter Customer name "
                                 Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
                             } else {
-                                        db.clientTask().viewD(partCustomer.text.toString()).forEach {
-                                        debt.owing = it.owing + owing
-                                        db.clientTask().updateClient(debt)
-                                    }
+                                db.clientTask().viewD(partCustomer.text.toString()).forEach {
+                                    debt.owing = it.owing + owing
+                                    debt.nameClient = partCustomer.text.toString()
+                                    debt.clientID = it.clientID
+                                    debt.clientType = it.clientType
+                                    debt.address = it.address
+                                    debt.phone = it.phone
+                                    debt.email = it.email
+                                    debt.owed = it.owed
+
+                                    db.clientTask().updateClient(debt)
+                                    var msg = "Account Purchase Made"
+                                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                                }
                             }
                         }
                         partCustomer.text.clear()
@@ -329,6 +340,7 @@ class PartPay : AppCompatActivity() {
                         partOwed.text = " 0"
 
                     }
+                }
                 }
             }
         }

@@ -23,8 +23,11 @@ interface clientsDAO{
     @Query("select * from Client_Entity where nameClient like :phrase")
     fun fil(phrase: String?): List<Client_Entity>
 
-    @Query("select * from Client_Entity where :type > 0.0 and :type <=  5000000.0")
-    fun viewBal(type: String): List<Client_Entity>
+    @Query("select * from Client_Entity where owing > 0.0 ")
+    fun viewBal(): List<Client_Entity>
+
+    @Query("select * from Client_Entity where owed > 0.0 ")
+    fun viewB(): List<Client_Entity>
 
     @Query("select * from Client_Entity where nameClient is :phrase")
     fun viewD(phrase: String): List<Client_Entity>

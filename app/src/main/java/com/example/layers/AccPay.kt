@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.widget.*
 import androidx.room.Room
 import com.example.Database.AppDb
+import com.example.Database.Client_Entity
 import com.example.Database.Creditors_Entity
 import com.example.Database.Payment_Entity
 import kotlinx.android.synthetic.main.activity_acc_pay.*
@@ -106,13 +107,13 @@ class AccPay : AppCompatActivity() {
         })
 
         //auto completing name
-        var datalist = db.credTask().viewCreditors()
+        var datalist = db.clientTask().viewClient()
 
         //autoCompleting code
 
         var lis = ArrayList<String?>()
         datalist.forEach {
-            lis.add(it.credNames)
+            lis.add(it.nameClient)
         }
 
         val array = arrayOfNulls<String>(lis.size)
@@ -138,6 +139,8 @@ class AccPay : AppCompatActivity() {
                     Toast.makeText(this, "Enter All Values", Toast.LENGTH_SHORT).show()
                 } else {
 
+                    //saving transaction
+
                     var payAct = Payment_Entity()
                     payAct.payProduct = "Account Payment"
                     payAct.payQuantity = 0
@@ -148,21 +151,26 @@ class AccPay : AppCompatActivity() {
                     payAct.owingPay = payAccOwing.text.toString().toFloat()
                     payAct.payType = "Account Payment"
 
-                    var cred = Creditors_Entity()
-                    cred.credDate = tvDate.text.toString()
+                    var cred = Client_Entity()
+                    cred.balDate = tvDate.text.toString()
 
                     //saving the transaction
 
                     db.payTask().savePayTask(payAct)
 
-                    var deb = db.credTask().viewCred(payAccSupplier.text.toString())
 
-                    deb.forEach {
-                        cred.credNames = it.credNames
-                        cred.owingCred = it.owingCred - payAccPaid.text.toString().toFloat()
-                        cred.credId = it.credId
+                    //updating credit
 
-                        db.credTask().updateCred(cred)
+                    db.clientTask().viewD(paySupplier.text.toString()).forEach {
+                        cred.nameClient = it.nameClient
+                        cred.owed = it.owed + payOwing.text.toString().toFloat()
+                        cred.clientID = it.clientID
+                        cred.owing = it.owing
+                        cred.phone = it.phone
+                        cred.address = it.address
+                        cred.email = it.email
+                        cred.clientType = it.clientType
+                        db.clientTask().updateClient(cred)
                     }
 
                     var msg = "Purchase Made"

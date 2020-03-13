@@ -9,5 +9,7 @@ data class DataH(val description :String, val quantity : Float, val date : Strin
 
 data class DataC(val name : String?, val type: String?, val contact: String?)
 
+data class Trans(val name: String?, val id : Int , val date: String?, val bal: Float, val tot: Float, val type: String? )
+
 
 

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import kotlinx.android.synthetic.main.trans_item.view.*
 
-class TransAdapter (val context: Context,val  data: List<DataH>): RecyclerView.Adapter<TransAdapter.MyVieiwHolder>() {
+class TransAdapter (val context: Context,val  data: List<Trans>): RecyclerView.Adapter<TransAdapter.MyVieiwHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVieiwHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.trans_item, parent,false)
         return MyVieiwHolder(view)
@@ -27,10 +27,14 @@ class TransAdapter (val context: Context,val  data: List<DataH>): RecyclerView.A
     }
 
     inner class MyVieiwHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun setData(data: DataH?){
+        fun setData(data: Trans?){
             itemView.issueDate.text = data!!.date
-            itemView.amount.text = data.quantity.toString()
-            itemView.numRef.text = data!!.description
+            itemView.amount.text = data.tot.toString()
+            itemView.numRef.text = data!!.id.toString()
+            itemView.cliName.text = data!!.name
+            itemView.balTxt.text = data.bal.toString()
+            itemView.transType.text = data.type
+
         }
 
     }

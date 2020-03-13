@@ -318,21 +318,65 @@ public final class clientsDAO_Impl implements clientsDAO {
   }
 
   @Override
-  public List<Client_Entity> viewBal(final String type) {
-    final String _sql = "select * from Client_Entity where ? > 0.0 and ? <=  5000000.0";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
-    int _argIndex = 1;
-    if (type == null) {
-      _statement.bindNull(_argIndex);
-    } else {
-      _statement.bindString(_argIndex, type);
+  public List<Client_Entity> viewBal() {
+    final String _sql = "select * from Client_Entity where owing > 0.0 ";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final int _cursorIndexOfClientID = CursorUtil.getColumnIndexOrThrow(_cursor, "clientID");
+      final int _cursorIndexOfNameClient = CursorUtil.getColumnIndexOrThrow(_cursor, "nameClient");
+      final int _cursorIndexOfClientType = CursorUtil.getColumnIndexOrThrow(_cursor, "clientType");
+      final int _cursorIndexOfAddress = CursorUtil.getColumnIndexOrThrow(_cursor, "address");
+      final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
+      final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
+      final int _cursorIndexOfOwing = CursorUtil.getColumnIndexOrThrow(_cursor, "owing");
+      final int _cursorIndexOfOwed = CursorUtil.getColumnIndexOrThrow(_cursor, "owed");
+      final int _cursorIndexOfBalDate = CursorUtil.getColumnIndexOrThrow(_cursor, "balDate");
+      final List<Client_Entity> _result = new ArrayList<Client_Entity>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Client_Entity _item;
+        _item = new Client_Entity();
+        final int _tmpClientID;
+        _tmpClientID = _cursor.getInt(_cursorIndexOfClientID);
+        _item.setClientID(_tmpClientID);
+        final String _tmpNameClient;
+        _tmpNameClient = _cursor.getString(_cursorIndexOfNameClient);
+        _item.setNameClient(_tmpNameClient);
+        final String _tmpClientType;
+        _tmpClientType = _cursor.getString(_cursorIndexOfClientType);
+        _item.setClientType(_tmpClientType);
+        final String _tmpAddress;
+        _tmpAddress = _cursor.getString(_cursorIndexOfAddress);
+        _item.setAddress(_tmpAddress);
+        final String _tmpPhone;
+        _tmpPhone = _cursor.getString(_cursorIndexOfPhone);
+        _item.setPhone(_tmpPhone);
+        final String _tmpEmail;
+        _tmpEmail = _cursor.getString(_cursorIndexOfEmail);
+        _item.setEmail(_tmpEmail);
+        final float _tmpOwing;
+        _tmpOwing = _cursor.getFloat(_cursorIndexOfOwing);
+        _item.setOwing(_tmpOwing);
+        final float _tmpOwed;
+        _tmpOwed = _cursor.getFloat(_cursorIndexOfOwed);
+        _item.setOwed(_tmpOwed);
+        final String _tmpBalDate;
+        _tmpBalDate = _cursor.getString(_cursorIndexOfBalDate);
+        _item.setBalDate(_tmpBalDate);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
     }
-    _argIndex = 2;
-    if (type == null) {
-      _statement.bindNull(_argIndex);
-    } else {
-      _statement.bindString(_argIndex, type);
-    }
+  }
+
+  @Override
+  public List<Client_Entity> viewB() {
+    final String _sql = "select * from Client_Entity where owed > 0.0 ";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     __db.assertNotSuspendingTransaction();
     final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {

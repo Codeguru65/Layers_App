@@ -14,6 +14,7 @@ import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.dailythings.DataH
 import com.example.dailythings.OutAdapter
+import com.example.dailythings.Trans
 import com.example.layers.R
 import kotlinx.android.synthetic.main.activity_outflows.*
 import java.time.LocalDateTime
@@ -40,11 +41,6 @@ class Outflows : AppCompatActivity() {
 
         var trueMonth: Int?
         var date: String?
-
-        val dateTime = LocalDateTime.now()
-
-        tvDate.text = dateTime.format(DateTimeFormatter.ofPattern("d/M/yyyy "))
-
         tvDate.setOnClickListener {
             val datePicker = DatePickerDialog(
                 this,
@@ -63,15 +59,13 @@ class Outflows : AppCompatActivity() {
         }
 
 
-
-
         var db  = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
 
-        var dataList = ArrayList<DataH>()
+        var dataList = ArrayList<Trans>()
         var total  = 0f
-        db.payTask().viewPayD(LocalDateTime.now().format(DateTimeFormatter.ofPattern("d/M/yyyy "))).forEach{
-            var item = DataH(it.payid.toString() , it.totalPay, it.payDate)
+        db.payTask().viewPay().forEach{
+            var item = Trans(it.nameS , it.payid, it.payDate, it.owingPay, it.totalPay, it.payType)
             total += it.totalPay
             dataList.add(item)
 
@@ -97,7 +91,7 @@ class Outflows : AppCompatActivity() {
                 dataList.clear()
                 total = 0f
                 db.payTask().viewPayD(tvDate.text.toString()).forEach{
-                    var item = DataH(it.payid.toString() , it.totalPay, it.payDate)
+                    var item = Trans(it.nameS , it.payid, it.payDate, it.owingPay, it.totalPay, it.payType)
                     total += it.totalPay
                     dataList.add(item)
 

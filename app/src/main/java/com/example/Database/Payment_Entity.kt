@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import androidx.room.ForeignKey
 
 @Entity
-class Payment_Entity {
+class   Payment_Entity {
 
     @PrimaryKey(autoGenerate = true)
     var payid :Int = 0

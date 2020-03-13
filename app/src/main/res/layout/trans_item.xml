@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,58 +10,105 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="118dp"
         android:layout_marginBottom="12dp"
-        app:cardElevation="6dp"
-        >
+        app:cardElevation="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="290dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout15"
+                android:layout_width="297dp"
+                android:layout_height="118dp"
+                android:layout_weight="1">
+
 
                 <TextView
                     android:id="@+id/issueDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:paddingLeft="30dp"
                     android:paddingTop="10dp"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/refNUM"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/refNUM" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/refNUM"
-                        android:layout_width="161dp"
-                        android:layout_height="match_parent"
-                        android:text="Ref No :"
-                        android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/refNUM"
+                    android:layout_width="70dp"
+                    android:layout_height="29dp"
+                    android:padding="5dp"
+                    android:text="Ref No :"
+                    android:textSize="16sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/numRef"
+                    app:layout_constraintEnd_toStartOf="@+id/numRef"
+                    app:layout_constraintStart_toEndOf="@+id/issueDate" />
 
-                    <TextView
-                        android:id="@+id/numRef"
-                        android:layout_width="45dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/numRef"
+                    android:layout_width="59dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/refNUM"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/cliName"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:textColor="#008800"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/issueDate" />
+
+                <TextView
+                    android:id="@+id/transType"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:padding="3dp"
+                    android:textColor="#008800"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cliName" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="152dp"
+                    android:layout_height="25dp"
+                    android:text="Balance : "
+                    android:textColor="#008800"
+                    android:padding="3dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transType" />
+
+                <TextView
+                    android:id="@+id/balTxt"
+                    android:layout_width="149dp"
+                    android:layout_height="25dp"
+                    android:padding="3dp"
+                    android:textColor="#008800"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transType" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/amount"
-                android:layout_width="84dp"
-                android:layout_height="80dp"
+                android:layout_width="86dp"
+                android:layout_height="119dp"
                 android:layout_weight="1"
-                android:paddingTop="20dp"
+                android:paddingTop="25dp"
                 android:text="0.00"
                 android:textAlignment="center"
                 android:textColor="#008000"

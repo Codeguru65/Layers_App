@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.Database.AppDb
 import com.example.dailythings.DataH
+import com.example.dailythings.Trans
 import com.example.dailythings.TransAdapter
 import com.example.layers.R
 import kotlinx.android.synthetic.main.activity_transcations.*
@@ -64,11 +65,11 @@ class Transcations : AppCompatActivity() {
         var db  = Room.databaseBuilder(applicationContext, AppDb::class.java, "LayersAppDB").allowMainThreadQueries().build()
 
 
-        var dataList = ArrayList<DataH>()
+        var dataList = ArrayList<Trans>()
         var total  = 0f
         dataList.clear()
         db.partTask().viewPart().forEach{
-            var item = DataH(it.partid.toString() , it.totalP, it.partDate)
+            var item = Trans(it.names , it.partid, it.partDate, it.owingP, it.totalP, it.type)
             total += it.totalP
             dataList.add(item)
 
@@ -88,7 +89,7 @@ class Transcations : AppCompatActivity() {
                 dataList.clear()
                 total = 0f
                 db.partTask().viewPartD(tvDate.text.toString()).forEach{
-                    var item = DataH(it.partid.toString() , it.totalP, it.partDate)
+                    var item = Trans(it.names , it.partid, it.partDate, it.owingP, it.totalP, it.type)
                     total += it.totalP
                     dataList.add(item)
 
