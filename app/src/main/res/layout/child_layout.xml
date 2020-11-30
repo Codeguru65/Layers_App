@@ -10,7 +10,7 @@
     android:paddingEnd="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    android:textColor="@color/colorNavText"
+    android:textColor="#000"
     android:onClick="update">
 
 

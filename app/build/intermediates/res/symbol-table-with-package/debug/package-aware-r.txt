@@ -1076,6 +1076,7 @@ drawable ic_mtrl_chip_close_circle
 drawable icn_done_background
 drawable icon_done
 drawable icons8checkmark48
+drawable icons8eastereggs90
 drawable icons8invoice50
 drawable icons8left50
 drawable icons8maintenance50
@@ -1310,6 +1311,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id drawer_layout
 id ds20
 id ds5
 id ds50
@@ -1339,6 +1341,7 @@ id et_total_50kg
 id et_whole_qty
 id exitUntilCollapsed
 id expand_activities_button
+id expandable_list
 id expanded_menu
 id feed_recycler_view
 id fill
@@ -1365,6 +1368,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id inCustomer
 id inOwed
 id inPaid
@@ -1562,6 +1566,7 @@ id titleDividerNoCustom
 id title_template
 id tool
 id tool2
+id tool_bar
 id tool_title
 id toolbar
 id top
@@ -1673,6 +1678,7 @@ layout activity_creditors
 layout activity_daily__entries
 layout activity_daily_feed
 layout activity_daily_viewer
+layout activity_dashboard
 layout activity_debtors
 layout activity_deliveries
 layout activity_edit_feed_inventory
@@ -1683,6 +1689,7 @@ layout activity_inventory
 layout activity_login
 layout activity_main
 layout activity_mort
+layout activity_new
 layout activity_new_client
 layout activity_new_supplier
 layout activity_outflows
@@ -1697,6 +1704,7 @@ layout activity_transcations
 layout activity_water
 layout bag_size_dialog
 layout base
+layout child_layout
 layout client_item
 layout crediitors_item
 layout custom_dialog
@@ -1722,6 +1730,7 @@ layout design_text_input_password_icon
 layout egg_history_item
 layout eggs
 layout feed_history_item
+layout group_layout
 layout health
 layout inventory_item
 layout inventory_options
