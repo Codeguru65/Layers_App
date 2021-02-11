@@ -43,34 +43,31 @@ class DashboardActivity : AppCompatActivity() {
         accounting.add("transactions")
 
         val production : MutableList<String> = ArrayList()
-        production.add("view inventory")
-        production.add("view stoke")
+//        production.add("view inventory")
+//        production.add("view stoke")
         production.add("feed report")
         production.add("egg production")
-        production.add("purchase")
-        production.add("accounts payments")
+//        production.add("purchase")
+//        production.add("accounts payments")
 
 
         header.add("batches")
         header.add("tasks")
-        header.add("accounting")
-        header.add("outflow")
+//        header.add("accounting")
+//        header.add("outflow")
         header.add("production")
 
 
 
         body.add(batches)
         body.add(tasks)
-        body.add(accounting)
+//        body.add(accounting)
         body.add(production)
 
         expandable_list.setAdapter(ExpandableListAdapter(this,header,body))
 
-
-
-        mDrawerToggle = ActionBarDrawerToggle(this,drawer_layout,tool_bar,R.string.D_open,R.string.close)
+        mDrawerToggle = ActionBarDrawerToggle(this,drawer_layout,tool_bar,R.string.open,R.string.close)
         mDrawerToggle!!.syncState()
-
 
     }
 

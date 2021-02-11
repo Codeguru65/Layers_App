@@ -31,10 +31,6 @@ class EggP : AppCompatActivity() {
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
-        var whole: Int
-        var qtr: Int
-        var three_qrt: Int
-        var half: Int
 
         var trueMonth: Int?
 
@@ -60,11 +56,6 @@ class EggP : AppCompatActivity() {
         datePicker.show()
 
         tvDate.setOnClickListener {
-            /* val nowDate = Calendar.getInstance()
-            val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->  } ,
-                nowDate.get(Calendar.YEAR),nowDate.get(Calendar.MONTH),nowDate.get(Calendar.DAY_OF_MONTH))
-            datePicker.show() */
-
 
             val datePicker = DatePickerDialog(
                 this,

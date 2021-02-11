@@ -36,7 +36,8 @@
         <item>Uniform</item>
         <item>Non-uniform</item>
     </string-array>
-    <string name="open"></string>
+    <string name="open">open</string>
+    <string name="close">close</string>
     <string-array name="prod">
         <item>Eggs</item>
         <item>Birds</item>
